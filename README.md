@@ -153,7 +153,7 @@ Se evita:
 
 ## Contenido de ejercicios
 
-Los ejercicios viven en [ExerciseLibrary.swift](/Users/ext-jimmy.macedo/Desktop/Pausa/Pausa/Core/Utilities/ExerciseLibrary.swift). Cada ejercicio incluye:
+Los ejercicios viven en `Pausa/Core/Utilities/ExerciseLibrary.swift`. Cada ejercicio incluye:
 
 - identificador
 - título
@@ -165,7 +165,7 @@ Los ejercicios viven en [ExerciseLibrary.swift](/Users/ext-jimmy.macedo/Desktop/
 - nota de cuidado opcional
 - metadata de respaldo y origen para modelado interno
 
-La sesión se apoya en [ExerciseSessionSupport.swift](/Users/ext-jimmy.macedo/Desktop/Pausa/Pausa/Features/Exercises/ExerciseSessionSupport.swift), que define:
+La sesión se apoya en `Pausa/Features/Exercises/ExerciseSessionSupport.swift`, que define:
 
 - ritmo visual
 - fases del ejercicio
@@ -218,6 +218,206 @@ Cada feature concentra su vista y su estado principal:
 - `CheckIn`
 - `ImmediateHelp`
 - `Exercises`
+- `Journaling`
+- `SupportChat`
+- `History`
+- `Profile`
+
+## Stack técnico
+
+- Swift
+- SwiftUI
+- SwiftData
+- Observation
+- NavigationStack
+- WidgetKit
+- AVFoundation para cues de voz
+- String Catalogs con `Localizable.xcstrings`
+
+No se usan dependencias de terceros.
+
+## Inyección de dependencias y servicios
+
+El punto central de servicios es `AppServices`, definido en `Pausa/Core/Analytics/Analytics.swift`.
+
+Hoy encapsula:
+
+- `analytics` para tracking desacoplado
+- `recommendationEngine` para recomendaciones contextuales del check-in
+- `supportChatEngine` para respuestas locales del chat
+
+`PausaApp` crea una instancia de `AppServices` y se la pasa a `ContentView`. Desde ahí se inyecta a las features que la necesitan vía inicializador, en lugar de usar singletons o `@Environment` custom.
+
+## Navegación y routing
+
+La navegación se resuelve desde `Pausa/ContentView.swift` con `NavigationStack` y rutas tipadas por `AppRoute`:
+
+- `checkIn`
+- `immediateHelp`
+- `exercises`
+- `exercise`
+- `journaling`
+- `supportChat`
+- `history`
+- `profile`
+
+Las pantallas no navegan con `NavigationLink(destination:)`. En su lugar reciben un callback `openRoute` y empujan un `AppRoute` al stack central.
+
+También existe soporte para deep links y serialización de rutas en `Pausa/Core/Utilities/AppRouteStorage.swift`.
+
+Actualmente el deep link soportado es:
+
+- `pausa://immediate-help`
+
+## Persistencia local
+
+La persistencia está centralizada en `Pausa/Core/Persistence/PersistenceController.swift`.
+
+El contenedor SwiftData registra este schema:
+
+- `UserProfile`
+- `EmotionalCheckIn`
+- `JournalEntry`
+- `ExerciseSessionRecord`
+- `ToolUsageEvent`
+- `ChatMessageRecord`
+
+Los modelos viven en `Pausa/Core/Models/AppModels.swift`.
+
+Actualmente se persiste de forma local:
+
+- perfil de usuario
+- respuestas del onboarding
+- registros emocionales
+- entradas de journaling
+- sesiones de ejercicios
+- utilidad percibida del ejercicio
+- eventos de uso
+- historial básico del chat
+
+Existe además un `PreviewSeeder` para poblar previews con datos de ejemplo en memoria.
+
+## Recomendaciones y chat
+
+La lógica de recomendación del check-in vive en `Pausa/Core/Utilities/RecommendationEngine.swift`.
+
+Recibe:
+
+- emoción seleccionada
+- nivel de estrés
+
+Y devuelve:
+
+- título de recomendación
+- body contextual
+- ruta sugerida
+- texto del CTA
+
+El chat de apoyo usa `Pausa/Core/Utilities/SupportChatEngine.swift`.
+
+Es un motor local basado en reglas simples y keywords para detectar patrones como:
+
+- ansiedad
+- saturación
+- intensidad emocional
+- urgencia
+- sueño
+
+La respuesta incluye copy en español y, cuando corresponde, una ruta sugerida dentro de la app.
+
+## Ejercicios, audio y pacing
+
+Los ejercicios viven en `Pausa/Core/Utilities/ExerciseLibrary.swift`. Cada ejercicio incluye:
+
+- identificador
+- título
+- resumen
+- duración estimada
+- detalle
+- nivel de evidencia
+- contexto de origen
+- nota de cuidado opcional
+- referencias
+- prompt de cierre
+
+La sesión de ejercicio usa dos piezas principales:
+
+- `Pausa/Features/Exercises/ExercisesView.swift`
+- `Pausa/Features/Exercises/ExerciseSessionSupport.swift`
+
+Ahí se resuelve:
+
+- temporización de la sesión
+- cues por fase
+- animación visual continua del orb de respiración
+- variación entre ejercicios respiratorios y no respiratorios
+- feedback al terminar
+
+El audio de apoyo usa `AVSpeechSynthesizer` mediante `ExerciseCuePlayer`.
+
+Detalles actuales del audio:
+
+- es opcional y controlado por la preferencia `exercise_voice_cues_enabled`
+- usa voz `es-MX` con fallback a `es-ES`
+- reproduce cues breves según la fase del ejercicio
+- se detiene al pausar o abandonar la pantalla
+
+## Analytics
+
+El tracking está centralizado en `Pausa/Core/Analytics/Analytics.swift` y se usa vía `AppServices`, no con llamadas sueltas desde las vistas.
+
+Eventos clave del MVP:
+
+- `onboarding_completed`
+- `checkin_completed`
+- `immediate_help_used`
+- `exercise_started`
+- `exercise_completed`
+- `journaling_saved`
+- `chat_message_sent`
+- `home_returned`
+
+El tracker por defecto actual es `ConsoleAnalyticsTracker`, que imprime a consola y opcionalmente persiste eventos en `ToolUsageEvent` cuando recibe un `ModelContext`.
+
+## Localización
+
+Todo el copy visible del producto debe vivir en español y apoyarse en:
+
+- `Pausa/Localizable.xcstrings`
+- `Pausa/Core/Utilities/AppStrings.swift`
+
+Reglas actuales:
+
+- evitar copy de producto hardcodeado en vistas
+- usar `LocalizedStringResource` a través de `AppStrings`
+- mantener un tono breve, claro y humano
+
+## Widget y deep links
+
+El proyecto incluye un widget en `PausaWidget/ImmediateHelpWidget.swift` que abre la app directo en ayuda inmediata.
+
+Piezas relacionadas:
+
+- `PausaWidget/PausaWidgetBundle.swift`
+- `PausaWidget-Info.plist`
+- `Pausa/Core/Utilities/AppRouteStorage.swift`
+
+El widget:
+
+- usa `WidgetKit`
+- soporta `systemSmall` y `systemMedium`
+- abre la app con `pausa://immediate-help`
+- mantiene un layout propio, sin depender de la navegación interna de la vista widget
+
+## Flujo de arranque
+
+El arranque actual de la app es:
+
+1. `PausaApp` crea `AppServices` y el `ModelContainer`.
+2. `ContentView` consulta si existe `UserProfile`.
+3. Si no existe perfil, muestra onboarding.
+4. Si existe perfil, muestra `HomeView` dentro del `NavigationStack`.
+5. Si entra un deep link válido, `ContentView` reconstruye la ruta y la empuja al stack.
 
 ## GitFlow
 
@@ -237,6 +437,14 @@ Para trabajo normal, partir desde `develop`:
 git switch develop
 git switch -c feature/nombre-de-la-tarea
 ```
+
+Commit messages recomendados:
+
+- `feat(scope): ...`
+- `fix(scope): ...`
+- `docs(scope): ...`
+- `refactor(scope): ...`
+- `chore(scope): ...`
 
 Cuando la feature esté lista:
 
@@ -283,94 +491,10 @@ git switch develop
 git merge hotfix/descripcion-corta
 git branch -d hotfix/descripcion-corta
 ```
-- `Journaling`
-- `SupportChat`
-- `History`
-- `Profile`
-
-### Navegación
-
-La navegación se resuelve desde [ContentView.swift](/Users/ext-jimmy.macedo/Desktop/Pausa/Pausa/ContentView.swift) con `NavigationStack` y rutas tipadas:
-
-- `checkIn`
-- `immediateHelp`
-- `exercises`
-- `exercise`
-- `journaling`
-- `supportChat`
-- `history`
-- `profile`
-
-También existe soporte para deep links hacia ayuda inmediata.
-
-## Stack técnico
-
-- Swift
-- SwiftUI
-- SwiftData
-- Observation
-- NavigationStack
-- WidgetKit
-- String Catalogs con `Localizable.xcstrings`
-
-No se usan dependencias de terceros.
-
-## Persistencia local
-
-Actualmente se persiste de forma local:
-
-- perfil de usuario
-- respuestas del onboarding
-- registros emocionales
-- entradas de journaling
-- sesiones de ejercicios
-- utilidad percibida del ejercicio
-- eventos de uso
-- historial básico del chat
-
-Los modelos principales viven en [AppModels.swift](/Users/ext-jimmy.macedo/Desktop/Pausa/Pausa/Core/Models/AppModels.swift).
-
-## Analytics
-
-El tracking está centralizado en [Analytics.swift](/Users/ext-jimmy.macedo/Desktop/Pausa/Pausa/Core/Analytics/Analytics.swift) y se usa vía servicios, no con llamadas directas desde las vistas.
-
-Eventos clave del MVP:
-
-- `onboarding_completed`
-- `checkin_completed`
-- `immediate_help_used`
-- `exercise_started`
-- `exercise_completed`
-- `journaling_saved`
-- `chat_message_sent`
-- `history_viewed`
-
-## Localización
-
-Todo el copy visible del producto debe vivir en español y apoyarse en:
-
-- [Localizable.xcstrings](/Users/ext-jimmy.macedo/Desktop/Pausa/Pausa/Localizable.xcstrings)
-- [AppStrings.swift](/Users/ext-jimmy.macedo/Desktop/Pausa/Pausa/Core/Utilities/AppStrings.swift)
-
-Reglas actuales:
-
-- evitar copy de producto hardcodeado en vistas
-- usar `LocalizedStringResource` cuando SwiftUI lo soporte
-- mantener un tono breve, claro y humano
-
-## Widget y deep links
-
-El proyecto incluye un widget en [ImmediateHelpWidget.swift](/Users/ext-jimmy.macedo/Desktop/Pausa/PausaWidget/ImmediateHelpWidget.swift) que abre la app directo en ayuda inmediata.
-
-Piezas relacionadas:
-
-- [PausaWidgetBundle.swift](/Users/ext-jimmy.macedo/Desktop/Pausa/PausaWidget/PausaWidgetBundle.swift)
-- [PausaWidget-Info.plist](/Users/ext-jimmy.macedo/Desktop/Pausa/PausaWidget-Info.plist)
-- [AppRouteStorage.swift](/Users/ext-jimmy.macedo/Desktop/Pausa/Pausa/Core/Utilities/AppRouteStorage.swift)
 
 ## Cómo correr el proyecto
 
-1. Abre [Pausa.xcodeproj](/Users/ext-jimmy.macedo/Desktop/Pausa/Pausa.xcodeproj).
+1. Abre `Pausa.xcodeproj`.
 2. Selecciona el esquema `Pausa`.
 3. Elige un simulador iOS o un iPhone conectado.
 4. Ejecuta la app.
