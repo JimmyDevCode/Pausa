@@ -218,6 +218,71 @@ Cada feature concentra su vista y su estado principal:
 - `CheckIn`
 - `ImmediateHelp`
 - `Exercises`
+
+## GitFlow
+
+Este repositorio usa una convención simple basada en GitFlow:
+
+- `main`: rama estable
+- `develop`: rama principal de desarrollo
+- `feature/...`: nuevas funcionalidades
+- `release/...`: preparación de una versión
+- `hotfix/...`: correcciones urgentes sobre `main`
+
+### Flujo diario
+
+Para trabajo normal, partir desde `develop`:
+
+```bash
+git switch develop
+git switch -c feature/nombre-de-la-tarea
+```
+
+Cuando la feature esté lista:
+
+```bash
+git switch develop
+git merge feature/nombre-de-la-tarea
+git branch -d feature/nombre-de-la-tarea
+```
+
+### Release
+
+Para preparar una versión:
+
+```bash
+git switch develop
+git switch -c release/0.1.0
+```
+
+Cuando quede aprobada:
+
+```bash
+git switch main
+git merge release/0.1.0
+git switch develop
+git merge release/0.1.0
+git branch -d release/0.1.0
+```
+
+### Hotfix
+
+Para una corrección urgente en producción:
+
+```bash
+git switch main
+git switch -c hotfix/descripcion-corta
+```
+
+Cuando esté lista:
+
+```bash
+git switch main
+git merge hotfix/descripcion-corta
+git switch develop
+git merge hotfix/descripcion-corta
+git branch -d hotfix/descripcion-corta
+```
 - `Journaling`
 - `SupportChat`
 - `History`
