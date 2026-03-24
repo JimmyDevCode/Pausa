@@ -1,0 +1,2232 @@
+{
+  "sourceLanguage" : "es",
+  "strings" : {
+    "%lld" : {
+
+    },
+    "%lldx" : {
+
+    },
+    "common.cta.open" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir"
+          }
+        }
+      }
+    },
+    "common.cta.view_details" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver detalle"
+          }
+        }
+      }
+    },
+    "common.cta.view_exercise" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver ejercicio"
+          }
+        }
+      }
+    },
+    "chat.button.open_suggestion" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver sugerencia"
+          }
+        }
+      }
+    },
+    "chat.button.send" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar"
+          }
+        }
+      }
+    },
+    "chat.disclaimer" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este chat acompaña con calma y herramientas cortas. No reemplaza ayuda profesional."
+          }
+        }
+      }
+    },
+    "chat.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chat de apoyo"
+          }
+        }
+      }
+    },
+    "chat.placeholder" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribe cómo te sientes"
+          }
+        }
+      }
+    },
+    "chat.reply.abrumado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando todo cae junto, suele ayudar una pausa corta para volver al presente y soltar una capa de ruido."
+          }
+        }
+      }
+    },
+    "chat.reply.ansiedad" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vamos de a poco. Si te sirve, te acompaño a una respiración guiada de 1 minuto para bajar un poco la activación."
+          }
+        }
+      }
+    },
+    "chat.reply.default" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te leo. Si quieres, podemos hacer esto simple: dime qué pesa más ahora mismo o te sugiero una herramienta corta dentro de la app."
+          }
+        }
+      }
+    },
+    "chat.reply.intenso" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gracias por decirlo. No hace falta que ordenes todo ahora. Podemos hacer un check-in simple o una pausa guiada para bajar un poco la intensidad."
+          }
+        }
+      }
+    },
+    "chat.reply.sueno" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si tu cabeza sigue acelerada, prueba una relajación breve. La idea no es obligarte a dormir, sino soltar un poco el cuerpo."
+          }
+        }
+      }
+    },
+    "chat.reply.urgent" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siento que esto se siente muy pesado. Esta app no reemplaza ayuda profesional. Si hay riesgo inmediato, busca ayuda de emergencia o contacta ahora mismo a alguien de confianza que pueda estar contigo."
+          }
+        }
+      }
+    },
+    "checkin.button.save" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar como me siento"
+          }
+        }
+      }
+    },
+    "checkin.emotion.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige lo que más se acerque a cómo estás ahora."
+          }
+        }
+      }
+    },
+    "checkin.emotion.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo te sientes en este momento?"
+          }
+        }
+      }
+    },
+    "checkin.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cómo estás"
+          }
+        }
+      }
+    },
+    "checkin.stress.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué tan cargado te sientes?"
+          }
+        }
+      }
+    },
+    "checkin.stress.value_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d de 10"
+          }
+        }
+      }
+    },
+    "desired.calma" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más calma"
+          }
+        }
+      }
+    },
+    "desired.claridad" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más claridad"
+          }
+        }
+      }
+    },
+    "desired.descanso" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más descanso"
+          }
+        }
+      }
+    },
+    "desired.enfoque" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más foco"
+          }
+        }
+      }
+    },
+    "desired.ligereza" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más ligereza"
+          }
+        }
+      }
+    },
+    "emotion_support.abrumado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si hay demasiado a la vez, vamos por una sola cosa pequeña."
+          }
+        }
+      }
+    },
+    "emotion_support.ansioso" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando todo acelera, volver a la respiración suele ayudar."
+          }
+        }
+      }
+    },
+    "emotion_support.cansado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu cuerpo y tu cabeza pueden estar pidiendo una pausa simple."
+          }
+        }
+      }
+    },
+    "emotion_support.frustrado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bajar un poco la exigencia por unos minutos puede destrabar el momento."
+          }
+        }
+      }
+    },
+    "emotion_support.tranquilo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parece que hoy hay un poco más de aire. Puedes sostener ese ritmo."
+          }
+        }
+      }
+    },
+    "emotion_support.triste" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A veces no hace falta resolverlo todo, solo darte un rato de cuidado."
+          }
+        }
+      }
+    },
+    "emotion.abrumado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrumado"
+          }
+        }
+      }
+    },
+    "emotion.ansioso" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ansioso"
+          }
+        }
+      }
+    },
+    "emotion.cansado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cansado"
+          }
+        }
+      }
+    },
+    "emotion.frustrado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frustrado"
+          }
+        }
+      }
+    },
+    "emotion.tranquilo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tranquilo"
+          }
+        }
+      }
+    },
+    "emotion.triste" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Triste"
+          }
+        }
+      }
+    },
+    "exercise_evidence.complementario.short" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Práctica"
+          }
+        }
+      }
+    },
+    "exercise_evidence.complementario.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoyo práctico"
+          }
+        }
+      }
+    },
+    "exercise_evidence.investigado.short" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respaldo"
+          }
+        }
+      }
+    },
+    "exercise_evidence.investigado.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respaldado por estudios"
+          }
+        }
+      }
+    },
+    "exercise.anti_stress_pause.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Esto se siente un poco más manejable ahora?"
+          }
+        }
+      }
+    },
+    "exercise.anti_stress_pause.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respira, identifica qué te pesa más y elige una sola acción pequeña para después. El objetivo es simplificar."
+          }
+        }
+      }
+    },
+    "exercise.anti_stress_pause.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta práctica junta dos ayudas simples: una pausa para respirar y una forma de calmar un poco la mente."
+          }
+        }
+      }
+    },
+    "exercise.anti_stress_pause.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este formato no viene de una tradición única. Reúne ideas de regulación breve, mindfulness aplicado y estrategias modernas para reducir carga mental."
+          }
+        }
+      }
+    },
+    "exercise.anti_stress_pause.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dos minutos para bajar intensidad y ordenar una sola prioridad."
+          }
+        }
+      }
+    },
+    "exercise.anti_stress_pause.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa anti-estrés"
+          }
+        }
+      }
+    },
+    "exercise.badge.context" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origen"
+          }
+        }
+      }
+    },
+    "exercise.tag.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuerpo"
+          }
+        }
+      }
+    },
+    "exercise.tag.calma" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calma"
+          }
+        }
+      }
+    },
+    "exercise.tag.enfoque" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enfoque"
+          }
+        }
+      }
+    },
+    "exercise.tag.pausa" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa"
+          }
+        }
+      }
+    },
+    "exercise.tag.presente" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Presente"
+          }
+        }
+      }
+    },
+    "exercise.tag.respira" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respira"
+          }
+        }
+      }
+    },
+    "exercise.tag.ritmo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ritmo"
+          }
+        }
+      }
+    },
+    "exercise.tag.suelta" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suelta"
+          }
+        }
+      }
+    },
+    "exercise.breathing_444.care" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si sostener el aire te incomoda, reduce la cuenta o elimina la pausa. La idea es regularte, no forzar el cuerpo."
+          }
+        }
+      }
+    },
+    "exercise.breathing_444.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Te ayudó a sentir un poco más de aire?"
+          }
+        }
+      }
+    },
+    "exercise.breathing_444.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inhala 4 segundos, sostén 4 y exhala 4. Está inspirada en respiraciones lentas y reguladas: acompasa el cuerpo sin exigirte hacerlo perfecto."
+          }
+        }
+      }
+    },
+    "exercise.breathing_444.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La evidencia sobre respiración lenta y guiada muestra mejoras frecuentes en estrés y ansiedad percibidos cuando se practica con suavidad y de forma repetida. El beneficio suele venir del ritmo lento, no de aguantar más, y puede variar según la persona."
+          }
+        }
+      }
+    },
+    "exercise.breathing_444.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El trabajo consciente con la respiración aparece desde hace siglos en tradiciones contemplativas. En el yoga se conoce como pranayama, una práctica dedicada a regular la respiración y la atención."
+          }
+        }
+      }
+    },
+    "exercise.breathing_444.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un ritmo simple para bajar revoluciones."
+          }
+        }
+      }
+    },
+    "exercise.breathing_444.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respiración 4-4-4"
+          }
+        }
+      }
+    },
+    "exercise.duration_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duración estimada: %@"
+          }
+        }
+      }
+    },
+    "exercise.grounding.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Te sentiste más presente después de hacerlo?"
+          }
+        }
+      }
+    },
+    "exercise.grounding.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombra tres cosas que ves, dos que sientes y una que escuchas. La idea es aterrizar, no resolver todo."
+          }
+        }
+      }
+    },
+    "exercise.grounding.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las técnicas de grounding se usan mucho en regulación emocional y trabajo con atención. Tienen apoyo práctico amplio, aunque el respaldo experimental es menos sólido que en respiración lenta o relajación muscular."
+          }
+        }
+      }
+    },
+    "exercise.grounding.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este tipo de ejercicio viene de enfoques contemporáneos de regulación emocional y atención plena, centrados en volver al presente a través de los sentidos."
+          }
+        }
+      }
+    },
+    "exercise.grounding.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a lo que puedes ver, sentir y escuchar."
+          }
+        }
+      }
+    },
+    "exercise.grounding.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atención al presente"
+          }
+        }
+      }
+    },
+    "exercise.inhale_exhale.care" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si marearte o hiperventilar te resulta fácil, baja el ritmo y vuelve a una respiración natural."
+          }
+        }
+      }
+    },
+    "exercise.inhale_exhale.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Tu respiración quedó un poco más estable?"
+          }
+        }
+      }
+    },
+    "exercise.inhale_exhale.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sigue la cuenta visual y deja que el aire marque el ritmo. Si te distraes, vuelve sin exigirte."
+          }
+        }
+      }
+    },
+    "exercise.inhale_exhale.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La respiración diafragmática y acompasada se estudia como herramienta simple de regulación fisiológica y emocional. Suele ayudar a bajar activación cuando se hace de forma cómoda, aunque no todas las personas responden igual."
+          }
+        }
+      }
+    },
+    "exercise.inhale_exhale.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las prácticas de respiración consciente existen en múltiples culturas. En tradiciones de yoga, taoísmo y meditación se usaron para entrenar atención, energía y calma."
+          }
+        }
+      }
+    },
+    "exercise.inhale_exhale.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temporizador suave para seguir tu respiración."
+          }
+        }
+      }
+    },
+    "exercise.inhale_exhale.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inhalar y exhalar"
+          }
+        }
+      }
+    },
+    "exercise.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicios"
+          }
+        }
+      }
+    },
+    "exercise.relax.care" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si una zona duele o está lesionada, no la contraigas ni la fuerces."
+          }
+        }
+      }
+    },
+    "exercise.relax.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Notas algo menos de tensión física?"
+          }
+        }
+      }
+    },
+    "exercise.relax.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suelta la frente, baja los hombros y deja la lengua descansar. A veces el cuerpo necesita permiso para soltar."
+          }
+        }
+      }
+    },
+    "exercise.relax.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La relajación muscular progresiva y ejercicios corporales breves tienen respaldo en investigación para reducir tensión física y ansiedad en muchas personas, sobre todo cuando se repiten con práctica. Aun así, no reemplaza atención clínica cuando hace falta."
+          }
+        }
+      }
+    },
+    "exercise.relax.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las versiones modernas de relajación muscular se popularizaron en el siglo XX con Edmund Jacobson, quien estudió cómo liberar tensión corporal de forma deliberada."
+          }
+        }
+      }
+    },
+    "exercise.relax.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afloja mandíbula, hombros y respiración en un minuto."
+          }
+        }
+      }
+    },
+    "exercise.relax.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relajación breve"
+          }
+        }
+      }
+    },
+    "exercise.session.button.pause" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausar"
+          }
+        }
+      }
+    },
+    "exercise.session.button.start" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comenzar"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.exhale" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exhala"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.hold" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sostén"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.inhale" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inhala"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.observe" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Observa"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.observe_sounds" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escucha un sonido cercano"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.observe_touch" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siente el apoyo de tu cuerpo"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.pause" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.pause_jaw" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afloja la mandíbula"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.pause_shoulders" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baja los hombros un poco"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.release" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suelta"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.release_jaw" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suelta la mandíbula"
+          }
+        }
+      }
+    },
+    "exercise.session.cue.release_shoulders" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deja caer los hombros"
+          }
+        }
+      }
+    },
+    "exercise.session.care" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenlo en cuenta"
+          }
+        }
+      }
+    },
+    "exercise.session.feedback.a_little" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un poco"
+          }
+        }
+      }
+    },
+    "exercise.session.feedback.no" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No mucho"
+          }
+        }
+      }
+    },
+    "exercise.session.feedback.question" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Te ayudó?"
+          }
+        }
+      }
+    },
+    "exercise.session.feedback.yes" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sí"
+          }
+        }
+      }
+    },
+    "exercise.session.context" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un poco de contexto"
+          }
+        }
+      }
+    },
+    "exercise.session.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sesión"
+          }
+        }
+      }
+    },
+    "exercise.session.repeat_note" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes repetirla más tarde si vuelves a sentirte cargado."
+          }
+        }
+      }
+    },
+    "exercise.session.status.completed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sesión terminada"
+          }
+        }
+      }
+    },
+    "exercise.session.status.ready" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empieza cuando quieras"
+          }
+        }
+      }
+    },
+    "exercise.session.status.running" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sigue el ritmo"
+          }
+        }
+      }
+    },
+    "exercise.session.what_we_know" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que sabemos"
+          }
+        }
+      }
+    },
+    "exercise.sources.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estas fuentes orientan el ejercicio y explican por qué puede ayudar."
+          }
+        }
+      }
+    },
+    "focus.agotamiento" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agotamiento"
+          }
+        }
+      }
+    },
+    "focus.ansiedad" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ansiedad"
+          }
+        }
+      }
+    },
+    "focus.enfoque" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carga mental"
+          }
+        }
+      }
+    },
+    "focus.estres" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estrés"
+          }
+        }
+      }
+    },
+    "focus.sueno" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sueño"
+          }
+        }
+      }
+    },
+    "history.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historial"
+          }
+        }
+      }
+    },
+    "history.empty.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todavia no hay suficiente actividad para mostrar patrones. Cuando hagas un check-in o uses una herramienta, aqui veras una lectura simple."
+          }
+        }
+      }
+    },
+    "history.empty.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu recorrido aparecera aqui"
+          }
+        }
+      }
+    },
+    "history.metric.exercises" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicios"
+          }
+        }
+      }
+    },
+    "history.metric.week" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semana"
+          }
+        }
+      }
+    },
+    "history.repeated_emotions.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emociones repetidas"
+          }
+        }
+      }
+    },
+    "history.summary.body_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registraste %d check-ins y completaste %d ejercicios."
+          }
+        }
+      }
+    },
+    "history.summary.common_emotion_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La emoción más repetida fue %@"
+          }
+        }
+      }
+    },
+    "history.summary.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu última semana"
+          }
+        }
+      }
+    },
+    "history.tools.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Herramientas más usadas"
+          }
+        }
+      }
+    },
+    "history.tools.recent_uses" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "usos recientes"
+          }
+        }
+      }
+    },
+    "home.checkin.button_empty" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrar cómo estoy"
+          }
+        }
+      }
+    },
+    "home.checkin.button_latest" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar cómo me siento"
+          }
+        }
+      }
+    },
+    "home.checkin.subtitle_empty" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En un minuto puedes ponerle nombre a lo que sientes y ver qué te puede ayudar ahora."
+          }
+        }
+      }
+    },
+    "home.checkin.title_empty" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz una pausa"
+          }
+        }
+      }
+    },
+    "home.checkin.title_latest" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu estado más reciente"
+          }
+        }
+      }
+    },
+    "home.disclaimer" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa acompaña momentos de estrés o ansiedad leve del día a día. No reemplaza ayuda profesional."
+          }
+        }
+      }
+    },
+    "home.emergency.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accede rápido a respiración, grounding y una pausa corta para bajar intensidad."
+          }
+        }
+      }
+    },
+    "home.emergency.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Necesito ayuda ahora"
+          }
+        }
+      }
+    },
+    "home.emergency.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si lo necesitas, empecemos por lo más urgente"
+          }
+        }
+      }
+    },
+    "home.header.greeting_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola, %@"
+          }
+        }
+      }
+    },
+    "home.header.subtitle_empty" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hoy puedes empezar registrando cómo estás, tomando una pausa corta o escribiendo lo que traes encima."
+          }
+        }
+      }
+    },
+    "home.header.subtitle_latest_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu último registro fue %@. Puedes volver a tomar una pausa cuando lo necesites."
+          }
+        }
+      }
+    },
+    "home.latest_state.format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te sentiste %@ con estrés %d/10. %@"
+          }
+        }
+      }
+    },
+    "home.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa"
+          }
+        }
+      }
+    },
+    "home.menu.profile" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
+          }
+        }
+      }
+    },
+    "home.metric.checkins" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registros"
+          }
+        }
+      }
+    },
+    "home.metric.exercises" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicios"
+          }
+        }
+      }
+    },
+    "home.metric.notes" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notas"
+          }
+        }
+      }
+    },
+    "home.progress.latest_recommendation_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Última recomendación: %@"
+          }
+        }
+      }
+    },
+    "home.progress.summary_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registros: %d  ·  Ejercicios: %d  ·  Entradas: %d"
+          }
+        }
+      }
+    },
+    "home.progress.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu semana en corto"
+          }
+        }
+      }
+    },
+    "home.tools.chat.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una conversación breve y serena"
+          }
+        }
+      }
+    },
+    "home.tools.chat.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chat de apoyo"
+          }
+        }
+      }
+    },
+    "home.tools.exercises.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respiración, grounding y pausas breves"
+          }
+        }
+      }
+    },
+    "home.tools.exercises.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausas guiadas"
+          }
+        }
+      }
+    },
+    "home.tools.history.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revisa patrones simples de tu semana"
+          }
+        }
+      }
+    },
+    "home.tools.history.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cómo te has sentido"
+          }
+        }
+      }
+    },
+    "home.tools.journaling.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saca lo que traes encima y ordénalo un poco"
+          }
+        }
+      }
+    },
+    "home.tools.journaling.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribir un poco"
+          }
+        }
+      }
+    },
+    "home.tools.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Herramientas"
+          }
+        }
+      }
+    },
+    "immediate_help.header.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si te sientes muy cargado, prueba una acción corta ahora. No necesitas hacerlo perfecto."
+          }
+        }
+      }
+    },
+    "immediate_help.header.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vamos por lo más simple"
+          }
+        }
+      }
+    },
+    "immediate_help.intense.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa no reemplaza ayuda profesional. Si necesitas contención real ahora mismo, busca a alguien de confianza o ayuda profesional cercana."
+          }
+        }
+      }
+    },
+    "immediate_help.intense.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si esto se siente demasiado intenso"
+          }
+        }
+      }
+    },
+    "immediate_help.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayuda inmediata"
+          }
+        }
+      }
+    },
+    "journaling.button.save" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar nota"
+          }
+        }
+      }
+    },
+    "journaling.detail.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que escribiste"
+          }
+        }
+      }
+    },
+    "journaling.empty.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando guardes algo, aquí podrás volver a leer lo que estabas sintiendo o necesitando."
+          }
+        }
+      }
+    },
+    "journaling.empty.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus notas van a aparecer aquí"
+          }
+        }
+      }
+    },
+    "journaling.field.affecting" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que más me pesa ahora es…"
+          }
+        }
+      }
+    },
+    "journaling.field.feeling" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahora me siento…"
+          }
+        }
+      }
+    },
+    "journaling.field.needed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que necesito ahora es…"
+          }
+        }
+      }
+    },
+    "journaling.field.support" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algo que me ayudaría ahorita es…"
+          }
+        }
+      }
+    },
+    "journaling.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribir"
+          }
+        }
+      }
+    },
+    "journaling.placeholder" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribe lo que te salga"
+          }
+        }
+      }
+    },
+    "journaling.previous_entries" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notas guardadas"
+          }
+        }
+      }
+    },
+    "onboarding.button.back" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atrás"
+          }
+        }
+      }
+    },
+    "onboarding.button.continue" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
+          }
+        }
+      }
+    },
+    "onboarding.button.start" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empezar con Pausa"
+          }
+        }
+      }
+    },
+    "onboarding.concern.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes cambiar esto después."
+          }
+        }
+      }
+    },
+    "onboarding.concern.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué te está pesando más hoy?"
+          }
+        }
+      }
+    },
+    "onboarding.desired.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esto nos ayuda a hacer la experiencia un poco más tuya."
+          }
+        }
+      }
+    },
+    "onboarding.desired.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué te gustaría sentir más seguido?"
+          }
+        }
+      }
+    },
+    "onboarding.finish.body_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrarás con una experiencia enfocada en %1$@ y apoyo para %2$@."
+          }
+        }
+      }
+    },
+    "onboarding.finish.note" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu información queda guardada solo en este dispositivo en esta primera versión."
+          }
+        }
+      }
+    },
+    "onboarding.finish.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vas a tener registros simples, ejercicios cortos, escritura breve y ayuda rápida cuando la necesites."
+          }
+        }
+      }
+    },
+    "onboarding.finish.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ya está casi listo"
+          }
+        }
+      }
+    },
+    "onboarding.nickname.placeholder" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribe tu nombre o apodo"
+          }
+        }
+      }
+    },
+    "onboarding.nickname.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puede ser tu nombre o un apodo."
+          }
+        }
+      }
+    },
+    "onboarding.nickname.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo te gustaría que te llame?"
+          }
+        }
+      }
+    },
+    "onboarding.welcome.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa está pensada para acompañarte en momentos de estrés, ansiedad leve o saturación del día a día. Sin ruido, sin juicios."
+          }
+        }
+      }
+    },
+    "onboarding.welcome.note" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No reemplaza ayuda profesional. Es una herramienta de apoyo cotidiano."
+          }
+        }
+      }
+    },
+    "onboarding.welcome.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una ayuda simple para momentos de estrés"
+          }
+        }
+      }
+    },
+    "profile.focus_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foco actual: %@"
+          }
+        }
+      }
+    },
+    "profile.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
+          }
+        }
+      }
+    },
+    "profile.privacy.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En este MVP la información se guarda localmente en tu dispositivo. La app está preparada para crecer, pero no depende de un backend en esta versión."
+          }
+        }
+      }
+    },
+    "profile.privacy.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacidad"
+          }
+        }
+      }
+    },
+    "profile.responsible.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa acompaña momentos de estrés y ansiedad leve del día a día. No ofrece diagnóstico ni reemplaza apoyo profesional."
+          }
+        }
+      }
+    },
+    "profile.responsible.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importante"
+          }
+        }
+      }
+    },
+    "profile.seeking_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscas: %@"
+          }
+        }
+      }
+    },
+    "recommendation.abrumado.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando hay demasiado a la vez, sirve aterrizar y elegir una sola cosa para después."
+          }
+        }
+      }
+    },
+    "recommendation.abrumado.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a la pausa"
+          }
+        }
+      }
+    },
+    "recommendation.abrumado.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz una pausa mental breve"
+          }
+        }
+      }
+    },
+    "recommendation.ansioso.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una respiración simple puede acompañarte sin pedirte demasiado."
+          }
+        }
+      }
+    },
+    "recommendation.ansioso.body_high" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu nivel de tensión viene alto. Empezar por 1 minuto de respiración puede ayudarte a bajar un poco."
+          }
+        }
+      }
+    },
+    "recommendation.ansioso.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empezar respiración"
+          }
+        }
+      }
+    },
+    "recommendation.ansioso.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probemos una respiración guiada"
+          }
+        }
+      }
+    },
+    "recommendation.cansado.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No todo se resuelve con empujar más. A veces toca aflojar primero."
+          }
+        }
+      }
+    },
+    "recommendation.cansado.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a relajación"
+          }
+        }
+      }
+    },
+    "recommendation.cansado.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prueba una relajación breve"
+          }
+        }
+      }
+    },
+    "recommendation.frustrado.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Antes de retomar, puede ayudarte una práctica corta para salir del bucle."
+          }
+        }
+      }
+    },
+    "recommendation.frustrado.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hacer grounding"
+          }
+        }
+      }
+    },
+    "recommendation.frustrado.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve al presente por un momento"
+          }
+        }
+      }
+    },
+    "recommendation.tranquilo.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes registrar cómo estás para reconocer qué te está ayudando hoy."
+          }
+        }
+      }
+    },
+    "recommendation.tranquilo.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar este momento"
+          }
+        }
+      }
+    },
+    "recommendation.tranquilo.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aprovecha este momento de calma"
+          }
+        }
+      }
+    },
+    "recommendation.triste.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ponerlo en palabras puede ordenar el momento sin exigirte una solución inmediata."
+          }
+        }
+      }
+    },
+    "recommendation.triste.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribir ahora"
+          }
+        }
+      }
+    },
+    "recommendation.triste.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribe un poco de lo que te pesa"
+          }
+        }
+      }
+    },
+    "reference.breathwork_review.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breathing Practices for Stress and Anxiety Reduction"
+          }
+        }
+      }
+    },
+    "reference.narrative_review" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revisión narrativa"
+          }
+        }
+      }
+    },
+    "reference.pranayama_review.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Health Impacts of Yoga and Pranayama"
+          }
+        }
+      }
+    },
+    "reference.systematic_review" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revisión sistemática"
+          }
+        }
+      }
+    },
+    "reference.yoga_health.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yoga for Health"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
