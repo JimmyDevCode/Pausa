@@ -12,10 +12,10 @@ struct ProfileView: View {
                             .font(.appTitle)
                             .foregroundStyle(AppTheme.textPrimary)
                             .fixedSize(horizontal: false, vertical: true)
-                        Text(String(format: String(localized: AppStrings.Profile.seekingFormat), locale: Locale(identifier: "es"), profile.preferredFeeling))
+                        Text(String(format: String(localized: AppStrings.Profile.seekingFormat), locale: Locale(identifier: "es"), profile.localizedPreferredFeeling))
                             .foregroundStyle(AppTheme.textSecondary)
                             .fixedSize(horizontal: false, vertical: true)
-                        Text(String(format: String(localized: AppStrings.Profile.focusFormat), locale: Locale(identifier: "es"), profile.mainConcern))
+                        Text(String(format: String(localized: AppStrings.Profile.focusFormat), locale: Locale(identifier: "es"), profile.localizedMainConcern))
                             .foregroundStyle(AppTheme.textSecondary)
                             .fixedSize(horizontal: false, vertical: true)
                     }
@@ -55,6 +55,6 @@ struct ProfileView: View {
 
 #Preview {
     NavigationStack {
-        ProfileView(profile: UserProfile(nickname: "Ari", preferredFeeling: "Más calma", mainConcern: "Estrés"))
+        ProfileView(profile: UserProfile(nickname: String(localized: AppStrings.Preview.nickname), preferredFeeling: DesiredFeeling.calma.rawValue, mainConcern: FocusArea.estres.rawValue))
     }
 }

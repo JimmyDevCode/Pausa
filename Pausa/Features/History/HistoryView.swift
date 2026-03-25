@@ -87,7 +87,7 @@ struct HistoryView: View {
                                 .font(.headline)
                                 .foregroundStyle(AppTheme.textPrimary)
                             Spacer()
-                            Text("\(item.value)x")
+                            Text(LocalizedFormatting.historyCount(item.value))
                                 .foregroundStyle(AppTheme.textSecondary)
                         }
                         GeometryReader { geometry in
@@ -120,7 +120,7 @@ struct HistoryView: View {
                         ForEach(Array(items.enumerated()), id: \.element.key) { index, item in
                             AccentCard(tint: AppTheme.peach) {
                                 VStack(alignment: .leading, spacing: 12) {
-                                    Text(item.key.replacingOccurrences(of: "_", with: " ").capitalized)
+                                    Text(LocalizedFormatting.toolEventName(item.key))
                                         .font(.headline)
                                         .foregroundStyle(AppTheme.textPrimary)
                                         .fixedSize(horizontal: false, vertical: true)
@@ -150,7 +150,7 @@ struct HistoryView: View {
     }
 
     private var emotionCounts: [String: Int] {
-        Dictionary(grouping: weekCheckIns, by: \.emotion).mapValues(\.count)
+        Dictionary(grouping: weekCheckIns, by: \.localizedEmotion).mapValues(\.count)
     }
 
     private var maxEmotionCount: Int {

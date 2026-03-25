@@ -4,39 +4,6 @@
     "%lld" : {
 
     },
-    "%lldx" : {
-
-    },
-    "common.cta.open" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abrir"
-          }
-        }
-      }
-    },
-    "common.cta.view_details" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ver detalle"
-          }
-        }
-      }
-    },
-    "common.cta.view_exercise" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ver ejercicio"
-          }
-        }
-      }
-    },
     "chat.button.open_suggestion" : {
       "localizations" : {
         "es" : {
@@ -203,6 +170,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%d de 10"
+          }
+        }
+      }
+    },
+    "common.cta.open" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir"
+          }
+        }
+      }
+    },
+    "common.cta.view_details" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver detalle"
+          }
+        }
+      }
+    },
+    "common.cta.view_exercise" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver ejercicio"
           }
         }
       }
@@ -487,86 +484,6 @@
         }
       }
     },
-    "exercise.tag.body" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cuerpo"
-          }
-        }
-      }
-    },
-    "exercise.tag.calma" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Calma"
-          }
-        }
-      }
-    },
-    "exercise.tag.enfoque" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enfoque"
-          }
-        }
-      }
-    },
-    "exercise.tag.pausa" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa"
-          }
-        }
-      }
-    },
-    "exercise.tag.presente" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Presente"
-          }
-        }
-      }
-    },
-    "exercise.tag.respira" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Respira"
-          }
-        }
-      }
-    },
-    "exercise.tag.ritmo" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ritmo"
-          }
-        }
-      }
-    },
-    "exercise.tag.suelta" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Suelta"
-          }
-        }
-      }
-    },
     "exercise.breathing_444.care" : {
       "localizations" : {
         "es" : {
@@ -643,6 +560,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Duración estimada: %@"
+          }
+        }
+      }
+    },
+    "exercise.duration_minutes_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d min"
+          }
+        }
+      }
+    },
+    "exercise.duration_one_minute" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 min"
+          }
+        }
+      }
+    },
+    "exercise.duration_seconds_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d seg"
           }
         }
       }
@@ -877,6 +824,26 @@
         }
       }
     },
+    "exercise.session.care" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenlo en cuenta"
+          }
+        }
+      }
+    },
+    "exercise.session.context" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un poco de contexto"
+          }
+        }
+      }
+    },
     "exercise.session.cue.exhale" : {
       "localizations" : {
         "es" : {
@@ -997,16 +964,6 @@
         }
       }
     },
-    "exercise.session.care" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tenlo en cuenta"
-          }
-        }
-      }
-    },
     "exercise.session.feedback.a_little" : {
       "localizations" : {
         "es" : {
@@ -1043,16 +1000,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sí"
-          }
-        }
-      }
-    },
-    "exercise.session.context" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un poco de contexto"
           }
         }
       }
@@ -1127,6 +1074,86 @@
         }
       }
     },
+    "exercise.tag.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuerpo"
+          }
+        }
+      }
+    },
+    "exercise.tag.calma" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calma"
+          }
+        }
+      }
+    },
+    "exercise.tag.enfoque" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enfoque"
+          }
+        }
+      }
+    },
+    "exercise.tag.pausa" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa"
+          }
+        }
+      }
+    },
+    "exercise.tag.presente" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Presente"
+          }
+        }
+      }
+    },
+    "exercise.tag.respira" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respira"
+          }
+        }
+      }
+    },
+    "exercise.tag.ritmo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ritmo"
+          }
+        }
+      }
+    },
+    "exercise.tag.suelta" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suelta"
+          }
+        }
+      }
+    },
     "focus.agotamiento" : {
       "localizations" : {
         "es" : {
@@ -1177,12 +1204,12 @@
         }
       }
     },
-    "history.navigation.title" : {
+    "history.count_format" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Historial"
+            "value" : "%dx"
           }
         }
       }
@@ -1227,6 +1254,16 @@
         }
       }
     },
+    "history.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historial"
+          }
+        }
+      }
+    },
     "history.repeated_emotions.title" : {
       "localizations" : {
         "es" : {
@@ -1267,12 +1304,82 @@
         }
       }
     },
-    "history.tools.title" : {
+    "history.tool.chat_message_sent" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Herramientas más usadas"
+            "value" : "Mensaje enviado en chat"
+          }
+        }
+      }
+    },
+    "history.tool.checkin_completed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-in completado"
+          }
+        }
+      }
+    },
+    "history.tool.exercise_completed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicio completado"
+          }
+        }
+      }
+    },
+    "history.tool.exercise_started" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicio iniciado"
+          }
+        }
+      }
+    },
+    "history.tool.home_returned" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volviste al inicio"
+          }
+        }
+      }
+    },
+    "history.tool.immediate_help_used" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayuda inmediata abierta"
+          }
+        }
+      }
+    },
+    "history.tool.journaling_saved" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nota guardada"
+          }
+        }
+      }
+    },
+    "history.tool.onboarding_completed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onboarding completado"
           }
         }
       }
@@ -1283,6 +1390,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "usos recientes"
+          }
+        }
+      }
+    },
+    "history.tools.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Herramientas más usadas"
           }
         }
       }
@@ -1417,16 +1534,6 @@
         }
       }
     },
-    "home.navigation.title" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa"
-          }
-        }
-      }
-    },
     "home.menu.profile" : {
       "localizations" : {
         "es" : {
@@ -1463,6 +1570,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notas"
+          }
+        }
+      }
+    },
+    "home.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa"
           }
         }
       }
@@ -1913,6 +2030,76 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Una ayuda simple para momentos de estrés"
+          }
+        }
+      }
+    },
+    "preview.chat.assistant_text" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vamos despacio. Si quieres, puedo sugerirte una respiración corta o un check-in rápido."
+          }
+        }
+      }
+    },
+    "preview.chat.user_text" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola, hoy me siento saturado."
+          }
+        }
+      }
+    },
+    "preview.journal.affecting" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La acumulación de pendientes y mensajes."
+          }
+        }
+      }
+    },
+    "preview.journal.feeling" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estoy con demasiadas ventanas abiertas en la cabeza."
+          }
+        }
+      }
+    },
+    "preview.journal.needed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Necesito bajar la velocidad un rato."
+          }
+        }
+      }
+    },
+    "preview.journal.support" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respirar y ordenar una sola prioridad."
+          }
+        }
+      }
+    },
+    "preview.nickname" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ari"
           }
         }
       }
