@@ -51,7 +51,7 @@ struct ContentView: View {
                         case .exercise(let exercise):
                             ExerciseSessionView(exercise: exercise, services: services)
                         case .journaling:
-                            JournalingView(services: services)
+                            JournalingView(services: services, openRoute: { path.append($0) })
                         case .supportChat:
                             SupportChatView(services: services, openRoute: { path.append($0) })
                         case .history:

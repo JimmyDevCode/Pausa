@@ -4,6 +4,16 @@
     "" : {
 
     },
+    "%lld / %lld" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
+          }
+        }
+      }
+    },
     "chat.button.open_suggestion" : {
       "localizations" : {
         "es" : {
@@ -1505,6 +1515,36 @@
         }
       }
     },
+    "history.writings.body_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tienes %d notas y %d mensajes guardados. Puedes verlos completos en una pantalla aparte."
+          }
+        }
+      }
+    },
+    "history.writings.empty_body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus notas y mensajes apareceran en una pantalla aparte, para que este historial se mantenga simple."
+          }
+        }
+      }
+    },
+    "history.writings.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus escritos"
+          }
+        }
+      }
+    },
     "home.checkin.button_empty" : {
       "localizations" : {
         "es" : {
@@ -1885,6 +1925,26 @@
         }
       }
     },
+    "journaling.button.back" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atrás"
+          }
+        }
+      }
+    },
+    "journaling.button.next" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siguiente"
+          }
+        }
+      }
+    },
     "journaling.button.save" : {
       "localizations" : {
         "es" : {
@@ -1991,6 +2051,56 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notas guardadas"
+          }
+        }
+      }
+    },
+    "journaling.step.format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paso %1$d de %2$d"
+          }
+        }
+      }
+    },
+    "journaling.step.reflection.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empieza por poner en palabras cómo te sientes y qué es lo que más pesa ahora."
+          }
+        }
+      }
+    },
+    "journaling.step.reflection.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que estás viviendo"
+          }
+        }
+      }
+    },
+    "journaling.step.support.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahora piensa en lo que necesitas y en qué podría ayudarte a sentirte un poco mejor."
+          }
+        }
+      }
+    },
+    "journaling.step.support.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que te ayudaría ahora"
           }
         }
       }
@@ -2405,6 +2515,16 @@
         }
       }
     },
+    "profile.remove_photo.option" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitar foto"
+          }
+        }
+      }
+    },
     "profile.responsible.body" : {
       "localizations" : {
         "es" : {
@@ -2421,16 +2541,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Importante"
-          }
-        }
-      }
-    },
-    "profile.remove_photo.option" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quitar foto"
           }
         }
       }

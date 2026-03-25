@@ -1,19 +1,6 @@
 import SwiftData
 import SwiftUI
 
-private struct WritingItem: Identifiable {
-    enum Kind {
-        case journal
-        case chat
-    }
-
-    let id: String
-    let kind: Kind
-    let title: String
-    let body: String
-    let timestamp: Date
-}
-
 private enum WritingFilter: String, CaseIterable, Identifiable {
     case notes
     case messages
@@ -46,12 +33,7 @@ struct HistoryView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 summaryCard
-
-                if writingPreview.isEmpty {
-                    emptyState
-                } else {
-                    writingsPreviewSection
-                }
+                writingsAccessCard
             }
             .padding(AppTheme.layoutPadding)
             .padding(.bottom, 44)
@@ -66,34 +48,12 @@ struct HistoryView: View {
         return checkIns.filter { $0.createdAt >= weekAgo }
     }
 
-    private var writingPreview: [WritingItem] {
-        Array(allWritings.prefix(3))
+    private var notesCount: Int {
+        journalEntries.count
     }
 
-    private var allWritings: [WritingItem] {
-        let journalItems = journalEntries.map { entry in
-            WritingItem(
-                id: "journal-\(entry.id.uuidString)",
-                kind: .journal,
-                title: String(localized: AppStrings.History.Item.journalTitle),
-                body: journalPreview(entry),
-                timestamp: entry.createdAt
-            )
-        }
-
-        let chatItems = chatMessages
-            .filter(\.isFromUser)
-            .map { message in
-                WritingItem(
-                    id: "chat-\(message.id.uuidString)",
-                    kind: .chat,
-                    title: String(localized: AppStrings.History.Item.chatTitle),
-                    body: message.text,
-                    timestamp: message.createdAt
-                )
-            }
-
-        return (journalItems + chatItems).sorted(by: { $0.timestamp > $1.timestamp })
+    private var messagesCount: Int {
+        chatMessages.filter(\.isFromUser).count
     }
 
     private var summaryCard: some View {
@@ -157,86 +117,36 @@ struct HistoryView: View {
             .key
     }
 
-    private var writingsPreviewSection: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(AppStrings.History.previewTitle)
-                .font(.appSection)
-                .foregroundStyle(AppTheme.textPrimary)
-
-            AppCard {
-                VStack(alignment: .leading, spacing: 0) {
-                    ForEach(Array(writingPreview.enumerated()), id: \.element.id) { index, item in
-                        if index > 0 {
-                            Divider()
-                                .padding(.vertical, 14)
-                        }
-
-                        writingRow(item)
-                    }
-
-                    Divider()
-                        .padding(.vertical, 14)
-
-                    Button(String(localized: AppStrings.History.previewButton)) {
-                        openRoute(.writings)
-                    }
-                    .buttonStyle(SecondaryButtonStyle())
-                }
-            }
-        }
-    }
-
-    private func writingRow(_ item: WritingItem) -> some View {
-        HStack(alignment: .top, spacing: 12) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 14, style: .continuous)
-                    .fill(tint(for: item.kind).opacity(0.9))
-                    .frame(width: 42, height: 42)
-                Image(systemName: icon(for: item.kind))
-                    .foregroundStyle(AppTheme.tint)
-            }
-
+    private var writingsAccessCard: some View {
+        AccentCard(tint: AppTheme.secondarySurface) {
             VStack(alignment: .leading, spacing: 6) {
-                HStack(alignment: .top) {
-                    Text(item.title)
-                        .font(.headline)
-                        .foregroundStyle(AppTheme.textPrimary)
-                    Spacer()
-                    Text(item.timestamp.formatted(date: .abbreviated, time: .shortened))
-                        .font(.caption)
-                        .foregroundStyle(AppTheme.textSecondary)
-                }
+                Text(AppStrings.History.writingsTitle)
+                    .font(.appSection)
+                    .foregroundStyle(AppTheme.textPrimary)
 
-                Text(item.body)
-                    .font(.subheadline)
+                Text(writingsBodyText)
                     .foregroundStyle(AppTheme.textSecondary)
-                    .lineLimit(3)
                     .fixedSize(horizontal: false, vertical: true)
+
+                Button(String(localized: AppStrings.History.previewButton)) {
+                    openRoute(.writings)
+                }
+                .buttonStyle(SecondaryButtonStyle())
             }
         }
     }
 
-    private func journalPreview(_ entry: JournalEntry) -> String {
-        let candidates = [entry.feelingText, entry.neededText, entry.affectingText, entry.supportText]
-        return candidates.first(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) ?? ""
-    }
-
-    private func icon(for kind: WritingItem.Kind) -> String {
-        switch kind {
-        case .journal:
-            "square.and.pencil"
-        case .chat:
-            "ellipsis.message"
+    private var writingsBodyText: String {
+        guard notesCount > 0 || messagesCount > 0 else {
+            return String(localized: AppStrings.History.writingsEmptyBody)
         }
-    }
 
-    private func tint(for kind: WritingItem.Kind) -> Color {
-        switch kind {
-        case .journal:
-            AppTheme.secondarySurface
-        case .chat:
-            AppTheme.peach
-        }
+        return String(
+            format: String(localized: AppStrings.History.writingsBodyFormat),
+            locale: Locale(identifier: "es"),
+            notesCount,
+            messagesCount
+        )
     }
 
     private func metricPill(value: String, label: String) -> some View {
@@ -255,30 +165,17 @@ struct HistoryView: View {
                 .fill(Color.white.opacity(0.7))
         )
     }
-
-    private var emptyState: some View {
-        AccentCard(tint: AppTheme.secondarySurface) {
-            VStack(alignment: .leading, spacing: 10) {
-                Text(AppStrings.History.emptyTitle)
-                    .font(.headline)
-                    .foregroundStyle(AppTheme.textPrimary)
-                Text(AppStrings.History.previewEmptyBody)
-                    .foregroundStyle(AppTheme.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
-                Button(String(localized: AppStrings.History.previewButton)) {
-                    openRoute(.writings)
-                }
-                .buttonStyle(SecondaryButtonStyle())
-            }
-        }
-    }
 }
 
 struct WritingsView: View {
+    private let pageSize = 6
+
     @Query(sort: \JournalEntry.createdAt, order: .reverse) private var journalEntries: [JournalEntry]
     @Query(sort: \ChatMessageRecord.createdAt, order: .reverse) private var chatMessages: [ChatMessageRecord]
     @State private var selectedFilter: WritingFilter = .notes
     @State private var selectedEntry: JournalEntry?
+    @State private var notesPage = 0
+    @State private var messagesPage = 0
 
     private var notes: [JournalEntry] {
         journalEntries
@@ -286,6 +183,28 @@ struct WritingsView: View {
 
     private var messages: [ChatMessageRecord] {
         chatMessages.filter(\.isFromUser)
+    }
+
+    private var notePageCount: Int {
+        max(1, Int(ceil(Double(notes.count) / Double(pageSize))))
+    }
+
+    private var messagePageCount: Int {
+        max(1, Int(ceil(Double(messages.count) / Double(pageSize))))
+    }
+
+    private var pagedNotes: [JournalEntry] {
+        let start = min(notesPage * pageSize, max(0, notes.count - 1))
+        let end = min(start + pageSize, notes.count)
+        guard start < end else { return [] }
+        return Array(notes[start..<end])
+    }
+
+    private var pagedMessages: [ChatMessageRecord] {
+        let start = min(messagesPage * pageSize, max(0, messages.count - 1))
+        let end = min(start + pageSize, messages.count)
+        guard start < end else { return [] }
+        return Array(messages[start..<end])
     }
 
     var body: some View {
@@ -310,6 +229,10 @@ struct WritingsView: View {
         .background(AppTheme.pageGradient.ignoresSafeArea())
         .navigationTitle(String(localized: AppStrings.Writings.navigationTitle))
         .navigationBarTitleDisplayMode(.inline)
+        .onChange(of: selectedFilter) { _, _ in
+            notesPage = min(notesPage, notePageCount - 1)
+            messagesPage = min(messagesPage, messagePageCount - 1)
+        }
         .sheet(item: $selectedEntry) { entry in
             journalEntryDetail(entry)
                 .presentationDetents([.medium, .large])
@@ -321,7 +244,7 @@ struct WritingsView: View {
         if notes.isEmpty {
             emptyCard(body: AppStrings.Writings.emptyBody)
         } else {
-            ForEach(notes, id: \.id) { entry in
+            ForEach(pagedNotes, id: \.id) { entry in
                 Button {
                     selectedEntry = entry
                 } label: {
@@ -351,6 +274,14 @@ struct WritingsView: View {
                 }
                 .buttonStyle(.plain)
             }
+
+            paginationControls(
+                currentPage: notesPage,
+                pageCount: notePageCount,
+                totalCount: notes.count,
+                previousAction: { notesPage = max(0, notesPage - 1) },
+                nextAction: { notesPage = min(notePageCount - 1, notesPage + 1) }
+            )
         }
     }
 
@@ -359,7 +290,7 @@ struct WritingsView: View {
         if messages.isEmpty {
             emptyCard(body: AppStrings.Writings.emptyBody)
         } else {
-            ForEach(messages, id: \.id) { message in
+            ForEach(pagedMessages, id: \.id) { message in
                 AppCard {
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {
@@ -378,7 +309,33 @@ struct WritingsView: View {
                     }
                 }
             }
+
+            paginationControls(
+                currentPage: messagesPage,
+                pageCount: messagePageCount,
+                totalCount: messages.count,
+                previousAction: { messagesPage = max(0, messagesPage - 1) },
+                nextAction: { messagesPage = min(messagePageCount - 1, messagesPage + 1) }
+            )
         }
+    }
+
+    private func paginationControls(
+        currentPage: Int,
+        pageCount: Int,
+        totalCount: Int,
+        previousAction: @escaping () -> Void,
+        nextAction: @escaping () -> Void
+    ) -> some View {
+        PaginationControls(
+            currentPage: currentPage,
+            pageCount: pageCount,
+            previousTitle: String(localized: AppStrings.Journaling.buttonBack),
+            nextTitle: String(localized: AppStrings.Journaling.buttonNext),
+            onPrevious: previousAction,
+            onNext: nextAction
+        )
+        .opacity(totalCount > pageSize ? 1 : 0.94)
     }
 
     private func emptyCard(body: LocalizedStringResource) -> some View {

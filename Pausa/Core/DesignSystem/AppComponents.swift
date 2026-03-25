@@ -255,6 +255,74 @@ struct CarouselPageIndicator: View {
     }
 }
 
+struct PaginationControls: View {
+    let currentPage: Int
+    let pageCount: Int
+    let previousTitle: String
+    let nextTitle: String
+    let onPrevious: () -> Void
+    let onNext: () -> Void
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Button(previousTitle, action: onPrevious)
+                .buttonStyle(.plain)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(currentPage == 0 ? AppTheme.textSecondary : AppTheme.textPrimary)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
+                .background(
+                    Capsule(style: .continuous)
+                        .fill(currentPage == 0 ? AppTheme.secondarySurface.opacity(0.55) : AppTheme.secondarySurface)
+                )
+                .overlay {
+                    Capsule(style: .continuous)
+                        .stroke(AppTheme.tintSoft, lineWidth: 1)
+                }
+                .disabled(currentPage == 0)
+
+            Spacer()
+
+            VStack(spacing: 8) {
+                Text("\(currentPage + 1) / \(pageCount)")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(AppTheme.tint)
+
+                HStack(spacing: 6) {
+                    ForEach(pageIndicatorIndices, id: \.self) { index in
+                        Capsule(style: .continuous)
+                            .fill(index == currentPage ? AppTheme.tint : AppTheme.tintSoft.opacity(0.85))
+                            .frame(width: index == currentPage ? 22 : 8, height: 6)
+                    }
+                }
+            }
+
+            Spacer()
+
+            Button(nextTitle, action: onNext)
+                .buttonStyle(.plain)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(currentPage >= pageCount - 1 ? Color.white.opacity(0.82) : .white)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
+                .background(
+                    Capsule(style: .continuous)
+                        .fill(currentPage >= pageCount - 1 ? AppTheme.tint.opacity(0.4) : AppTheme.tint)
+                )
+                .disabled(currentPage >= pageCount - 1)
+        }
+        .padding(.horizontal, 4)
+    }
+
+    private var pageIndicatorIndices: [Int] {
+        guard pageCount > 5 else { return Array(0..<pageCount) }
+
+        let start = max(0, min(currentPage - 2, pageCount - 5))
+        let end = min(pageCount, start + 5)
+        return Array(start..<end)
+    }
+}
+
 struct CardCTA: View {
     let title: String
 
