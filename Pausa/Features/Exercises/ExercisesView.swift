@@ -288,6 +288,7 @@ struct ExerciseSessionView: View {
                 TimelineView(.animation(minimumInterval: 1 / 30, paused: !viewModel.isRunning)) { context in
                     ExerciseBreathingOrb(
                         statusText: viewModel.statusText,
+                        isRunning: viewModel.isRunning,
                         isCompleted: viewModel.completed,
                         orbState: ExerciseSessionPacing.orbState(
                             for: exercise,
@@ -300,7 +301,9 @@ struct ExerciseSessionView: View {
 
                 if !viewModel.completed {
                     Button(viewModel.isRunning ? String(localized: AppStrings.Exercise.Session.buttonPause) : String(localized: AppStrings.Exercise.Session.buttonStart)) {
-                        viewModel.togglePlayback(context: modelContext)
+                        withAnimation(.easeInOut(duration: 0.45)) {
+                            viewModel.togglePlayback(context: modelContext)
+                        }
                         syncCuePlayback(force: true)
                     }
                     .buttonStyle(PrimaryButtonStyle())
@@ -415,6 +418,7 @@ struct ExerciseSessionView: View {
 
 private struct ExerciseBreathingOrb: View {
     let statusText: String
+    let isRunning: Bool
     let isCompleted: Bool
     let orbState: ExerciseSessionOrbState
 
@@ -462,18 +466,22 @@ private struct ExerciseBreathingOrb: View {
 
             VStack(spacing: 12) {
                 Image(systemName: isCompleted ? "checkmark.circle.fill" : "wind")
-                    .font(.system(size: 42))
+                    .font(.system(size: 38))
                     .foregroundStyle(AppTheme.tint)
                     .scaleEffect(orbState.symbolScale)
                 Text(statusText)
                     .font(.headline)
                     .foregroundStyle(AppTheme.textPrimary)
                     .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.72)
+                    .frame(maxWidth: 150)
             }
-            .padding(.horizontal, 28)
+            .padding(.horizontal, 34)
         }
         .frame(width: 280, height: 280)
+        .animation(.easeInOut(duration: 0.45), value: isRunning)
+        .animation(.spring(response: 0.5, dampingFraction: 0.82), value: isCompleted)
         .drawingGroup()
     }
 }
