@@ -9,6 +9,7 @@ enum AppRoute: Hashable {
     case journaling
     case supportChat
     case history
+    case writings
     case profile
 }
 
@@ -46,7 +47,9 @@ struct ContentView: View {
                         case .supportChat:
                             SupportChatView(services: services, openRoute: { path.append($0) })
                         case .history:
-                            HistoryView()
+                            HistoryView(openRoute: { path.append($0) })
+                        case .writings:
+                            WritingsView()
                         case .profile:
                             ProfileView(profile: profile)
                         }

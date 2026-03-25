@@ -1,26 +1,60 @@
 import SwiftData
 import SwiftUI
 
-struct HistoryView: View {
-    @Query(sort: \EmotionalCheckIn.createdAt, order: .reverse) private var checkIns: [EmotionalCheckIn]
-    @Query(sort: \ExerciseSessionRecord.completedAt, order: .reverse) private var sessions: [ExerciseSessionRecord]
-    @Query(sort: \ToolUsageEvent.createdAt, order: .reverse) private var usage: [ToolUsageEvent]
-    @State private var toolPage = 0
+private struct WritingItem: Identifiable {
+    enum Kind {
+        case journal
+        case chat
+    }
 
-    init() {}
+    let id: String
+    let kind: Kind
+    let title: String
+    let body: String
+    let timestamp: Date
+}
+
+private enum WritingFilter: String, CaseIterable, Identifiable {
+    case notes
+    case messages
+
+    var id: String { rawValue }
+
+    var title: LocalizedStringResource {
+        switch self {
+        case .notes:
+            AppStrings.Writings.filterNotes
+        case .messages:
+            AppStrings.Writings.filterMessages
+        }
+    }
+}
+
+struct HistoryView: View {
+    let openRoute: (AppRoute) -> Void
+
+    @Query(sort: \EmotionalCheckIn.createdAt, order: .reverse) private var checkIns: [EmotionalCheckIn]
+    @Query(sort: \JournalEntry.createdAt, order: .reverse) private var journalEntries: [JournalEntry]
+    @Query(sort: \ChatMessageRecord.createdAt, order: .reverse) private var chatMessages: [ChatMessageRecord]
+    @Query(sort: \ExerciseSessionRecord.completedAt, order: .reverse) private var sessions: [ExerciseSessionRecord]
+
+    init(openRoute: @escaping (AppRoute) -> Void) {
+        self.openRoute = openRoute
+    }
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 18) {
+            VStack(alignment: .leading, spacing: 20) {
                 summaryCard
-                if weekCheckIns.isEmpty && usage.isEmpty {
+
+                if writingPreview.isEmpty {
                     emptyState
                 } else {
-                    repeatedEmotions
-                    mostUsedTools
+                    writingsPreviewSection
                 }
             }
             .padding(AppTheme.layoutPadding)
+            .padding(.bottom, 44)
         }
         .background(AppTheme.pageGradient.ignoresSafeArea())
         .navigationTitle(String(localized: AppStrings.History.navigationTitle))
@@ -30,6 +64,36 @@ struct HistoryView: View {
     private var weekCheckIns: [EmotionalCheckIn] {
         let weekAgo = Calendar.current.date(byAdding: .day, value: -7, to: .now) ?? .now
         return checkIns.filter { $0.createdAt >= weekAgo }
+    }
+
+    private var writingPreview: [WritingItem] {
+        Array(allWritings.prefix(3))
+    }
+
+    private var allWritings: [WritingItem] {
+        let journalItems = journalEntries.map { entry in
+            WritingItem(
+                id: "journal-\(entry.id.uuidString)",
+                kind: .journal,
+                title: String(localized: AppStrings.History.Item.journalTitle),
+                body: journalPreview(entry),
+                timestamp: entry.createdAt
+            )
+        }
+
+        let chatItems = chatMessages
+            .filter(\.isFromUser)
+            .map { message in
+                WritingItem(
+                    id: "chat-\(message.id.uuidString)",
+                    kind: .chat,
+                    title: String(localized: AppStrings.History.Item.chatTitle),
+                    body: message.text,
+                    timestamp: message.createdAt
+                )
+            }
+
+        return (journalItems + chatItems).sorted(by: { $0.timestamp > $1.timestamp })
     }
 
     private var summaryCard: some View {
@@ -53,112 +117,126 @@ struct HistoryView: View {
                     .font(.appSection)
                     .foregroundStyle(AppTheme.textPrimary)
 
-                Text(String(format: String(localized: AppStrings.History.summaryBodyFormat), locale: Locale(identifier: "es"), weekCheckIns.count, sessions.count))
-                    .foregroundStyle(AppTheme.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                Text(
+                    String(
+                        format: String(localized: AppStrings.History.summaryBodyFormat),
+                        locale: Locale(identifier: "es"),
+                        weekCheckIns.count,
+                        sessions.count
+                    )
+                )
+                .foregroundStyle(AppTheme.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
 
                 HStack(spacing: 10) {
                     metricPill(value: "\(weekCheckIns.count)", label: String(localized: AppStrings.History.metricWeek))
                     metricPill(value: "\(sessions.count)", label: String(localized: AppStrings.History.metricExercises))
                 }
 
-                if let common = emotionCounts.max(by: { $0.value < $1.value }) {
-                    Text(String(format: String(localized: AppStrings.History.summaryCommonEmotionFormat), locale: Locale(identifier: "es"), common.key.lowercased()))
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(AppTheme.tint)
-                        .fixedSize(horizontal: false, vertical: true)
+                if let commonEmotion {
+                    Text(
+                        String(
+                            format: String(localized: AppStrings.History.summaryCommonEmotionFormat),
+                            locale: Locale(identifier: "es"),
+                            commonEmotion.lowercased()
+                        )
+                    )
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(AppTheme.tint)
+                    .fixedSize(horizontal: false, vertical: true)
                 }
             }
             .padding(24)
         }
     }
 
-    private var repeatedEmotions: some View {
+    private var commonEmotion: String? {
+        Dictionary(grouping: weekCheckIns, by: \.localizedEmotion)
+            .mapValues(\.count)
+            .max(by: { $0.value < $1.value })?
+            .key
+    }
+
+    private var writingsPreviewSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(AppStrings.History.repeatedEmotionsTitle)
+            Text(AppStrings.History.previewTitle)
                 .font(.appSection)
                 .foregroundStyle(AppTheme.textPrimary)
 
-            ForEach(emotionCounts.sorted(by: { $0.value > $1.value }), id: \.key) { item in
-                AccentCard(tint: AppTheme.tintSoft) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            Text(item.key)
-                                .font(.headline)
-                                .foregroundStyle(AppTheme.textPrimary)
-                            Spacer()
-                            Text(LocalizedFormatting.historyCount(item.value))
-                                .foregroundStyle(AppTheme.textSecondary)
+            AppCard {
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(Array(writingPreview.enumerated()), id: \.element.id) { index, item in
+                        if index > 0 {
+                            Divider()
+                                .padding(.vertical, 14)
                         }
-                        GeometryReader { geometry in
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .fill(AppTheme.tintSoft)
-                                .overlay(alignment: .leading) {
-                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                        .fill(AppTheme.tint)
-                                        .frame(width: max(32, geometry.size.width * CGFloat(item.value) / CGFloat(maxEmotionCount)))
-                                }
-                        }
-                        .frame(height: 12)
+
+                        writingRow(item)
                     }
+
+                    Divider()
+                        .padding(.vertical, 14)
+
+                    Button(String(localized: AppStrings.History.previewButton)) {
+                        openRoute(.writings)
+                    }
+                    .buttonStyle(SecondaryButtonStyle())
                 }
             }
         }
     }
 
-    private var mostUsedTools: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(AppStrings.History.toolsTitle)
-                .font(.appSection)
-                .foregroundStyle(AppTheme.textPrimary)
+    private func writingRow(_ item: WritingItem) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(tint(for: item.kind).opacity(0.9))
+                    .frame(width: 42, height: 42)
+                Image(systemName: icon(for: item.kind))
+                    .foregroundStyle(AppTheme.tint)
+            }
 
-            GeometryReader { proxy in
-                let items = Array(toolCounts.sorted(by: { $0.value > $1.value }).prefix(4))
-
-                VStack(spacing: 12) {
-                    TabView(selection: $toolPage) {
-                        ForEach(Array(items.enumerated()), id: \.element.key) { index, item in
-                            AccentCard(tint: AppTheme.peach) {
-                                VStack(alignment: .leading, spacing: 12) {
-                                    Text(LocalizedFormatting.toolEventName(item.key))
-                                        .font(.headline)
-                                        .foregroundStyle(AppTheme.textPrimary)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                    Text("\(item.value)")
-                                        .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                                        .foregroundStyle(AppTheme.tint)
-                                    Text(AppStrings.History.toolsRecentUses)
-                                        .font(.caption)
-                                        .foregroundStyle(AppTheme.textSecondary)
-                                }
-                                .frame(maxHeight: .infinity, alignment: .topLeading)
-                            }
-                            .frame(width: proxy.size.width, height: 142, alignment: .topLeading)
-                            .tag(index)
-                        }
-                    }
-                    .tabViewStyle(.page(indexDisplayMode: .never))
-
-                    CarouselPageIndicator(
-                        count: items.count,
-                        currentIndex: toolPage
-                    )
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(alignment: .top) {
+                    Text(item.title)
+                        .font(.headline)
+                        .foregroundStyle(AppTheme.textPrimary)
+                    Spacer()
+                    Text(item.timestamp.formatted(date: .abbreviated, time: .shortened))
+                        .font(.caption)
+                        .foregroundStyle(AppTheme.textSecondary)
                 }
-                .frame(height: 160)
+
+                Text(item.body)
+                    .font(.subheadline)
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
             }
         }
     }
 
-    private var emotionCounts: [String: Int] {
-        Dictionary(grouping: weekCheckIns, by: \.localizedEmotion).mapValues(\.count)
+    private func journalPreview(_ entry: JournalEntry) -> String {
+        let candidates = [entry.feelingText, entry.neededText, entry.affectingText, entry.supportText]
+        return candidates.first(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) ?? ""
     }
 
-    private var maxEmotionCount: Int {
-        max(1, emotionCounts.values.max() ?? 1)
+    private func icon(for kind: WritingItem.Kind) -> String {
+        switch kind {
+        case .journal:
+            "square.and.pencil"
+        case .chat:
+            "ellipsis.message"
+        }
     }
 
-    private var toolCounts: [String: Int] {
-        Dictionary(grouping: usage, by: \.name).mapValues(\.count)
+    private func tint(for kind: WritingItem.Kind) -> Color {
+        switch kind {
+        case .journal:
+            AppTheme.secondarySurface
+        case .chat:
+            AppTheme.peach
+        }
     }
 
     private func metricPill(value: String, label: String) -> some View {
@@ -184,17 +262,184 @@ struct HistoryView: View {
                 Text(AppStrings.History.emptyTitle)
                     .font(.headline)
                     .foregroundStyle(AppTheme.textPrimary)
-                Text(AppStrings.History.emptyBody)
+                Text(AppStrings.History.previewEmptyBody)
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                Button(String(localized: AppStrings.History.previewButton)) {
+                    openRoute(.writings)
+                }
+                .buttonStyle(SecondaryButtonStyle())
+            }
+        }
+    }
+}
+
+struct WritingsView: View {
+    @Query(sort: \JournalEntry.createdAt, order: .reverse) private var journalEntries: [JournalEntry]
+    @Query(sort: \ChatMessageRecord.createdAt, order: .reverse) private var chatMessages: [ChatMessageRecord]
+    @State private var selectedFilter: WritingFilter = .notes
+    @State private var selectedEntry: JournalEntry?
+
+    private var notes: [JournalEntry] {
+        journalEntries
+    }
+
+    private var messages: [ChatMessageRecord] {
+        chatMessages.filter(\.isFromUser)
+    }
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+                Picker("", selection: $selectedFilter) {
+                    ForEach(WritingFilter.allCases) { filter in
+                        Text(filter.title).tag(filter)
+                    }
+                }
+                .pickerStyle(.segmented)
+
+                if selectedFilter == .notes {
+                    notesSection
+                } else {
+                    messagesSection
+                }
+            }
+            .padding(AppTheme.layoutPadding)
+            .padding(.bottom, 44)
+        }
+        .background(AppTheme.pageGradient.ignoresSafeArea())
+        .navigationTitle(String(localized: AppStrings.Writings.navigationTitle))
+        .navigationBarTitleDisplayMode(.inline)
+        .sheet(item: $selectedEntry) { entry in
+            journalEntryDetail(entry)
+                .presentationDetents([.medium, .large])
+        }
+    }
+
+    @ViewBuilder
+    private var notesSection: some View {
+        if notes.isEmpty {
+            emptyCard(body: AppStrings.Writings.emptyBody)
+        } else {
+            ForEach(notes, id: \.id) { entry in
+                Button {
+                    selectedEntry = entry
+                } label: {
+                    AppCard {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(entryPreviewTitle(entry))
+                                .font(.headline)
+                                .foregroundStyle(AppTheme.textPrimary)
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            if let previewBody = entryPreviewBody(entry) {
+                                Text(previewBody)
+                                    .foregroundStyle(AppTheme.textSecondary)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+
+                            HStack {
+                                Text(entry.createdAt.formatted(date: .abbreviated, time: .shortened))
+                                    .font(.footnote)
+                                    .foregroundStyle(AppTheme.textSecondary)
+
+                                Spacer()
+                                CardCTA(title: String(localized: AppStrings.Common.ctaViewDetails))
+                            }
+                        }
+                    }
+                }
+                .buttonStyle(.plain)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var messagesSection: some View {
+        if messages.isEmpty {
+            emptyCard(body: AppStrings.Writings.emptyBody)
+        } else {
+            ForEach(messages, id: \.id) { message in
+                AppCard {
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Text(AppStrings.History.Item.chatTitle)
+                                .font(.headline)
+                                .foregroundStyle(AppTheme.textPrimary)
+                            Spacer()
+                            Text(message.createdAt.formatted(date: .abbreviated, time: .shortened))
+                                .font(.footnote)
+                                .foregroundStyle(AppTheme.textSecondary)
+                        }
+
+                        Text(message.text)
+                            .foregroundStyle(AppTheme.textSecondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+            }
+        }
+    }
+
+    private func emptyCard(body: LocalizedStringResource) -> some View {
+        AccentCard(tint: AppTheme.secondarySurface) {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(AppStrings.Writings.emptyTitle)
+                    .font(.headline)
+                    .foregroundStyle(AppTheme.textPrimary)
+                Text(body)
                     .foregroundStyle(AppTheme.textSecondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
+        }
+    }
+
+    private func entryPreviewTitle(_ entry: JournalEntry) -> String {
+        let candidates = [entry.feelingText, entry.neededText, entry.affectingText, entry.supportText]
+        return candidates.first(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
+            ?? String(localized: AppStrings.Journaling.detailTitle)
+    }
+
+    private func entryPreviewBody(_ entry: JournalEntry) -> String? {
+        [entry.affectingText, entry.neededText, entry.supportText]
+            .first(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
+    }
+
+    private func journalEntryDetail(_ entry: JournalEntry) -> some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+                Text(AppStrings.Journaling.detailTitle)
+                    .font(.appSection)
+                    .foregroundStyle(AppTheme.textPrimary)
+
+                Text(entry.createdAt.formatted(date: .abbreviated, time: .shortened))
+                    .font(.footnote)
+                    .foregroundStyle(AppTheme.textSecondary)
+
+                detailSection(title: AppStrings.Journaling.fieldFeeling, text: entry.feelingText)
+                detailSection(title: AppStrings.Journaling.fieldAffecting, text: entry.affectingText)
+                detailSection(title: AppStrings.Journaling.fieldNeeded, text: entry.neededText)
+                detailSection(title: AppStrings.Journaling.fieldSupport, text: entry.supportText)
+            }
+            .padding(24)
+        }
+    }
+
+    @ViewBuilder
+    private func detailSection(title: LocalizedStringResource, text: String) -> some View {
+        let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmedText.isEmpty {
+            SessionInfoCard(
+                title: String(localized: title),
+                message: trimmedText
+            )
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        HistoryView()
+        HistoryView(openRoute: { _ in })
     }
     .modelContainer(PersistenceController.preview.container)
 }

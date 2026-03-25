@@ -104,6 +104,7 @@ struct HomeView: View {
                 header
                 emergencyCard
                 currentStateCard
+                historyCard
                 actionGrid
                 progressCard
                 responsibleCopy
@@ -243,6 +244,30 @@ struct HomeView: View {
                 }
             }
             .frame(height: 182)
+        }
+    }
+
+    private var historyCard: some View {
+        AccentCard(tint: AppTheme.lavender) {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(spacing: 10) {
+                    Image(systemName: "clock.arrow.circlepath")
+                        .foregroundStyle(AppTheme.tint)
+                    Text(AppStrings.Home.historyCardTitle)
+                        .font(.headline)
+                        .foregroundStyle(AppTheme.textPrimary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                Text(AppStrings.Home.historyCardBody)
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Button(String(localized: AppStrings.Home.historyCardButton)) {
+                    openRoute(.history)
+                }
+                .buttonStyle(SecondaryButtonStyle())
+            }
         }
     }
 
