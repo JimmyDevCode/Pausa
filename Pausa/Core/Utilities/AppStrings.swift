@@ -177,6 +177,9 @@ enum AppStrings {
         static let summaryTitle: LocalizedStringResource = "history.summary.title"
         static let toolsRecentUses: LocalizedStringResource = "history.tools.recent_uses"
         static let toolsTitle: LocalizedStringResource = "history.tools.title"
+        static let writingsBodyFormat: LocalizedStringResource = "history.writings.body_format"
+        static let writingsEmptyBody: LocalizedStringResource = "history.writings.empty_body"
+        static let writingsTitle: LocalizedStringResource = "history.writings.title"
 
         enum Item {
             static let chatTitle: LocalizedStringResource = "history.item.chat.title"
@@ -243,6 +246,8 @@ enum AppStrings {
     }
 
     enum Journaling {
+        static let buttonBack: LocalizedStringResource = "journaling.button.back"
+        static let buttonNext: LocalizedStringResource = "journaling.button.next"
         static let buttonSave: LocalizedStringResource = "journaling.button.save"
         static let detailTitle: LocalizedStringResource = "journaling.detail.title"
         static let emptyBody: LocalizedStringResource = "journaling.empty.body"
@@ -254,6 +259,11 @@ enum AppStrings {
         static let navigationTitle: LocalizedStringResource = "journaling.navigation.title"
         static let placeholder: LocalizedStringResource = "journaling.placeholder"
         static let previousEntries: LocalizedStringResource = "journaling.previous_entries"
+        static let stepFormat: LocalizedStringResource = "journaling.step.format"
+        static let stepReflectionBody: LocalizedStringResource = "journaling.step.reflection.body"
+        static let stepReflectionTitle: LocalizedStringResource = "journaling.step.reflection.title"
+        static let stepSupportBody: LocalizedStringResource = "journaling.step.support.body"
+        static let stepSupportTitle: LocalizedStringResource = "journaling.step.support.title"
     }
 
     enum Tab {
