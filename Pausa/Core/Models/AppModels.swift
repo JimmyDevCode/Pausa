@@ -143,6 +143,7 @@ enum DesiredFeeling: String, CaseIterable, Codable, Identifiable {
 final class UserProfile {
     var id: UUID
     var nickname: String
+    var avatarData: Data?
     var preferredFeeling: String
     var mainConcern: String
     var createdAt: Date
@@ -150,12 +151,14 @@ final class UserProfile {
     init(
         id: UUID = UUID(),
         nickname: String,
+        avatarData: Data? = nil,
         preferredFeeling: String,
         mainConcern: String,
         createdAt: Date = .now
     ) {
         self.id = id
         self.nickname = nickname
+        self.avatarData = avatarData
         self.preferredFeeling = preferredFeeling
         self.mainConcern = mainConcern
         self.createdAt = createdAt

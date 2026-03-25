@@ -2235,6 +2235,116 @@
         }
       }
     },
+    "profile.about.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sobre ti"
+          }
+        }
+      }
+    },
+    "profile.camera.option" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tomar foto"
+          }
+        }
+      }
+    },
+    "profile.cancel.option" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        }
+      }
+    },
+    "profile.choose_photo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar foto"
+          }
+        }
+      }
+    },
+    "profile.done.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Listo"
+          }
+        }
+      }
+    },
+    "profile.edit_photo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambiar foto"
+          }
+        }
+      }
+    },
+    "profile.edit.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar perfil"
+          }
+        }
+      }
+    },
+    "profile.edit.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar perfil"
+          }
+        }
+      }
+    },
+    "profile.field.concern" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estoy trabajando en"
+          }
+        }
+      }
+    },
+    "profile.field.nickname" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre o apodo"
+          }
+        }
+      }
+    },
+    "profile.field.preferred_feeling" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quiero sentir más"
+          }
+        }
+      }
+    },
     "profile.focus_format" : {
       "localizations" : {
         "es" : {
@@ -2245,12 +2355,32 @@
         }
       }
     },
+    "profile.library.option" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elegir de la galería"
+          }
+        }
+      }
+    },
     "profile.navigation.title" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Perfil"
+          }
+        }
+      }
+    },
+    "profile.photo_hint" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La foto se guarda solo en este dispositivo."
           }
         }
       }
@@ -2295,12 +2425,32 @@
         }
       }
     },
+    "profile.remove_photo.option" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitar foto"
+          }
+        }
+      }
+    },
     "profile.seeking_format" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buscas: %@"
+          }
+        }
+      }
+    },
+    "profile.subtitle_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscando %@ y trabajando %@"
           }
         }
       }
