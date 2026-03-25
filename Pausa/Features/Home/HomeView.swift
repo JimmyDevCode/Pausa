@@ -33,20 +33,11 @@ final class HomeViewModel {
 }
 
 struct HomeView: View {
-    private struct HomeActionItem: Identifiable {
-        let id: String
-        let icon: String
-        let title: String
-        let subtitle: String
-        let action: AppRoute
-    }
-
     let profile: UserProfile
     let services: AppServices
     let openRoute: (AppRoute) -> Void
 
     @State private var viewModel: HomeViewModel
-    @State private var actionPage = 0
     @Query(sort: \EmotionalCheckIn.createdAt, order: .reverse) private var checkIns: [EmotionalCheckIn]
     @Query(sort: \JournalEntry.createdAt, order: .reverse) private var journalEntries: [JournalEntry]
     @Query(sort: \ExerciseSessionRecord.completedAt, order: .reverse) private var sessions: [ExerciseSessionRecord]
@@ -59,44 +50,7 @@ struct HomeView: View {
         _viewModel = State(initialValue: HomeViewModel(services: services))
     }
 
-    private var profileInitial: String {
-        let trimmedName = profile.nickname.trimmingCharacters(in: .whitespacesAndNewlines)
-        return String(trimmedName.isEmpty ? "P" : trimmedName.prefix(1)).uppercased()
-    }
-
     private var latestCheckIn: EmotionalCheckIn? { checkIns.first }
-    private var actionItems: [HomeActionItem] {
-        [
-            HomeActionItem(
-                id: "exercises",
-                icon: "wind",
-                title: String(localized: AppStrings.Home.toolsExercisesTitle),
-                subtitle: String(localized: AppStrings.Home.toolsExercisesSubtitle),
-                action: .exercises
-            ),
-            HomeActionItem(
-                id: "journaling",
-                icon: "square.and.pencil",
-                title: String(localized: AppStrings.Home.toolsJournalingTitle),
-                subtitle: String(localized: AppStrings.Home.toolsJournalingSubtitle),
-                action: .journaling
-            ),
-            HomeActionItem(
-                id: "support-chat",
-                icon: "ellipsis.message",
-                title: String(localized: AppStrings.Home.toolsChatTitle),
-                subtitle: String(localized: AppStrings.Home.toolsChatSubtitle),
-                action: .supportChat
-            ),
-            HomeActionItem(
-                id: "history",
-                icon: "chart.bar.xaxis",
-                title: String(localized: AppStrings.Home.toolsHistoryTitle),
-                subtitle: String(localized: AppStrings.Home.toolsHistorySubtitle),
-                action: .history
-            )
-        ]
-    }
 
     var body: some View {
         ScrollView {
@@ -104,8 +58,6 @@ struct HomeView: View {
                 header
                 emergencyCard
                 currentStateCard
-                historyCard
-                actionGrid
                 progressCard
                 responsibleCopy
             }
@@ -114,34 +66,6 @@ struct HomeView: View {
         .background(AppTheme.pageGradient.ignoresSafeArea())
         .navigationTitle(String(localized: AppStrings.Home.navigationTitle))
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    openRoute(.profile)
-                } label: {
-                    ZStack {
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [AppTheme.tintSoft, Color.white.opacity(0.98)],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .frame(width: 34, height: 34)
-                            .shadow(color: AppTheme.tint.opacity(0.12), radius: 8, x: 0, y: 4)
-                            .overlay {
-                                Circle()
-                                    .stroke(Color.white.opacity(0.85), lineWidth: 1)
-                            }
-
-                        Text(profileInitial)
-                        .font(.subheadline.weight(.bold))
-                            .foregroundStyle(AppTheme.tint)
-                    }
-                }
-            }
-        }
         .onAppear {
             viewModel.trackAppear(context: modelContext)
         }
@@ -218,82 +142,6 @@ struct HomeView: View {
                 .buttonStyle(SecondaryButtonStyle())
             }
         }
-    }
-
-    private var actionGrid: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(AppStrings.Home.toolsTitle)
-                .font(.appSection)
-                .foregroundStyle(AppTheme.textPrimary)
-
-            GeometryReader { proxy in
-                VStack(spacing: 12) {
-                    TabView(selection: $actionPage) {
-                        ForEach(Array(actionItems.enumerated()), id: \.element.id) { index, item in
-                            actionCard(item: item)
-                                .frame(width: proxy.size.width - 28, height: 164, alignment: .topLeading)
-                                .tag(index)
-                        }
-                    }
-                    .tabViewStyle(.page(indexDisplayMode: .never))
-
-                    CarouselPageIndicator(
-                        count: actionItems.count,
-                        currentIndex: actionPage
-                    )
-                }
-            }
-            .frame(height: 182)
-        }
-    }
-
-    private var historyCard: some View {
-        AccentCard(tint: AppTheme.lavender) {
-            VStack(alignment: .leading, spacing: 12) {
-                HStack(spacing: 10) {
-                    Image(systemName: "clock.arrow.circlepath")
-                        .foregroundStyle(AppTheme.tint)
-                    Text(AppStrings.Home.historyCardTitle)
-                        .font(.headline)
-                        .foregroundStyle(AppTheme.textPrimary)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-
-                Text(AppStrings.Home.historyCardBody)
-                    .foregroundStyle(AppTheme.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
-
-                Button(String(localized: AppStrings.Home.historyCardButton)) {
-                    openRoute(.history)
-                }
-                .buttonStyle(SecondaryButtonStyle())
-            }
-        }
-    }
-
-    private func actionCard(item: HomeActionItem) -> some View {
-        Button {
-            openRoute(item.action)
-        } label: {
-            AppCard {
-                VStack(alignment: .leading, spacing: 16) {
-                    QuickActionRow(
-                        icon: item.icon,
-                        title: item.title,
-                        subtitle: item.subtitle,
-                        showsChevron: false
-                    )
-
-                    HStack {
-                        Spacer()
-                        CardCTA(title: String(localized: AppStrings.Common.ctaOpen))
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        }
-        .buttonStyle(.plain)
     }
 
     private var progressCard: some View {
