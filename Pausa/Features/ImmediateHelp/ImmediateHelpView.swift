@@ -32,7 +32,7 @@ struct ImmediateHelpView: View {
                                             QuickActionRow(
                                                 icon: icon(for: exercise.id),
                                                 title: exercise.title,
-                                                subtitle: "\(exercise.summary) · \(exercise.durationSeconds / 60 == 0 ? "1 min" : "\(exercise.durationSeconds / 60) min")",
+                                                subtitle: "\(exercise.summary) · \(LocalizedFormatting.exerciseDuration(exercise.durationSeconds))",
                                                 showsChevron: false
                                             )
 
@@ -111,7 +111,7 @@ struct ImmediateHelpView: View {
                     }
                 }
 
-                Text(String(format: String(localized: AppStrings.Exercise.durationFormat), locale: Locale(identifier: "es"), formattedDuration(exercise.durationSeconds)))
+                Text(String(format: String(localized: AppStrings.Exercise.durationFormat), locale: Locale(identifier: "es"), LocalizedFormatting.exerciseDuration(exercise.durationSeconds)))
                     .font(.subheadline.weight(.medium))
                     .foregroundStyle(AppTheme.tint)
 
@@ -124,10 +124,6 @@ struct ImmediateHelpView: View {
             .padding(24)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
-    }
-
-    private func formattedDuration(_ seconds: Int) -> String {
-        seconds >= 60 ? "\(seconds / 60) min" : "\(seconds) seg"
     }
 }
 

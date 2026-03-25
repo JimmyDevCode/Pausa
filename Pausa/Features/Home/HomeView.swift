@@ -21,14 +21,14 @@ final class HomeViewModel {
 
     func headerSubtitle(latestCheckIn: EmotionalCheckIn?) -> String {
         if let latestCheckIn {
-            return String(format: String(localized: AppStrings.Home.headerSubtitleLatestFormat), locale: Locale(identifier: "es"), latestCheckIn.emotion.lowercased())
+            return String(format: String(localized: AppStrings.Home.headerSubtitleLatestFormat), locale: Locale(identifier: "es"), latestCheckIn.localizedEmotionLowercased)
         }
         return String(localized: AppStrings.Home.headerSubtitleEmpty)
     }
 
     func latestStateCopy(latestCheckIn: EmotionalCheckIn?) -> String {
         guard let latestCheckIn else { return "" }
-        return String(format: String(localized: AppStrings.Home.latestStateFormat), locale: Locale(identifier: "es"), latestCheckIn.emotion.lowercased(), latestCheckIn.stressLevel, latestCheckIn.recommendationBody)
+        return String(format: String(localized: AppStrings.Home.latestStateFormat), locale: Locale(identifier: "es"), latestCheckIn.localizedEmotionLowercased, latestCheckIn.stressLevel, latestCheckIn.localizedRecommendationBody)
     }
 }
 
@@ -173,7 +173,7 @@ struct HomeView: View {
                     .fixedSize(horizontal: false, vertical: true)
 
                 if let latestCheckIn {
-                    HomePill(text: latestCheckIn.emotion)
+                    HomePill(text: latestCheckIn.localizedEmotion)
                 }
             }
             .padding(24)
@@ -345,7 +345,7 @@ private struct HomePill: View {
 #Preview {
     NavigationStack {
         HomeView(
-            profile: UserProfile(nickname: "Ari", preferredFeeling: "Más calma", mainConcern: "Estrés"),
+            profile: UserProfile(nickname: String(localized: AppStrings.Preview.nickname), preferredFeeling: DesiredFeeling.calma.rawValue, mainConcern: FocusArea.estres.rawValue),
             services: AppServices()
         ) { _ in }
     }

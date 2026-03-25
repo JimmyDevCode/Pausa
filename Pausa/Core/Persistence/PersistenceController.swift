@@ -30,7 +30,7 @@ struct PersistenceController {
 enum PreviewSeeder {
     static func seed(into context: ModelContext) {
         let profile = UserProfile(
-            nickname: "Ari",
+            nickname: String(localized: AppStrings.Preview.nickname),
             preferredFeeling: DesiredFeeling.calma.rawValue,
             mainConcern: FocusArea.estres.rawValue
         )
@@ -40,35 +40,35 @@ enum PreviewSeeder {
             EmotionalCheckIn(
                 emotion: EmotionalState.abrumado.rawValue,
                 stressLevel: 8,
-                recommendationTitle: "Prueba una pausa mental breve",
-                recommendationBody: "Tu día se siente cargado. Una pausa de dos minutos puede bajar un poco la intensidad.",
+                recommendationTitle: AppRecommendationText.abrumadoTitle.rawValue,
+                recommendationBody: AppRecommendationText.abrumadoBody.rawValue,
                 recommendationRoute: "immediateHelp"
             )
         )
 
         context.insert(
             JournalEntry(
-                feelingText: "Estoy con demasiadas ventanas abiertas en la cabeza.",
-                affectingText: "La acumulación de pendientes y mensajes.",
-                neededText: "Necesito bajar la velocidad un rato.",
-                supportText: "Respirar y ordenar una sola prioridad."
+                feelingText: String(localized: AppStrings.Preview.journalFeeling),
+                affectingText: String(localized: AppStrings.Preview.journalAffecting),
+                neededText: String(localized: AppStrings.Preview.journalNeeded),
+                supportText: String(localized: AppStrings.Preview.journalSupport)
             )
         )
 
         context.insert(
             ExerciseSessionRecord(
                 exerciseID: "breathing-444",
-                title: "Respiración 4-4-4",
+                title: ExerciseLibrary.all.first(where: { $0.id == "breathing-444" })?.title ?? "",
                 source: "home",
                 helpfulness: 4
             )
         )
 
         context.insert(ToolUsageEvent(name: "home_returned"))
-        context.insert(ChatMessageRecord(text: "Hola, hoy me siento saturado.", isFromUser: true))
+        context.insert(ChatMessageRecord(text: String(localized: AppStrings.Preview.chatUserText), isFromUser: true))
         context.insert(
             ChatMessageRecord(
-                text: "Vamos despacio. Si quieres, puedo sugerirte una respiración corta o un check-in rápido.",
+                text: String(localized: AppStrings.Preview.chatAssistantText),
                 isFromUser: false,
                 suggestedRoute: "immediateHelp"
             )

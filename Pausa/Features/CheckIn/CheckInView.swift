@@ -25,10 +25,10 @@ final class CheckInViewModel {
 
         context.insert(
             EmotionalCheckIn(
-                emotion: selectedEmotion.rawValue.capitalized,
+                emotion: selectedEmotion.rawValue,
                 stressLevel: Int(stressLevel.rounded()),
-                recommendationTitle: result.title,
-                recommendationBody: result.body,
+                recommendationTitle: result.titleKey.rawValue,
+                recommendationBody: result.bodyKey.rawValue,
                 recommendationRoute: result.route.storageKey
             )
         )

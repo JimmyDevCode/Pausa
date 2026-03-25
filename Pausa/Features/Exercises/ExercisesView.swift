@@ -69,7 +69,7 @@ struct ExercisesView: View {
                         )
                     }
                 }
-                Text(String(format: String(localized: AppStrings.Exercise.durationFormat), locale: Locale(identifier: "es"), formattedDuration(exercise.durationSeconds)))
+                Text(String(format: String(localized: AppStrings.Exercise.durationFormat), locale: Locale(identifier: "es"), LocalizedFormatting.exerciseDuration(exercise.durationSeconds)))
                     .font(.subheadline.weight(.medium))
                     .foregroundStyle(AppTheme.tint)
 
@@ -80,10 +80,6 @@ struct ExercisesView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
-    }
-
-    private func formattedDuration(_ seconds: Int) -> String {
-        seconds >= 60 ? "\(seconds / 60) min" : "\(seconds) seg"
     }
 
     private func exercisePreviewSheet(_ exercise: ExerciseDefinition) -> some View {
@@ -107,7 +103,7 @@ struct ExercisesView: View {
                     }
                 }
 
-                Text(String(format: String(localized: AppStrings.Exercise.durationFormat), locale: Locale(identifier: "es"), formattedDuration(exercise.durationSeconds)))
+                Text(String(format: String(localized: AppStrings.Exercise.durationFormat), locale: Locale(identifier: "es"), LocalizedFormatting.exerciseDuration(exercise.durationSeconds)))
                     .font(.subheadline.weight(.medium))
                     .foregroundStyle(AppTheme.tint)
 

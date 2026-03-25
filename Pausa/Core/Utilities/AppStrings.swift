@@ -72,6 +72,9 @@ enum AppStrings {
         static let breathing444Summary: LocalizedStringResource = "exercise.breathing_444.summary"
         static let breathing444Title: LocalizedStringResource = "exercise.breathing_444.title"
         static let durationFormat: LocalizedStringResource = "exercise.duration_format"
+        static let durationMinutesFormat: LocalizedStringResource = "exercise.duration_minutes_format"
+        static let durationOneMinute: LocalizedStringResource = "exercise.duration_one_minute"
+        static let durationSecondsFormat: LocalizedStringResource = "exercise.duration_seconds_format"
         static let groundingClosing: LocalizedStringResource = "exercise.grounding.closing"
         static let groundingDetail: LocalizedStringResource = "exercise.grounding.detail"
         static let groundingEvidence: LocalizedStringResource = "exercise.grounding.evidence"
@@ -158,6 +161,7 @@ enum AppStrings {
     }
 
     enum History {
+        static let countFormat: LocalizedStringResource = "history.count_format"
         static let emptyBody: LocalizedStringResource = "history.empty.body"
         static let emptyTitle: LocalizedStringResource = "history.empty.title"
         static let metricExercises: LocalizedStringResource = "history.metric.exercises"
@@ -169,6 +173,17 @@ enum AppStrings {
         static let summaryTitle: LocalizedStringResource = "history.summary.title"
         static let toolsRecentUses: LocalizedStringResource = "history.tools.recent_uses"
         static let toolsTitle: LocalizedStringResource = "history.tools.title"
+
+        enum Tool {
+            static let checkInCompleted: LocalizedStringResource = "history.tool.checkin_completed"
+            static let chatMessageSent: LocalizedStringResource = "history.tool.chat_message_sent"
+            static let exerciseCompleted: LocalizedStringResource = "history.tool.exercise_completed"
+            static let exerciseStarted: LocalizedStringResource = "history.tool.exercise_started"
+            static let homeReturned: LocalizedStringResource = "history.tool.home_returned"
+            static let immediateHelpUsed: LocalizedStringResource = "history.tool.immediate_help_used"
+            static let journalingSaved: LocalizedStringResource = "history.tool.journaling_saved"
+            static let onboardingCompleted: LocalizedStringResource = "history.tool.onboarding_completed"
+        }
     }
 
     enum Home {
@@ -256,6 +271,16 @@ enum AppStrings {
         static let seekingFormat: LocalizedStringResource = "profile.seeking_format"
     }
 
+    enum Preview {
+        static let chatAssistantText: LocalizedStringResource = "preview.chat.assistant_text"
+        static let chatUserText: LocalizedStringResource = "preview.chat.user_text"
+        static let journalAffecting: LocalizedStringResource = "preview.journal.affecting"
+        static let journalFeeling: LocalizedStringResource = "preview.journal.feeling"
+        static let journalNeeded: LocalizedStringResource = "preview.journal.needed"
+        static let journalSupport: LocalizedStringResource = "preview.journal.support"
+        static let nickname: LocalizedStringResource = "preview.nickname"
+    }
+
     enum Recommendation {
         static let abrumadoBody: LocalizedStringResource = "recommendation.abrumado.body"
         static let abrumadoButton: LocalizedStringResource = "recommendation.abrumado.button"
@@ -284,5 +309,59 @@ enum AppStrings {
         static let pranayamaReviewTitle: LocalizedStringResource = "reference.pranayama_review.title"
         static let systematicReview: LocalizedStringResource = "reference.systematic_review"
         static let yogaHealthTitle: LocalizedStringResource = "reference.yoga_health.title"
+    }
+}
+
+enum LocalizedFormatting {
+    static func exerciseDuration(_ seconds: Int) -> String {
+        if seconds < 60 {
+            return String(
+                format: String(localized: AppStrings.Exercise.durationSecondsFormat),
+                locale: Locale(identifier: "es"),
+                seconds
+            )
+        }
+
+        let minutes = seconds / 60
+        if minutes == 1 {
+            return String(localized: AppStrings.Exercise.durationOneMinute)
+        }
+
+        return String(
+            format: String(localized: AppStrings.Exercise.durationMinutesFormat),
+            locale: Locale(identifier: "es"),
+            minutes
+        )
+    }
+
+    static func historyCount(_ count: Int) -> String {
+        String(
+            format: String(localized: AppStrings.History.countFormat),
+            locale: Locale(identifier: "es"),
+            count
+        )
+    }
+
+    static func toolEventName(_ name: String) -> String {
+        switch name {
+        case AnalyticsEvent.checkInCompleted.rawValue:
+            String(localized: AppStrings.History.Tool.checkInCompleted)
+        case AnalyticsEvent.chatMessageSent.rawValue:
+            String(localized: AppStrings.History.Tool.chatMessageSent)
+        case AnalyticsEvent.exerciseCompleted.rawValue:
+            String(localized: AppStrings.History.Tool.exerciseCompleted)
+        case AnalyticsEvent.exerciseStarted.rawValue:
+            String(localized: AppStrings.History.Tool.exerciseStarted)
+        case AnalyticsEvent.homeReturned.rawValue:
+            String(localized: AppStrings.History.Tool.homeReturned)
+        case AnalyticsEvent.immediateHelpUsed.rawValue:
+            String(localized: AppStrings.History.Tool.immediateHelpUsed)
+        case AnalyticsEvent.journalingSaved.rawValue:
+            String(localized: AppStrings.History.Tool.journalingSaved)
+        case AnalyticsEvent.onboardingCompleted.rawValue:
+            String(localized: AppStrings.History.Tool.onboardingCompleted)
+        default:
+            name.replacingOccurrences(of: "_", with: " ").capitalized
+        }
     }
 }
