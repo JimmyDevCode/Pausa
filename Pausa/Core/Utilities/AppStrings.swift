@@ -167,12 +167,24 @@ enum AppStrings {
         static let metricExercises: LocalizedStringResource = "history.metric.exercises"
         static let metricWeek: LocalizedStringResource = "history.metric.week"
         static let navigationTitle: LocalizedStringResource = "history.navigation.title"
+        static let previewButton: LocalizedStringResource = "history.preview.button"
+        static let previewEmptyBody: LocalizedStringResource = "history.preview.empty_body"
+        static let previewTitle: LocalizedStringResource = "history.preview.title"
+        static let recentActivityTitle: LocalizedStringResource = "history.recent_activity.title"
         static let repeatedEmotionsTitle: LocalizedStringResource = "history.repeated_emotions.title"
         static let summaryBodyFormat: LocalizedStringResource = "history.summary.body_format"
         static let summaryCommonEmotionFormat: LocalizedStringResource = "history.summary.common_emotion_format"
         static let summaryTitle: LocalizedStringResource = "history.summary.title"
         static let toolsRecentUses: LocalizedStringResource = "history.tools.recent_uses"
         static let toolsTitle: LocalizedStringResource = "history.tools.title"
+
+        enum Item {
+            static let chatTitle: LocalizedStringResource = "history.item.chat.title"
+            static let checkInTitle: LocalizedStringResource = "history.item.checkin.title"
+            static let checkInBodyFormat: LocalizedStringResource = "history.item.checkin.body_format"
+            static let exerciseTitle: LocalizedStringResource = "history.item.exercise.title"
+            static let journalTitle: LocalizedStringResource = "history.item.journal.title"
+        }
 
         enum Tool {
             static let checkInCompleted: LocalizedStringResource = "history.tool.checkin_completed"
@@ -205,6 +217,9 @@ enum AppStrings {
         static let metricExercises: LocalizedStringResource = "home.metric.exercises"
         static let metricNotes: LocalizedStringResource = "home.metric.notes"
         static let navigationTitle: LocalizedStringResource = "home.navigation.title"
+        static let historyCardBody: LocalizedStringResource = "home.history_card.body"
+        static let historyCardButton: LocalizedStringResource = "home.history_card.button"
+        static let historyCardTitle: LocalizedStringResource = "home.history_card.title"
         static let progressLatestRecommendationFormat: LocalizedStringResource = "home.progress.latest_recommendation_format"
         static let progressSummaryFormat: LocalizedStringResource = "home.progress.summary_format"
         static let progressTitle: LocalizedStringResource = "home.progress.title"
@@ -239,6 +254,14 @@ enum AppStrings {
         static let navigationTitle: LocalizedStringResource = "journaling.navigation.title"
         static let placeholder: LocalizedStringResource = "journaling.placeholder"
         static let previousEntries: LocalizedStringResource = "journaling.previous_entries"
+    }
+
+    enum Writings {
+        static let emptyBody: LocalizedStringResource = "writings.empty.body"
+        static let emptyTitle: LocalizedStringResource = "writings.empty.title"
+        static let filterMessages: LocalizedStringResource = "writings.filter.messages"
+        static let filterNotes: LocalizedStringResource = "writings.filter.notes"
+        static let navigationTitle: LocalizedStringResource = "writings.navigation.title"
     }
 
     enum Onboarding {
