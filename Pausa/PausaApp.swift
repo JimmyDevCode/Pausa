@@ -24,7 +24,8 @@ struct PausaApp: App {
                     }
                     .background(Color.clear)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
+            }
+            .preferredColorScheme(.light)
         }
         .modelContainer(container)
     }
