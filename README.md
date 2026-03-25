@@ -1,10 +1,10 @@
 # Pausa
 
-Pausa es una app iOS enfocada en acompañar momentos de estrés cotidiano, sobrecarga mental y ansiedad leve. No es terapia, no hace diagnóstico y no reemplaza apoyo profesional. Su propuesta es más concreta: ayudar a la persona a bajar un poco la intensidad del momento, entender mejor cómo se siente y elegir una siguiente acción útil dentro de la app.
+Pausa es una app iOS enfocada en acompañar momentos de estrés cotidiano, sobrecarga mental y ansiedad leve. No es terapia, no hace diagnóstico y no reemplaza apoyo profesional. Su propuesta es concreta: ayudar a bajar la intensidad del momento, entender mejor cómo te sientes y elegir una siguiente acción útil dentro de la app.
 
 ## Propósito
 
-La app busca mover al usuario de:
+La app busca mover a la persona de:
 
 > "Me siento sobrepasado y no sé qué hacer"
 
@@ -12,19 +12,20 @@ a algo más parecido a:
 
 > "Ya estoy un poco más calmado, entiendo mejor lo que me pasa y sé qué puedo hacer ahora"
 
-El objetivo del MVP es validar recurrencia. Es decir: comprobar si las personas vuelven a usar con frecuencia herramientas breves como check-ins, alivio inmediato, ejercicios guiados, escritura corta, historial y un chat de apoyo liviano.
+El objetivo del MVP es validar recurrencia: comprobar si las personas vuelven a usar con frecuencia herramientas breves como check-ins, ayuda inmediata, ejercicios guiados, escritura corta, chat de apoyo, historial y recordatorios suaves.
 
 ## Qué hace la app
 
 Pausa ya cubre este flujo principal:
 
 1. Personaliza lo mínimo en onboarding.
-2. Lleva al usuario a un home con accesos rápidos y estado reciente.
+2. Lleva al usuario a una navegación principal por tabs.
 3. Permite registrar cómo se siente.
 4. Sugiere una acción concreta según el momento.
 5. Ofrece ayuda inmediata o ejercicios guiados.
-6. Deja descargar ideas o emociones en escritura breve.
-7. Guarda historial local para que el usuario vea patrones simples.
+6. Permite escribir una nota o usar un chat de apoyo.
+7. Guarda historial local para revisar progreso y escritos.
+8. Puede programar recordatorios locales diarios.
 
 ## Qué incluye hoy
 
@@ -35,28 +36,38 @@ Pausa ya cubre este flujo principal:
 - principal preocupación actual
 - flujo paginado con una decisión por pantalla
 
-### Home
+### Navegación principal
+
+La app usa tabs para que cada sección responda a una intención clara:
+
+- `Inicio`
+- `Escribir`
+- `Pausa`
+- `Progreso`
+- `Perfil`
+
+Esto reemplaza un home más cargado y reduce navegación escondida en cards o carruseles.
+
+### Inicio
 
 - saludo principal
 - acceso rápido a `Cómo estás`
-- acceso directo a `Alivio inmediato`
-- entrada a ejercicios, escritura, historial y chat
-- acceso a perfil desde la barra superior
-- resumen breve de actividad reciente
+- acceso directo a `Pausa`
+- resumen breve del estado reciente
+- entrada clara al resto de la app desde la navegación principal
 
 ### Cómo estás
 
 - selección rápida del estado emocional
 - intensidad de estrés
 - recomendación contextual
-- guardado local del registro
+- guardado local del registro emocional
 
-### Alivio inmediato
+### Pausa
 
-- acceso rápido a prácticas cortas
-- carrusel horizontal con CTA claro
-- apertura directa por deep link
-- base para widget de acceso rápido
+- acceso inmediato a prácticas cortas
+- CTA prioritario para momentos de saturación
+- entrada rápida desde tab y deep link
 
 ### Ejercicios guiados
 
@@ -66,12 +77,13 @@ Pausa ya cubre este flujo principal:
 - voz opcional para acompañar el ritmo
 - feedback simple al terminar: `Sí`, `Un poco`, `No mucho`
 
-### Escritura breve
+### Escritura
 
-- no obliga a llenar todos los campos
+- flujo paginado para escribir sin saturar la pantalla
 - permite guardar con cualquier campo que tenga contenido
-- lista de entradas guardadas
-- detalle legible de cada nota
+- muestra solo la última nota guardada como referencia
+- acceso a `Ver todos tus escritos`
+- pantalla separada para revisar notas y mensajes guardados
 
 ### Chat de apoyo
 
@@ -81,22 +93,37 @@ Pausa ya cubre este flujo principal:
 - puede sugerir una ruta dentro de la app
 - evita lenguaje clínico o diagnóstico
 
-### Historial
+### Progreso
 
-- emociones repetidas
-- herramientas más usadas
-- sesiones registradas
-- lectura simple de patrones recientes
+- resumen semanal
+- acceso a escritos guardados
+- enfoque de resumen, no de dashboard recargado
 
 ### Perfil
 
-- datos base del usuario
-- personalización ligera del contexto emocional inicial
+- foto o avatar editable
+- nombre o apodo
+- resumen personal basado en preferencias emocionales
+- hoja de edición de perfil
+- recordatorios locales configurables
+
+### Recordatorios locales
+
+- configurables desde perfil
+- permiso gestionado con `UserNotifications`
+- recordatorio diario con tono suave y no culpabilizante
+- usan el icono de la app que muestra iOS automáticamente
+
+### Branding y arranque
+
+- icono de app propio
+- launch screen nativo con logo y copy de marca
+- continuidad visual con el primer frame de la app
 
 ### Widget
 
-- widget `Alivio inmediato`
-- abre la app directo en la ruta de ayuda inmediata usando `pausa://immediate-help`
+- widget `Pausa` para acceso rápido
+- abre la app directo a ayuda inmediata usando `pausa://immediate-help`
 
 ## Qué problema resuelve
 
@@ -125,12 +152,12 @@ Pausa no está pensada como:
 
 ## Principios del producto
 
-- Humana, no clínica
-- Rápida antes que explicativa
-- Simple antes que cargada
-- Privada por defecto
-- Útil antes que inspiracional
-- Calmante sin ser blanda o confusa
+- humana, no clínica
+- rápida antes que explicativa
+- simple antes que cargada
+- privada por defecto
+- útil antes que inspiracional
+- calmante sin ser blanda o confusa
 
 ## Dirección de UX
 
@@ -140,9 +167,9 @@ La app está siendo empujada hacia una experiencia:
 - cálida
 - con poco ruido visual
 - con una acción principal por pantalla
-- con descubrimiento horizontal en carruseles
-- con detalles secundarios en sheets
-- con copy corto y más natural para público latino
+- con navegación por intención
+- con copy corto y natural para público latino
+- con separación entre crear contenido y revisar historial
 
 Se evita:
 
@@ -150,6 +177,7 @@ Se evita:
 - lenguaje abstracto innecesario
 - jerarquías visuales confusas
 - fricción en momentos de ansiedad
+- listas infinitas mezcladas con formularios
 
 ## Contenido de ejercicios
 
@@ -173,8 +201,6 @@ La sesión se apoya en `Pausa/Features/Exercises/ExerciseSessionSupport.swift`, 
 - variación entre ejercicios respiratorios y no respiratorios
 
 ## Arquitectura
-
-La base sigue una estructura modular por capas y features:
 
 ```text
 Pausa/
@@ -202,12 +228,12 @@ PausaWidget/
 
 ### Core
 
-- `Analytics`: eventos y hooks desacoplados
-- `DesignSystem`: cards, botones, CTA, indicadores y componentes compartidos
+- `Analytics`: eventos y servicios compartidos
+- `DesignSystem`: cards, botones, CTA, indicadores y componentes reutilizables
 - `Models`: modelos de dominio y modelos SwiftData
 - `Persistence`: configuración del contenedor local
 - `Theme`: colores, spacing, radios y estilo base
-- `Utilities`: librerías y motores como ejercicios, recomendaciones, rutas y chat
+- `Utilities`: librerías y motores como ejercicios, recomendaciones, rutas, chat y strings
 
 ### Features
 
@@ -230,7 +256,9 @@ Cada feature concentra su vista y su estado principal:
 - SwiftData
 - Observation
 - NavigationStack
+- TabView
 - WidgetKit
+- UserNotifications
 - AVFoundation para cues de voz
 - String Catalogs con `Localizable.xcstrings`
 
@@ -245,12 +273,15 @@ Hoy encapsula:
 - `analytics` para tracking desacoplado
 - `recommendationEngine` para recomendaciones contextuales del check-in
 - `supportChatEngine` para respuestas locales del chat
+- `localNotificationManager` para recordatorios diarios
 
-`PausaApp` crea una instancia de `AppServices` y se la pasa a `ContentView`. Desde ahí se inyecta a las features que la necesitan vía inicializador, en lugar de usar singletons o `@Environment` custom.
+`PausaApp` crea una instancia de `AppServices` y se la pasa a `ContentView`. Desde ahí se inyecta a las features que la necesitan vía inicializador.
 
 ## Navegación y routing
 
-La navegación se resuelve desde `Pausa/ContentView.swift` con `NavigationStack` y rutas tipadas por `AppRoute`:
+La navegación se resuelve desde `Pausa/ContentView.swift` con `NavigationStack`, tabs y rutas tipadas por `AppRoute`.
+
+Rutas principales:
 
 - `checkIn`
 - `immediateHelp`
@@ -260,12 +291,13 @@ La navegación se resuelve desde `Pausa/ContentView.swift` con `NavigationStack`
 - `supportChat`
 - `history`
 - `profile`
+- `writings`
 
-Las pantallas no navegan con `NavigationLink(destination:)`. En su lugar reciben un callback `openRoute` y empujan un `AppRoute` al stack central.
+Las pantallas no dependen solo de `NavigationLink(destination:)`. Varias vistas reciben callbacks de navegación y empujan un `AppRoute` al stack central.
 
 También existe soporte para deep links y serialización de rutas en `Pausa/Core/Utilities/AppRouteStorage.swift`.
 
-Actualmente el deep link soportado es:
+Deep link actual:
 
 - `pausa://immediate-help`
 
@@ -294,6 +326,7 @@ Actualmente se persiste de forma local:
 - utilidad percibida del ejercicio
 - eventos de uso
 - historial básico del chat
+- preferencias de avatar y recordatorio
 
 Existe además un `PreviewSeeder` para poblar previews con datos de ejemplo en memoria.
 
@@ -327,18 +360,7 @@ La respuesta incluye copy en español y, cuando corresponde, una ruta sugerida d
 
 ## Ejercicios, audio y pacing
 
-Los ejercicios viven en `Pausa/Core/Utilities/ExerciseLibrary.swift`. Cada ejercicio incluye:
-
-- identificador
-- título
-- resumen
-- duración estimada
-- detalle
-- nivel de evidencia
-- contexto de origen
-- nota de cuidado opcional
-- referencias
-- prompt de cierre
+Los ejercicios viven en `Pausa/Core/Utilities/ExerciseLibrary.swift`.
 
 La sesión de ejercicio usa dos piezas principales:
 
@@ -357,7 +379,7 @@ El audio de apoyo usa `AVSpeechSynthesizer` mediante `ExerciseCuePlayer`.
 
 Detalles actuales del audio:
 
-- es opcional y controlado por la preferencia `exercise_voice_cues_enabled`
+- es opcional y controlado por preferencia
 - usa voz `es-MX` con fallback a `es-ES`
 - reproduce cues breves según la fase del ejercicio
 - se detiene al pausar o abandonar la pantalla
@@ -377,18 +399,18 @@ Eventos clave del MVP:
 - `chat_message_sent`
 - `home_returned`
 
-El tracker por defecto actual es `ConsoleAnalyticsTracker`, que imprime a consola y opcionalmente persiste eventos en `ToolUsageEvent` cuando recibe un `ModelContext`.
+El tracker por defecto actual es `ConsoleAnalyticsTracker`, que imprime a consola y puede persistir eventos en `ToolUsageEvent` cuando recibe un `ModelContext`.
 
 ## Localización
 
-Todo el copy visible del producto debe vivir en español y apoyarse en:
+Todo el copy visible del producto debe apoyarse en:
 
 - `Pausa/Localizable.xcstrings`
 - `Pausa/Core/Utilities/AppStrings.swift`
 
 Reglas actuales:
 
-- evitar copy de producto hardcodeado en vistas
+- evitar copy hardcodeado en vistas
 - usar `LocalizedStringResource` a través de `AppStrings`
 - mantener un tono breve, claro y humano
 
@@ -407,17 +429,18 @@ El widget:
 - usa `WidgetKit`
 - soporta `systemSmall` y `systemMedium`
 - abre la app con `pausa://immediate-help`
-- mantiene un layout propio, sin depender de la navegación interna de la vista widget
+- mantiene un layout propio, sin depender de la navegación interna de la app
 
 ## Flujo de arranque
 
 El arranque actual de la app es:
 
 1. `PausaApp` crea `AppServices` y el `ModelContainer`.
-2. `ContentView` consulta si existe `UserProfile`.
-3. Si no existe perfil, muestra onboarding.
-4. Si existe perfil, muestra `HomeView` dentro del `NavigationStack`.
-5. Si entra un deep link válido, `ContentView` reconstruye la ruta y la empuja al stack.
+2. Configura el fondo base y sincroniza recordatorios locales.
+3. `ContentView` consulta si existe `UserProfile`.
+4. Si no existe perfil, muestra onboarding.
+5. Si existe perfil, muestra la app principal con tabs.
+6. Si entra un deep link válido, reconstruye la ruta y la empuja al stack.
 
 ## GitFlow
 
@@ -446,52 +469,6 @@ Commit messages recomendados:
 - `refactor(scope): ...`
 - `chore(scope): ...`
 
-Cuando la feature esté lista:
-
-```bash
-git switch develop
-git merge feature/nombre-de-la-tarea
-git branch -d feature/nombre-de-la-tarea
-```
-
-### Release
-
-Para preparar una versión:
-
-```bash
-git switch develop
-git switch -c release/0.1.0
-```
-
-Cuando quede aprobada:
-
-```bash
-git switch main
-git merge release/0.1.0
-git switch develop
-git merge release/0.1.0
-git branch -d release/0.1.0
-```
-
-### Hotfix
-
-Para una corrección urgente en producción:
-
-```bash
-git switch main
-git switch -c hotfix/descripcion-corta
-```
-
-Cuando esté lista:
-
-```bash
-git switch main
-git merge hotfix/descripcion-corta
-git switch develop
-git merge hotfix/descripcion-corta
-git branch -d hotfix/descripcion-corta
-```
-
 ## Cómo correr el proyecto
 
 1. Abre `Pausa.xcodeproj`.
@@ -503,7 +480,7 @@ Para el widget:
 
 1. Ejecuta la app al menos una vez.
 2. En el simulador o dispositivo, añade el widget de `Pausa`.
-3. Tócalo para abrir `Alivio inmediato`.
+3. Tócalo para abrir `Pausa` inmediata.
 
 ## Build desde terminal
 
@@ -517,12 +494,6 @@ Build de simulador listo para compartir como `.app`:
 xcodebuild -project Pausa.xcodeproj -scheme Pausa -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath /tmp/PausaDerived build
 ```
 
-Comprimir el `.app` del simulador:
-
-```bash
-ditto -c -k --sequesterRsrc --keepParent /tmp/PausaDerived/Build/Products/Debug-iphonesimulator/Pausa.app /tmp/Pausa.app.zip
-```
-
 ## Testing
 
 El proyecto incluye pruebas básicas para comportamiento central, en especial:
@@ -533,17 +504,17 @@ El proyecto incluye pruebas básicas para comportamiento central, en especial:
 
 ## Estado actual
 
-El proyecto ya funciona como un MVP realista de App Store en enfoque de producto, aunque sigue habiendo áreas en refinamiento:
+El proyecto ya funciona como un MVP usable y más ordenado en navegación y UX. Las áreas que siguen en refinamiento son:
 
-- más consistencia de motion y microinteracciones
-- más pulido visual entre features
+- pulido visual entre features
 - más cobertura de tests
-- validación más fuerte de accesibilidad y Dynamic Type
+- accesibilidad y Dynamic Type
+- validación en dispositivo real de branding y notificaciones
 
 ## Siguientes mejoras razonables
 
 - seguir puliendo copy para público latino
-- reforzar la claridad de estados vacíos y feedbacks
+- reforzar estados vacíos y feedbacks
 - ampliar tests de ViewModels y reglas de chat
-- revisar instalación, archive y distribución en dispositivo real
-- seguir refinando el widget y su lenguaje visual
+- revisar archive y distribución en dispositivo real
+- seguir refinando widget y branding
