@@ -2275,6 +2275,26 @@
         }
       }
     },
+    "notifications.daily.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si te ayuda, puedes hacer una pausa breve o escribir cómo te sientes."
+          }
+        }
+      }
+    },
+    "notifications.daily.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un momento para volver a ti"
+          }
+        }
+      }
+    },
     "preview.chat.assistant_text" : {
       "localizations" : {
         "es" : {
@@ -2485,6 +2505,16 @@
         }
       }
     },
+    "profile.open_settings.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir ajustes"
+          }
+        }
+      }
+    },
     "profile.photo_hint" : {
       "localizations" : {
         "es" : {
@@ -2511,6 +2541,56 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Privacidad"
+          }
+        }
+      }
+    },
+    "profile.reminder_time.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hora del recordatorio"
+          }
+        }
+      }
+    },
+    "profile.reminders.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recibe un recordatorio diario y suave para hacer una pausa o escribir una nota."
+          }
+        }
+      }
+    },
+    "profile.reminders.denied_body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los recordatorios están desactivados para Pausa. Si quieres usarlos, actívalos desde Ajustes."
+          }
+        }
+      }
+    },
+    "profile.reminders.enabled_body_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tienes un recordatorio diario activo a las %1$02d:%2$02d."
+          }
+        }
+      }
+    },
+    "profile.reminders.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recordatorios"
           }
         }
       }
