@@ -330,14 +330,25 @@ enum AppStrings {
         static let focusFormat: LocalizedStringResource = "profile.focus_format"
         static let libraryOption: LocalizedStringResource = "profile.library.option"
         static let navigationTitle: LocalizedStringResource = "profile.navigation.title"
+        static let openSettingsButton: LocalizedStringResource = "profile.open_settings.button"
         static let photoHint: LocalizedStringResource = "profile.photo_hint"
         static let privacyBody: LocalizedStringResource = "profile.privacy.body"
         static let privacyTitle: LocalizedStringResource = "profile.privacy.title"
+        static let reminderTimeTitle: LocalizedStringResource = "profile.reminder_time.title"
+        static let remindersBody: LocalizedStringResource = "profile.reminders.body"
+        static let remindersDeniedBody: LocalizedStringResource = "profile.reminders.denied_body"
+        static let remindersEnabledBodyFormat: LocalizedStringResource = "profile.reminders.enabled_body_format"
+        static let remindersTitle: LocalizedStringResource = "profile.reminders.title"
         static let removePhotoOption: LocalizedStringResource = "profile.remove_photo.option"
         static let responsibleBody: LocalizedStringResource = "profile.responsible.body"
         static let responsibleTitle: LocalizedStringResource = "profile.responsible.title"
         static let seekingFormat: LocalizedStringResource = "profile.seeking_format"
         static let subtitleFormat: LocalizedStringResource = "profile.subtitle_format"
+    }
+
+    enum Notifications {
+        static let dailyBody: LocalizedStringResource = "notifications.daily.body"
+        static let dailyTitle: LocalizedStringResource = "notifications.daily.title"
     }
 
     enum Preview {

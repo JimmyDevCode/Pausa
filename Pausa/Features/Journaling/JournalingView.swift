@@ -2,6 +2,13 @@ import Observation
 import SwiftData
 import SwiftUI
 
+private enum JournalStep: Int, CaseIterable {
+    case reflection
+    case support
+
+    var index: Int { rawValue + 1 }
+}
+
 @Observable
 final class JournalingViewModel {
     private let services: AppServices
@@ -39,14 +46,17 @@ final class JournalingViewModel {
 
 struct JournalingView: View {
     let services: AppServices
+    let openRoute: (AppRoute) -> Void
 
     @State private var viewModel: JournalingViewModel
+    @State private var currentStep: JournalStep = .reflection
     @State private var selectedEntry: JournalEntry?
     @Query(sort: \JournalEntry.createdAt, order: .reverse) private var entries: [JournalEntry]
     @Environment(\.modelContext) private var modelContext
 
-    init(services: AppServices) {
+    init(services: AppServices, openRoute: @escaping (AppRoute) -> Void) {
         self.services = services
+        self.openRoute = openRoute
         _viewModel = State(initialValue: JournalingViewModel(services: services))
     }
 
@@ -57,15 +67,38 @@ struct JournalingView: View {
             VStack(alignment: .leading, spacing: 18) {
                 AppCard {
                     VStack(alignment: .leading, spacing: 14) {
-                        journalField(title: String(localized: AppStrings.Journaling.fieldFeeling), text: $bindableViewModel.feelingText)
-                        journalField(title: String(localized: AppStrings.Journaling.fieldAffecting), text: $bindableViewModel.affectingText)
-                        journalField(title: String(localized: AppStrings.Journaling.fieldNeeded), text: $bindableViewModel.neededText)
-                        journalField(title: String(localized: AppStrings.Journaling.fieldSupport), text: $bindableViewModel.supportText)
-                        Button(String(localized: AppStrings.Journaling.buttonSave)) {
-                            viewModel.save(context: modelContext)
+                        journalPaginationHeader
+
+                        if currentStep == .reflection {
+                            journalField(title: String(localized: AppStrings.Journaling.fieldFeeling), text: $bindableViewModel.feelingText)
+                            journalField(title: String(localized: AppStrings.Journaling.fieldAffecting), text: $bindableViewModel.affectingText)
+                        } else {
+                            journalField(title: String(localized: AppStrings.Journaling.fieldNeeded), text: $bindableViewModel.neededText)
+                            journalField(title: String(localized: AppStrings.Journaling.fieldSupport), text: $bindableViewModel.supportText)
                         }
-                        .buttonStyle(PrimaryButtonStyle())
-                        .disabled(!viewModel.canSave)
+
+                        HStack(spacing: 12) {
+                            if currentStep == .support {
+                                Button(String(localized: AppStrings.Journaling.buttonBack)) {
+                                    currentStep = .reflection
+                                }
+                                .buttonStyle(SecondaryButtonStyle())
+                            }
+
+                            if currentStep == .reflection {
+                                Button(String(localized: AppStrings.Journaling.buttonNext)) {
+                                    currentStep = .support
+                                }
+                                .buttonStyle(PrimaryButtonStyle())
+                            } else {
+                                Button(String(localized: AppStrings.Journaling.buttonSave)) {
+                                    viewModel.save(context: modelContext)
+                                    currentStep = .reflection
+                                }
+                                .buttonStyle(PrimaryButtonStyle())
+                                .disabled(!viewModel.canSave)
+                            }
+                        }
                     }
                 }
 
@@ -74,25 +107,25 @@ struct JournalingView: View {
                         .font(.appSection)
                         .foregroundStyle(AppTheme.textPrimary)
 
-                    ForEach(entries.prefix(6), id: \.id) { entry in
+                    if let latestEntry = entries.first {
                         Button {
-                            selectedEntry = entry
+                            selectedEntry = latestEntry
                         } label: {
                             AppCard {
                                 VStack(alignment: .leading, spacing: 12) {
-                                    Text(entryPreviewTitle(entry))
+                                    Text(entryPreviewTitle(latestEntry))
                                         .font(.headline)
                                         .foregroundStyle(AppTheme.textPrimary)
                                         .fixedSize(horizontal: false, vertical: true)
 
-                                    if let previewBody = entryPreviewBody(entry) {
+                                    if let previewBody = entryPreviewBody(latestEntry) {
                                         Text(previewBody)
                                             .foregroundStyle(AppTheme.textSecondary)
                                             .fixedSize(horizontal: false, vertical: true)
                                     }
 
                                     HStack(alignment: .center) {
-                                        Text(entry.createdAt.formatted(date: .abbreviated, time: .shortened))
+                                        Text(latestEntry.createdAt.formatted(date: .abbreviated, time: .shortened))
                                             .font(.footnote)
                                             .foregroundStyle(AppTheme.textSecondary)
 
@@ -103,6 +136,11 @@ struct JournalingView: View {
                             }
                         }
                         .buttonStyle(.plain)
+
+                        Button(String(localized: AppStrings.History.previewButton)) {
+                            openRoute(.writings)
+                        }
+                        .buttonStyle(SecondaryButtonStyle())
                     }
                 } else {
                     AccentCard(tint: AppTheme.secondarySurface) {
@@ -125,6 +163,56 @@ struct JournalingView: View {
         .sheet(item: $selectedEntry) { entry in
             journalEntryDetail(entry)
                 .presentationDetents([.medium, .large])
+        }
+    }
+
+    private var journalPaginationHeader: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(
+                String(
+                    format: String(localized: AppStrings.Journaling.stepFormat),
+                    locale: Locale(identifier: "es"),
+                    currentStep.index,
+                    JournalStep.allCases.count
+                )
+            )
+            .font(.footnote.weight(.semibold))
+            .foregroundStyle(AppTheme.tint)
+
+            HStack(spacing: 8) {
+                ForEach(JournalStep.allCases, id: \.rawValue) { step in
+                    Capsule(style: .continuous)
+                        .fill(step.rawValue <= currentStep.rawValue ? AppTheme.tint : AppTheme.tintSoft.opacity(0.45))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 6)
+                }
+            }
+
+            Text(currentStepTitle)
+                .font(.appSection)
+                .foregroundStyle(AppTheme.textPrimary)
+
+            Text(currentStepBody)
+                .foregroundStyle(AppTheme.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+
+    private var currentStepTitle: LocalizedStringResource {
+        switch currentStep {
+        case .reflection:
+            AppStrings.Journaling.stepReflectionTitle
+        case .support:
+            AppStrings.Journaling.stepSupportTitle
+        }
+    }
+
+    private var currentStepBody: LocalizedStringResource {
+        switch currentStep {
+        case .reflection:
+            AppStrings.Journaling.stepReflectionBody
+        case .support:
+            AppStrings.Journaling.stepSupportBody
         }
     }
 
@@ -188,7 +276,7 @@ struct JournalingView: View {
 
 #Preview {
     NavigationStack {
-        JournalingView(services: AppServices())
+        JournalingView(services: AppServices(), openRoute: { _ in })
     }
     .modelContainer(PersistenceController.preview.container)
 }

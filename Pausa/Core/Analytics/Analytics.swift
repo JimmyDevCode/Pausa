@@ -1,6 +1,7 @@
 import Foundation
 import Observation
 import SwiftData
+import UserNotifications
 
 enum AnalyticsEvent: String {
     case onboardingCompleted = "onboarding_completed"
@@ -17,6 +18,55 @@ protocol AnalyticsTracking {
     func track(_ event: AnalyticsEvent, metadata: [String: String])
 }
 
+protocol NotificationManaging {
+    func authorizationStatus() async -> UNAuthorizationStatus
+    func requestAuthorization() async -> Bool
+    func syncDailyReminder(enabled: Bool, hour: Int, minute: Int) async
+}
+
+final class LocalNotificationManager: NotificationManaging {
+    private let center = UNUserNotificationCenter.current()
+    private let reminderIdentifier = "daily_wellbeing_reminder"
+
+    func authorizationStatus() async -> UNAuthorizationStatus {
+        let settings = await center.notificationSettings()
+        return settings.authorizationStatus
+    }
+
+    func requestAuthorization() async -> Bool {
+        do {
+            return try await center.requestAuthorization(options: [.alert, .sound, .badge])
+        } catch {
+            return false
+        }
+    }
+
+    func syncDailyReminder(enabled: Bool, hour: Int, minute: Int) async {
+        center.removePendingNotificationRequests(withIdentifiers: [reminderIdentifier])
+        guard enabled else { return }
+
+        let settings = await center.notificationSettings()
+        guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else { return }
+
+        var components = DateComponents()
+        components.hour = hour
+        components.minute = minute
+
+        let content = UNMutableNotificationContent()
+        content.title = String(localized: AppStrings.Notifications.dailyTitle)
+        content.body = String(localized: AppStrings.Notifications.dailyBody)
+        content.sound = .default
+
+        let request = UNNotificationRequest(
+            identifier: reminderIdentifier,
+            content: content,
+            trigger: UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        )
+
+        try? await center.add(request)
+    }
+}
+
 struct ConsoleAnalyticsTracker: AnalyticsTracking {
     func track(_ event: AnalyticsEvent, metadata: [String: String]) {
         print("ANALYTICS:", event.rawValue, metadata)
@@ -28,15 +78,18 @@ final class AppServices {
     let analytics: AnalyticsTracking
     let recommendationEngine: RecommendationEngine
     let supportChatEngine: SupportChatEngine
+    let notificationManager: NotificationManaging
 
     init(
         analytics: AnalyticsTracking = ConsoleAnalyticsTracker(),
         recommendationEngine: RecommendationEngine = RecommendationEngine(),
-        supportChatEngine: SupportChatEngine = SupportChatEngine()
+        supportChatEngine: SupportChatEngine = SupportChatEngine(),
+        notificationManager: NotificationManaging = LocalNotificationManager()
     ) {
         self.analytics = analytics
         self.recommendationEngine = recommendationEngine
         self.supportChatEngine = supportChatEngine
+        self.notificationManager = notificationManager
     }
 
     func track(_ event: AnalyticsEvent, metadata: [String: String] = [:], in context: ModelContext? = nil) {
@@ -44,5 +97,9 @@ final class AppServices {
         if let context {
             context.insert(ToolUsageEvent(name: event.rawValue, metadata: metadata.description))
         }
+    }
+
+    func syncDailyReminderIfNeeded(enabled: Bool, hour: Int, minute: Int) async {
+        await notificationManager.syncDailyReminder(enabled: enabled, hour: hour, minute: minute)
     }
 }

@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import UserNotifications
 
 private enum AvatarSource {
     case camera
@@ -8,8 +9,14 @@ private enum AvatarSource {
 
 struct ProfileView: View {
     let profile: UserProfile
+    let services: AppServices
 
+    @AppStorage("daily_reminder_enabled") private var reminderEnabled = false
+    @AppStorage("daily_reminder_hour") private var reminderHour = 20
+    @AppStorage("daily_reminder_minute") private var reminderMinute = 0
     @State private var isEditing = false
+    @State private var reminderTime = Calendar.current.date(from: DateComponents(hour: 20, minute: 0)) ?? .now
+    @State private var notificationStatus: UNAuthorizationStatus = .notDetermined
 
     var body: some View {
         ScrollView {
@@ -17,6 +24,7 @@ struct ProfileView: View {
                 profileHeader
                 aboutCard
                 editButton
+                remindersCard
                 secondaryCards
             }
             .padding(20)
@@ -25,6 +33,10 @@ struct ProfileView: View {
         .background(AppTheme.pageGradient.ignoresSafeArea())
         .navigationTitle(String(localized: AppStrings.Profile.navigationTitle))
         .navigationBarTitleDisplayMode(.inline)
+        .task {
+            reminderTime = storedReminderDate
+            notificationStatus = await services.notificationManager.authorizationStatus()
+        }
         .sheet(isPresented: $isEditing) {
             EditProfileView(profile: profile)
                 .presentationDetents([.medium, .large])
@@ -81,6 +93,60 @@ struct ProfileView: View {
         .buttonStyle(PrimaryButtonStyle())
     }
 
+    private var remindersCard: some View {
+        AppCard {
+            VStack(alignment: .leading, spacing: 14) {
+                HStack(alignment: .top, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(AppStrings.Profile.remindersTitle)
+                            .font(.headline)
+                            .foregroundStyle(AppTheme.textPrimary)
+
+                        Text(reminderDescription)
+                            .foregroundStyle(AppTheme.textSecondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+
+                    Spacer()
+
+                    Toggle("", isOn: reminderToggleBinding)
+                        .labelsHidden()
+                        .tint(AppTheme.tint)
+                }
+
+                if reminderEnabled && notificationStatus != .denied {
+                    DatePicker(
+                        String(localized: AppStrings.Profile.reminderTimeTitle),
+                        selection: $reminderTime,
+                        displayedComponents: .hourAndMinute
+                    )
+                    .datePickerStyle(.compact)
+                    .tint(AppTheme.tint)
+                    .onChange(of: reminderTime) { _, newValue in
+                        let components = Calendar.current.dateComponents([.hour, .minute], from: newValue)
+                        reminderHour = components.hour ?? 20
+                        reminderMinute = components.minute ?? 0
+                        Task {
+                            await services.syncDailyReminderIfNeeded(
+                                enabled: reminderEnabled,
+                                hour: reminderHour,
+                                minute: reminderMinute
+                            )
+                        }
+                    }
+                }
+
+                if notificationStatus == .denied {
+                    Button(String(localized: AppStrings.Profile.openSettingsButton)) {
+                        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                        UIApplication.shared.open(url)
+                    }
+                    .buttonStyle(SecondaryButtonStyle())
+                }
+            }
+        }
+    }
+
     private var secondaryCards: some View {
         VStack(alignment: .leading, spacing: 12) {
             AppCard {
@@ -110,6 +176,73 @@ struct ProfileView: View {
     private var displayName: String {
         let trimmed = profile.nickname.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? String(localized: AppStrings.Preview.nickname) : trimmed
+    }
+
+    private var reminderToggleBinding: Binding<Bool> {
+        Binding(
+            get: { reminderEnabled },
+            set: { newValue in
+                Task {
+                    if newValue {
+                        let granted: Bool
+                        switch notificationStatus {
+                        case .authorized, .provisional, .ephemeral:
+                            granted = true
+                        case .denied:
+                            granted = false
+                        default:
+                            granted = await services.notificationManager.requestAuthorization()
+                        }
+
+                        let updatedStatus = await services.notificationManager.authorizationStatus()
+                        await MainActor.run {
+                            notificationStatus = updatedStatus
+                        }
+
+                        guard granted else {
+                            await MainActor.run {
+                                reminderEnabled = false
+                            }
+                            return
+                        }
+                    }
+
+                    let latestStatus = await services.notificationManager.authorizationStatus()
+                    await MainActor.run {
+                        reminderEnabled = newValue
+                        notificationStatus = latestStatus
+                    }
+
+                    await services.syncDailyReminderIfNeeded(
+                        enabled: newValue,
+                        hour: reminderHour,
+                        minute: reminderMinute
+                    )
+                }
+            }
+        )
+    }
+
+    private var storedReminderDate: Date {
+        Calendar.current.date(from: DateComponents(hour: reminderHour, minute: reminderMinute)) ?? .now
+    }
+
+    private var reminderDescription: String {
+        switch notificationStatus {
+        case .denied:
+            return String(localized: AppStrings.Profile.remindersDeniedBody)
+        default:
+            if reminderEnabled {
+                return String(
+                    format: String(localized: AppStrings.Profile.remindersEnabledBodyFormat),
+                    locale: Locale(identifier: "es"),
+                    reminderHour,
+                    reminderMinute
+                )
+            } else {
+                return String(localized: AppStrings.Profile.remindersBody)
+            }
+        }
     }
 
     private var profileSubtitle: String {
@@ -345,6 +478,13 @@ private struct LegacyImagePicker: UIViewControllerRepresentable {
 
 #Preview {
     NavigationStack {
-        ProfileView(profile: UserProfile(nickname: String(localized: AppStrings.Preview.nickname), preferredFeeling: DesiredFeeling.calma.rawValue, mainConcern: FocusArea.estres.rawValue))
+        ProfileView(
+            profile: UserProfile(
+                nickname: String(localized: AppStrings.Preview.nickname),
+                preferredFeeling: DesiredFeeling.calma.rawValue,
+                mainConcern: FocusArea.estres.rawValue
+            ),
+            services: AppServices()
+        )
     }
 }

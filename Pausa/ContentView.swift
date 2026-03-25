@@ -59,7 +59,7 @@ struct ContentView: View {
                         case .writings:
                             WritingsView()
                         case .profile:
-                            ProfileView(profile: profile)
+                            ProfileView(profile: profile, services: services)
                         }
                     }
                 }
@@ -117,7 +117,7 @@ private struct MainTabView: View {
                 }
                 .tag(MainTab.progress)
 
-            ProfileView(profile: profile)
+            ProfileView(profile: profile, services: services)
                 .tabItem {
                     Label(String(localized: AppStrings.Tab.profile), systemImage: "person")
                 }
