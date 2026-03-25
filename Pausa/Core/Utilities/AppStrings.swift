@@ -306,13 +306,28 @@ enum AppStrings {
     }
 
     enum Profile {
+        static let aboutTitle: LocalizedStringResource = "profile.about.title"
+        static let cameraOption: LocalizedStringResource = "profile.camera.option"
+        static let cancelOption: LocalizedStringResource = "profile.cancel.option"
+        static let choosePhoto: LocalizedStringResource = "profile.choose_photo"
+        static let doneButton: LocalizedStringResource = "profile.done.button"
+        static let editButton: LocalizedStringResource = "profile.edit.button"
+        static let editPhoto: LocalizedStringResource = "profile.edit_photo"
+        static let editTitle: LocalizedStringResource = "profile.edit.title"
+        static let fieldConcern: LocalizedStringResource = "profile.field.concern"
+        static let fieldNickname: LocalizedStringResource = "profile.field.nickname"
+        static let fieldPreferredFeeling: LocalizedStringResource = "profile.field.preferred_feeling"
         static let focusFormat: LocalizedStringResource = "profile.focus_format"
+        static let libraryOption: LocalizedStringResource = "profile.library.option"
         static let navigationTitle: LocalizedStringResource = "profile.navigation.title"
+        static let photoHint: LocalizedStringResource = "profile.photo_hint"
         static let privacyBody: LocalizedStringResource = "profile.privacy.body"
         static let privacyTitle: LocalizedStringResource = "profile.privacy.title"
+        static let removePhotoOption: LocalizedStringResource = "profile.remove_photo.option"
         static let responsibleBody: LocalizedStringResource = "profile.responsible.body"
         static let responsibleTitle: LocalizedStringResource = "profile.responsible.title"
         static let seekingFormat: LocalizedStringResource = "profile.seeking_format"
+        static let subtitleFormat: LocalizedStringResource = "profile.subtitle_format"
     }
 
     enum Preview {
