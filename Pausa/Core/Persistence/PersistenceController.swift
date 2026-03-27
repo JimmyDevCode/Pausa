@@ -13,8 +13,7 @@ struct PersistenceController {
             EmotionalCheckIn.self,
             JournalEntry.self,
             ExerciseSessionRecord.self,
-            ToolUsageEvent.self,
-            ChatMessageRecord.self
+            ToolUsageEvent.self
         ])
 
         let configuration = ModelConfiguration(isStoredInMemoryOnly: inMemory)
@@ -65,13 +64,5 @@ enum PreviewSeeder {
         )
 
         context.insert(ToolUsageEvent(name: "home_returned"))
-        context.insert(ChatMessageRecord(text: String(localized: AppStrings.Preview.chatUserText), isFromUser: true))
-        context.insert(
-            ChatMessageRecord(
-                text: String(localized: AppStrings.Preview.chatAssistantText),
-                isFromUser: false,
-                suggestedRoute: "immediateHelp"
-            )
-        )
     }
 }

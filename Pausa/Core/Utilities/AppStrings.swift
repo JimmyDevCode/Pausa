@@ -7,20 +7,6 @@ enum AppStrings {
         static let ctaViewExercise: LocalizedStringResource = "common.cta.view_exercise"
     }
 
-    enum Chat {
-        static let buttonOpenSuggestion: LocalizedStringResource = "chat.button.open_suggestion"
-        static let buttonSend: LocalizedStringResource = "chat.button.send"
-        static let disclaimer: LocalizedStringResource = "chat.disclaimer"
-        static let navigationTitle: LocalizedStringResource = "chat.navigation.title"
-        static let placeholder: LocalizedStringResource = "chat.placeholder"
-        static let replyAbrumado: LocalizedStringResource = "chat.reply.abrumado"
-        static let replyAnsiedad: LocalizedStringResource = "chat.reply.ansiedad"
-        static let replyDefault: LocalizedStringResource = "chat.reply.default"
-        static let replyIntenso: LocalizedStringResource = "chat.reply.intenso"
-        static let replySueno: LocalizedStringResource = "chat.reply.sueno"
-        static let replyUrgent: LocalizedStringResource = "chat.reply.urgent"
-    }
-
     enum CheckIn {
         static let buttonSave: LocalizedStringResource = "checkin.button.save"
         static let emotionSubtitle: LocalizedStringResource = "checkin.emotion.subtitle"
@@ -164,6 +150,11 @@ enum AppStrings {
         static let countFormat: LocalizedStringResource = "history.count_format"
         static let emptyBody: LocalizedStringResource = "history.empty.body"
         static let emptyTitle: LocalizedStringResource = "history.empty.title"
+        static let insightComboFormat: LocalizedStringResource = "history.insight.combo_format"
+        static let insightEmpty: LocalizedStringResource = "history.insight.empty"
+        static let insightEmotionFormat: LocalizedStringResource = "history.insight.emotion_format"
+        static let insightTitle: LocalizedStringResource = "history.insight.title"
+        static let insightToolFormat: LocalizedStringResource = "history.insight.tool_format"
         static let metricExercises: LocalizedStringResource = "history.metric.exercises"
         static let metricWeek: LocalizedStringResource = "history.metric.week"
         static let navigationTitle: LocalizedStringResource = "history.navigation.title"
@@ -182,7 +173,6 @@ enum AppStrings {
         static let writingsTitle: LocalizedStringResource = "history.writings.title"
 
         enum Item {
-            static let chatTitle: LocalizedStringResource = "history.item.chat.title"
             static let checkInTitle: LocalizedStringResource = "history.item.checkin.title"
             static let checkInBodyFormat: LocalizedStringResource = "history.item.checkin.body_format"
             static let exerciseTitle: LocalizedStringResource = "history.item.exercise.title"
@@ -191,7 +181,6 @@ enum AppStrings {
 
         enum Tool {
             static let checkInCompleted: LocalizedStringResource = "history.tool.checkin_completed"
-            static let chatMessageSent: LocalizedStringResource = "history.tool.chat_message_sent"
             static let exerciseCompleted: LocalizedStringResource = "history.tool.exercise_completed"
             static let exerciseStarted: LocalizedStringResource = "history.tool.exercise_started"
             static let homeReturned: LocalizedStringResource = "history.tool.home_returned"
@@ -227,8 +216,6 @@ enum AppStrings {
         static let progressSummaryFormat: LocalizedStringResource = "home.progress.summary_format"
         static let progressTitle: LocalizedStringResource = "home.progress.title"
         static let toolsTitle: LocalizedStringResource = "home.tools.title"
-        static let toolsChatSubtitle: LocalizedStringResource = "home.tools.chat.subtitle"
-        static let toolsChatTitle: LocalizedStringResource = "home.tools.chat.title"
         static let toolsExercisesSubtitle: LocalizedStringResource = "home.tools.exercises.subtitle"
         static let toolsExercisesTitle: LocalizedStringResource = "home.tools.exercises.title"
         static let toolsHistorySubtitle: LocalizedStringResource = "home.tools.history.subtitle"
@@ -279,8 +266,6 @@ enum AppStrings {
         static let archiveButton: LocalizedStringResource = "write_hub.archive.button"
         static let archiveTitle: LocalizedStringResource = "write_hub.archive.title"
         static let body: LocalizedStringResource = "write_hub.body"
-        static let chatBody: LocalizedStringResource = "write_hub.chat.body"
-        static let chatTitle: LocalizedStringResource = "write_hub.chat.title"
         static let navigationTitle: LocalizedStringResource = "write_hub.navigation.title"
         static let notesBody: LocalizedStringResource = "write_hub.notes.body"
         static let notesTitle: LocalizedStringResource = "write_hub.notes.title"
@@ -290,8 +275,6 @@ enum AppStrings {
     enum Writings {
         static let emptyBody: LocalizedStringResource = "writings.empty.body"
         static let emptyTitle: LocalizedStringResource = "writings.empty.title"
-        static let filterMessages: LocalizedStringResource = "writings.filter.messages"
-        static let filterNotes: LocalizedStringResource = "writings.filter.notes"
         static let navigationTitle: LocalizedStringResource = "writings.navigation.title"
     }
 
@@ -352,8 +335,6 @@ enum AppStrings {
     }
 
     enum Preview {
-        static let chatAssistantText: LocalizedStringResource = "preview.chat.assistant_text"
-        static let chatUserText: LocalizedStringResource = "preview.chat.user_text"
         static let journalAffecting: LocalizedStringResource = "preview.journal.affecting"
         static let journalFeeling: LocalizedStringResource = "preview.journal.feeling"
         static let journalNeeded: LocalizedStringResource = "preview.journal.needed"
@@ -426,8 +407,6 @@ enum LocalizedFormatting {
         switch name {
         case AnalyticsEvent.checkInCompleted.rawValue:
             String(localized: AppStrings.History.Tool.checkInCompleted)
-        case AnalyticsEvent.chatMessageSent.rawValue:
-            String(localized: AppStrings.History.Tool.chatMessageSent)
         case AnalyticsEvent.exerciseCompleted.rawValue:
             String(localized: AppStrings.History.Tool.exerciseCompleted)
         case AnalyticsEvent.exerciseStarted.rawValue:

@@ -38,5 +38,4 @@ final class PausaTests: XCTestCase {
 
         XCTAssertEqual(grounding?.evidenceLevel, .complementario)
     }
-
 }

@@ -57,7 +57,9 @@ struct HomeView: View {
             VStack(alignment: .leading, spacing: 18) {
                 header
                 emergencyCard
-                currentStateCard
+                if latestCheckIn != nil {
+                    currentStateCard
+                }
                 progressCard
                 responsibleCopy
             }
@@ -112,34 +114,34 @@ struct HomeView: View {
                     Image(systemName: "bolt.heart.fill")
                         .foregroundStyle(AppTheme.warning)
                     Text(AppStrings.Home.emergencyTitle)
-                        .font(.headline)
+                        .font(.appSection)
                         .foregroundStyle(AppTheme.textPrimary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 Text(AppStrings.Home.emergencyBody)
                     .foregroundStyle(AppTheme.textSecondary)
                     .fixedSize(horizontal: false, vertical: true)
+
                 Button(String(localized: AppStrings.Home.emergencyButton)) {
                     viewModel.openImmediateHelp(context: modelContext, openRoute: openRoute)
                 }
                 .buttonStyle(PrimaryButtonStyle())
+
+                Button(String(localized: latestCheckIn == nil ? AppStrings.Home.checkInButtonEmpty : AppStrings.Home.checkInButtonLatest)) {
+                    openRoute(.checkIn)
+                }
+                .buttonStyle(SecondaryButtonStyle())
             }
         }
     }
 
     private var currentStateCard: some View {
-        AccentCard(tint: AppTheme.tintSoft) {
+        AccentCard(tint: AppTheme.secondarySurface) {
             VStack(alignment: .leading, spacing: 14) {
                 SectionHeader(
-                    title: latestCheckIn == nil ? String(localized: AppStrings.Home.checkInTitleEmpty) : String(localized: AppStrings.Home.checkInTitleLatest),
-                    subtitle: latestCheckIn == nil
-                        ? String(localized: AppStrings.Home.checkInSubtitleEmpty)
-                        : viewModel.latestStateCopy(latestCheckIn: latestCheckIn)
+                    title: String(localized: AppStrings.Home.checkInTitleLatest),
+                    subtitle: viewModel.latestStateCopy(latestCheckIn: latestCheckIn)
                 )
-                Button(String(localized: latestCheckIn == nil ? AppStrings.Home.checkInButtonEmpty : AppStrings.Home.checkInButtonLatest)) {
-                    openRoute(.checkIn)
-                }
-                .buttonStyle(SecondaryButtonStyle())
             }
         }
     }
