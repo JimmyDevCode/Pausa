@@ -12,7 +12,7 @@ a algo más parecido a:
 
 > "Ya estoy un poco más calmado, entiendo mejor lo que me pasa y sé qué puedo hacer ahora"
 
-El objetivo del MVP es validar recurrencia: comprobar si las personas vuelven a usar con frecuencia herramientas breves como check-ins, ayuda inmediata, ejercicios guiados, escritura corta, chat de apoyo, historial y recordatorios suaves.
+El objetivo del MVP es validar recurrencia: comprobar si las personas vuelven a usar con frecuencia herramientas breves como check-ins, ayuda inmediata, ejercicios guiados, escritura corta, historial y recordatorios suaves.
 
 ## Qué hace la app
 
@@ -23,7 +23,7 @@ Pausa ya cubre este flujo principal:
 3. Permite registrar cómo se siente.
 4. Sugiere una acción concreta según el momento.
 5. Ofrece ayuda inmediata o ejercicios guiados.
-6. Permite escribir una nota o usar un chat de apoyo.
+6. Permite escribir una nota y revisar escritos guardados.
 7. Guarda historial local para revisar progreso y escritos.
 8. Puede programar recordatorios locales diarios.
 
@@ -83,15 +83,7 @@ Esto reemplaza un home más cargado y reduce navegación escondida en cards o ca
 - permite guardar con cualquier campo que tenga contenido
 - muestra solo la última nota guardada como referencia
 - acceso a `Ver todos tus escritos`
-- pantalla separada para revisar notas y mensajes guardados
-
-### Chat de apoyo
-
-- motor local basado en reglas
-- reconoce señales de ansiedad, saturación, cansancio o urgencia
-- responde con tono calmado
-- puede sugerir una ruta dentro de la app
-- evita lenguaje clínico o diagnóstico
+- pantalla separada para revisar notas guardadas
 
 ### Progreso
 
@@ -220,7 +212,6 @@ Pausa/
     Journaling/
     Onboarding/
     Profile/
-    SupportChat/
   PausaApp.swift
   ContentView.swift
 PausaWidget/
@@ -233,7 +224,7 @@ PausaWidget/
 - `Models`: modelos de dominio y modelos SwiftData
 - `Persistence`: configuración del contenedor local
 - `Theme`: colores, spacing, radios y estilo base
-- `Utilities`: librerías y motores como ejercicios, recomendaciones, rutas, chat y strings
+- `Utilities`: librerías y motores como ejercicios, recomendaciones, rutas y strings
 
 ### Features
 
@@ -245,7 +236,6 @@ Cada feature concentra su vista y su estado principal:
 - `ImmediateHelp`
 - `Exercises`
 - `Journaling`
-- `SupportChat`
 - `History`
 - `Profile`
 
@@ -272,7 +262,6 @@ Hoy encapsula:
 
 - `analytics` para tracking desacoplado
 - `recommendationEngine` para recomendaciones contextuales del check-in
-- `supportChatEngine` para respuestas locales del chat
 - `localNotificationManager` para recordatorios diarios
 
 `PausaApp` crea una instancia de `AppServices` y se la pasa a `ContentView`. Desde ahí se inyecta a las features que la necesitan vía inicializador.
@@ -288,7 +277,6 @@ Rutas principales:
 - `exercises`
 - `exercise`
 - `journaling`
-- `supportChat`
 - `history`
 - `profile`
 - `writings`
@@ -312,7 +300,6 @@ El contenedor SwiftData registra este schema:
 - `JournalEntry`
 - `ExerciseSessionRecord`
 - `ToolUsageEvent`
-- `ChatMessageRecord`
 
 Los modelos viven en `Pausa/Core/Models/AppModels.swift`.
 
@@ -325,12 +312,11 @@ Actualmente se persiste de forma local:
 - sesiones de ejercicios
 - utilidad percibida del ejercicio
 - eventos de uso
-- historial básico del chat
 - preferencias de avatar y recordatorio
 
 Existe además un `PreviewSeeder` para poblar previews con datos de ejemplo en memoria.
 
-## Recomendaciones y chat
+## Recomendaciones
 
 La lógica de recomendación del check-in vive en `Pausa/Core/Utilities/RecommendationEngine.swift`.
 
@@ -345,18 +331,6 @@ Y devuelve:
 - body contextual
 - ruta sugerida
 - texto del CTA
-
-El chat de apoyo usa `Pausa/Core/Utilities/SupportChatEngine.swift`.
-
-Es un motor local basado en reglas simples y keywords para detectar patrones como:
-
-- ansiedad
-- saturación
-- intensidad emocional
-- urgencia
-- sueño
-
-La respuesta incluye copy en español y, cuando corresponde, una ruta sugerida dentro de la app.
 
 ## Ejercicios, audio y pacing
 
@@ -396,7 +370,6 @@ Eventos clave del MVP:
 - `exercise_started`
 - `exercise_completed`
 - `journaling_saved`
-- `chat_message_sent`
 - `home_returned`
 
 El tracker por defecto actual es `ConsoleAnalyticsTracker`, que imprime a consola y puede persistir eventos en `ToolUsageEvent` cuando recibe un `ModelContext`.
@@ -515,6 +488,6 @@ El proyecto ya funciona como un MVP usable y más ordenado en navegación y UX. 
 
 - seguir puliendo copy para público latino
 - reforzar estados vacíos y feedbacks
-- ampliar tests de ViewModels y reglas de chat
+- ampliar tests de ViewModels
 - revisar archive y distribución en dispositivo real
 - seguir refinando widget y branding
