@@ -7,7 +7,6 @@ enum AppRoute: Hashable {
     case exercises
     case exercise(ExerciseDefinition)
     case journaling
-    case supportChat
     case history
     case writings
     case profile
@@ -52,8 +51,6 @@ struct ContentView: View {
                             ExerciseSessionView(exercise: exercise, services: services)
                         case .journaling:
                             JournalingView(services: services, openRoute: { path.append($0) })
-                        case .supportChat:
-                            SupportChatView(services: services, openRoute: { path.append($0) })
                         case .history:
                             HistoryView(openRoute: { path.append($0) })
                         case .writings:
@@ -166,27 +163,6 @@ private struct WritingHubView: View {
                 }
                 .buttonStyle(.plain)
 
-                Button {
-                    openRoute(.supportChat)
-                } label: {
-                    AppCard {
-                        VStack(alignment: .leading, spacing: 16) {
-                            QuickActionRow(
-                                icon: "ellipsis.message",
-                                title: String(localized: AppStrings.WriteHub.chatTitle),
-                                subtitle: String(localized: AppStrings.WriteHub.chatBody),
-                                showsChevron: false
-                            )
-
-                            HStack {
-                                Spacer()
-                                CardCTA(title: String(localized: AppStrings.Common.ctaOpen))
-                            }
-                        }
-                    }
-                }
-                .buttonStyle(.plain)
-
                 AccentCard(tint: AppTheme.secondarySurface) {
                     VStack(alignment: .leading, spacing: 12) {
                         Text(AppStrings.WriteHub.archiveTitle)
@@ -203,6 +179,7 @@ private struct WritingHubView: View {
                         .buttonStyle(SecondaryButtonStyle())
                     }
                 }
+
             }
             .padding(AppTheme.layoutPadding)
             .padding(.bottom, 44)

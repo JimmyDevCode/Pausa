@@ -10,7 +10,6 @@ enum AnalyticsEvent: String {
     case exerciseStarted = "exercise_started"
     case exerciseCompleted = "exercise_completed"
     case journalingSaved = "journaling_saved"
-    case chatMessageSent = "chat_message_sent"
     case homeReturned = "home_returned"
 }
 
@@ -77,18 +76,15 @@ struct ConsoleAnalyticsTracker: AnalyticsTracking {
 final class AppServices {
     let analytics: AnalyticsTracking
     let recommendationEngine: RecommendationEngine
-    let supportChatEngine: SupportChatEngine
     let notificationManager: NotificationManaging
 
     init(
         analytics: AnalyticsTracking = ConsoleAnalyticsTracker(),
         recommendationEngine: RecommendationEngine = RecommendationEngine(),
-        supportChatEngine: SupportChatEngine = SupportChatEngine(),
         notificationManager: NotificationManaging = LocalNotificationManager()
     ) {
         self.analytics = analytics
         self.recommendationEngine = recommendationEngine
-        self.supportChatEngine = supportChatEngine
         self.notificationManager = notificationManager
     }
 

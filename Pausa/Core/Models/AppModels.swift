@@ -290,29 +290,6 @@ final class ToolUsageEvent {
     }
 }
 
-@Model
-final class ChatMessageRecord {
-    var id: UUID
-    var text: String
-    var isFromUser: Bool
-    var suggestedRoute: String
-    var createdAt: Date
-
-    init(
-        id: UUID = UUID(),
-        text: String,
-        isFromUser: Bool,
-        suggestedRoute: String = "",
-        createdAt: Date = .now
-    ) {
-        self.id = id
-        self.text = text
-        self.isFromUser = isFromUser
-        self.suggestedRoute = suggestedRoute
-        self.createdAt = createdAt
-    }
-}
-
 enum AppRecommendationText: String {
     case abrumadoBody = "recommendation.abrumado.body"
     case abrumadoButton = "recommendation.abrumado.button"

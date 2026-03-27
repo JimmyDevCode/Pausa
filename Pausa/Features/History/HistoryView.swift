@@ -1,28 +1,11 @@
 import SwiftData
 import SwiftUI
 
-private enum WritingFilter: String, CaseIterable, Identifiable {
-    case notes
-    case messages
-
-    var id: String { rawValue }
-
-    var title: LocalizedStringResource {
-        switch self {
-        case .notes:
-            AppStrings.Writings.filterNotes
-        case .messages:
-            AppStrings.Writings.filterMessages
-        }
-    }
-}
-
 struct HistoryView: View {
     let openRoute: (AppRoute) -> Void
 
     @Query(sort: \EmotionalCheckIn.createdAt, order: .reverse) private var checkIns: [EmotionalCheckIn]
     @Query(sort: \JournalEntry.createdAt, order: .reverse) private var journalEntries: [JournalEntry]
-    @Query(sort: \ChatMessageRecord.createdAt, order: .reverse) private var chatMessages: [ChatMessageRecord]
     @Query(sort: \ExerciseSessionRecord.completedAt, order: .reverse) private var sessions: [ExerciseSessionRecord]
 
     init(openRoute: @escaping (AppRoute) -> Void) {
@@ -33,6 +16,7 @@ struct HistoryView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 summaryCard
+                insightCard
                 writingsAccessCard
             }
             .padding(AppTheme.layoutPadding)
@@ -52,8 +36,9 @@ struct HistoryView: View {
         journalEntries.count
     }
 
-    private var messagesCount: Int {
-        chatMessages.filter(\.isFromUser).count
+    private var weekSessions: [ExerciseSessionRecord] {
+        let weekAgo = Calendar.current.date(byAdding: .day, value: -7, to: .now) ?? .now
+        return sessions.filter { $0.completedAt >= weekAgo }
     }
 
     private var summaryCard: some View {
@@ -117,6 +102,59 @@ struct HistoryView: View {
             .key
     }
 
+    private var weeklyToolLabel: String? {
+        let candidates: [(String, Int)] = [
+            (String(localized: AppStrings.History.metricExercises), weekSessions.count),
+            (String(localized: AppStrings.History.writingsTitle), notesCount)
+        ]
+
+        guard let top = candidates
+            .filter({ $0.1 > 0 })
+            .max(by: { $0.1 < $1.1 }) else { return nil }
+
+        return top.0.lowercased()
+    }
+
+    private var weeklyInsightText: String {
+        switch (commonEmotion?.lowercased(), weeklyToolLabel) {
+        case let (emotion?, tool?):
+            String(
+                format: String(localized: AppStrings.History.insightComboFormat),
+                locale: Locale(identifier: "es"),
+                emotion,
+                tool
+            )
+        case let (emotion?, nil):
+            String(
+                format: String(localized: AppStrings.History.insightEmotionFormat),
+                locale: Locale(identifier: "es"),
+                emotion
+            )
+        case let (nil, tool?):
+            String(
+                format: String(localized: AppStrings.History.insightToolFormat),
+                locale: Locale(identifier: "es"),
+                tool
+            )
+        case (nil, nil):
+            String(localized: AppStrings.History.insightEmpty)
+        }
+    }
+
+    private var insightCard: some View {
+        AccentCard(tint: AppTheme.tintSoft) {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(AppStrings.History.insightTitle)
+                    .font(.appSection)
+                    .foregroundStyle(AppTheme.textPrimary)
+
+                Text(weeklyInsightText)
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+
     private var writingsAccessCard: some View {
         AccentCard(tint: AppTheme.secondarySurface) {
             VStack(alignment: .leading, spacing: 6) {
@@ -137,15 +175,14 @@ struct HistoryView: View {
     }
 
     private var writingsBodyText: String {
-        guard notesCount > 0 || messagesCount > 0 else {
+        guard notesCount > 0 else {
             return String(localized: AppStrings.History.writingsEmptyBody)
         }
 
         return String(
             format: String(localized: AppStrings.History.writingsBodyFormat),
             locale: Locale(identifier: "es"),
-            notesCount,
-            messagesCount
+            notesCount
         )
     }
 
@@ -171,26 +208,15 @@ struct WritingsView: View {
     private let pageSize = 6
 
     @Query(sort: \JournalEntry.createdAt, order: .reverse) private var journalEntries: [JournalEntry]
-    @Query(sort: \ChatMessageRecord.createdAt, order: .reverse) private var chatMessages: [ChatMessageRecord]
-    @State private var selectedFilter: WritingFilter = .notes
     @State private var selectedEntry: JournalEntry?
     @State private var notesPage = 0
-    @State private var messagesPage = 0
 
     private var notes: [JournalEntry] {
         journalEntries
     }
 
-    private var messages: [ChatMessageRecord] {
-        chatMessages.filter(\.isFromUser)
-    }
-
     private var notePageCount: Int {
         max(1, Int(ceil(Double(notes.count) / Double(pageSize))))
-    }
-
-    private var messagePageCount: Int {
-        max(1, Int(ceil(Double(messages.count) / Double(pageSize))))
     }
 
     private var pagedNotes: [JournalEntry] {
@@ -200,28 +226,10 @@ struct WritingsView: View {
         return Array(notes[start..<end])
     }
 
-    private var pagedMessages: [ChatMessageRecord] {
-        let start = min(messagesPage * pageSize, max(0, messages.count - 1))
-        let end = min(start + pageSize, messages.count)
-        guard start < end else { return [] }
-        return Array(messages[start..<end])
-    }
-
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
-                Picker("", selection: $selectedFilter) {
-                    ForEach(WritingFilter.allCases) { filter in
-                        Text(filter.title).tag(filter)
-                    }
-                }
-                .pickerStyle(.segmented)
-
-                if selectedFilter == .notes {
-                    notesSection
-                } else {
-                    messagesSection
-                }
+                notesSection
             }
             .padding(AppTheme.layoutPadding)
             .padding(.bottom, 44)
@@ -229,10 +237,6 @@ struct WritingsView: View {
         .background(AppTheme.pageGradient.ignoresSafeArea())
         .navigationTitle(String(localized: AppStrings.Writings.navigationTitle))
         .navigationBarTitleDisplayMode(.inline)
-        .onChange(of: selectedFilter) { _, _ in
-            notesPage = min(notesPage, notePageCount - 1)
-            messagesPage = min(messagesPage, messagePageCount - 1)
-        }
         .sheet(item: $selectedEntry) { entry in
             journalEntryDetail(entry)
                 .presentationDetents([.medium, .large])
@@ -281,41 +285,6 @@ struct WritingsView: View {
                 totalCount: notes.count,
                 previousAction: { notesPage = max(0, notesPage - 1) },
                 nextAction: { notesPage = min(notePageCount - 1, notesPage + 1) }
-            )
-        }
-    }
-
-    @ViewBuilder
-    private var messagesSection: some View {
-        if messages.isEmpty {
-            emptyCard(body: AppStrings.Writings.emptyBody)
-        } else {
-            ForEach(pagedMessages, id: \.id) { message in
-                AppCard {
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack {
-                            Text(AppStrings.History.Item.chatTitle)
-                                .font(.headline)
-                                .foregroundStyle(AppTheme.textPrimary)
-                            Spacer()
-                            Text(message.createdAt.formatted(date: .abbreviated, time: .shortened))
-                                .font(.footnote)
-                                .foregroundStyle(AppTheme.textSecondary)
-                        }
-
-                        Text(message.text)
-                            .foregroundStyle(AppTheme.textSecondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-            }
-
-            paginationControls(
-                currentPage: messagesPage,
-                pageCount: messagePageCount,
-                totalCount: messages.count,
-                previousAction: { messagesPage = max(0, messagesPage - 1) },
-                nextAction: { messagesPage = min(messagePageCount - 1, messagesPage + 1) }
             )
         }
     }
