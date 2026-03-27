@@ -27,8 +27,13 @@ final class OnboardingViewModel {
         Double(step.rawValue + 1) / Double(Step.allCases.count)
     }
 
+    private var trimmedNickname: String {
+        nickname.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
     func next() {
         guard let nextStep = Step(rawValue: step.rawValue + 1) else { return }
+        guard canNavigate(to: nextStep) else { return }
         step = nextStep
     }
 
@@ -40,15 +45,25 @@ final class OnboardingViewModel {
     var canContinue: Bool {
         switch step {
         case .nickname:
-            !nickname.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            !trimmedNickname.isEmpty
         default:
             true
         }
     }
 
+    func canNavigate(to destination: Step) -> Bool {
+        if destination.rawValue > Step.nickname.rawValue {
+            return !trimmedNickname.isEmpty
+        }
+
+        return true
+    }
+
     func completeOnboarding(context: ModelContext) {
+        guard !trimmedNickname.isEmpty else { return }
+
         let profile = UserProfile(
-            nickname: nickname.trimmingCharacters(in: .whitespacesAndNewlines),
+            nickname: trimmedNickname,
             preferredFeeling: desiredFeeling.rawValue,
             mainConcern: concern.rawValue
         )
@@ -76,8 +91,6 @@ struct OnboardingView: View {
     }
 
     var body: some View {
-        @Bindable var bindableViewModel = viewModel
-
         ZStack {
             AppTheme.pageGradient.ignoresSafeArea()
 
@@ -85,19 +98,8 @@ struct OnboardingView: View {
                 ProgressView(value: viewModel.progress)
                     .tint(AppTheme.tint)
 
-                TabView(selection: $bindableViewModel.step) {
-                    stepPage(.welcome)
-                        .tag(OnboardingViewModel.Step.welcome)
-                    stepPage(.nickname)
-                        .tag(OnboardingViewModel.Step.nickname)
-                    stepPage(.desiredFeeling)
-                        .tag(OnboardingViewModel.Step.desiredFeeling)
-                    stepPage(.concern)
-                        .tag(OnboardingViewModel.Step.concern)
-                    stepPage(.finish)
-                        .tag(OnboardingViewModel.Step.finish)
-                }
-                .tabViewStyle(.page(indexDisplayMode: .never))
+                stepPage(viewModel.step)
+                    .id(viewModel.step)
                 .animation(.smooth, value: viewModel.step)
 
                 HStack(spacing: 12) {
