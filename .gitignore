@@ -10,6 +10,7 @@ xcuserdata/
 # Xcode build artifacts
 DerivedData/
 build/
+.tmp/
 Pausa/.derivedData/
 Pausa/tmp-derived/
 *.moved-aside
