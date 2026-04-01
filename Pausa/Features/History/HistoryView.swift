@@ -67,15 +67,15 @@ struct HistoryView: View {
                         format: String(localized: AppStrings.History.summaryBodyFormat),
                         locale: Locale(identifier: "es"),
                         weekCheckIns.count,
-                        sessions.count
+                        weekSessions.count
                     )
                 )
                 .foregroundStyle(AppTheme.textSecondary)
                 .fixedSize(horizontal: false, vertical: true)
 
                 HStack(spacing: 10) {
-                    metricPill(value: "\(weekCheckIns.count)", label: String(localized: AppStrings.History.metricWeek))
-                    metricPill(value: "\(sessions.count)", label: String(localized: AppStrings.History.metricExercises))
+                    metricPill(value: "\(weekCheckIns.count)", label: String(localized: AppStrings.Home.metricCheckIns))
+                    metricPill(value: "\(weekSessions.count)", label: String(localized: AppStrings.History.metricExercises))
                 }
 
                 if let commonEmotion {
@@ -252,18 +252,19 @@ struct WritingsView: View {
                 Button {
                     selectedEntry = entry
                 } label: {
+                    let preview = entryPreview(entry)
                     AppCard {
                         VStack(alignment: .leading, spacing: 12) {
-                            Text(entryPreviewTitle(entry))
+                            Text(preview.title)
                                 .font(.headline)
                                 .foregroundStyle(AppTheme.textPrimary)
                                 .fixedSize(horizontal: false, vertical: true)
 
-                            if let previewBody = entryPreviewBody(entry) {
-                                Text(previewBody)
-                                    .foregroundStyle(AppTheme.textSecondary)
-                                    .fixedSize(horizontal: false, vertical: true)
-                            }
+                            Text(preview.body)
+                                .foregroundStyle(AppTheme.textSecondary)
+                                .lineLimit(3)
+                                .truncationMode(.tail)
+                                .fixedSize(horizontal: false, vertical: true)
 
                             HStack {
                                 Text(entry.createdAt.formatted(date: .abbreviated, time: .shortened))
@@ -320,15 +321,12 @@ struct WritingsView: View {
         }
     }
 
-    private func entryPreviewTitle(_ entry: JournalEntry) -> String {
-        let candidates = [entry.feelingText, entry.neededText, entry.affectingText, entry.supportText]
-        return candidates.first(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
-            ?? String(localized: AppStrings.Journaling.detailTitle)
-    }
-
-    private func entryPreviewBody(_ entry: JournalEntry) -> String? {
-        [entry.affectingText, entry.neededText, entry.supportText]
-            .first(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
+    private func entryPreview(_ entry: JournalEntry) -> (title: String, body: String) {
+        let body = entry.feelingText.trimmingCharacters(in: .whitespacesAndNewlines)
+        return (
+            String(localized: AppStrings.Journaling.fieldFeeling),
+            body.isEmpty ? String(localized: AppStrings.Journaling.emptyBody) : body
+        )
     }
 
     private func journalEntryDetail(_ entry: JournalEntry) -> some View {
@@ -343,9 +341,6 @@ struct WritingsView: View {
                     .foregroundStyle(AppTheme.textSecondary)
 
                 detailSection(title: AppStrings.Journaling.fieldFeeling, text: entry.feelingText)
-                detailSection(title: AppStrings.Journaling.fieldAffecting, text: entry.affectingText)
-                detailSection(title: AppStrings.Journaling.fieldNeeded, text: entry.neededText)
-                detailSection(title: AppStrings.Journaling.fieldSupport, text: entry.supportText)
             }
             .padding(24)
         }

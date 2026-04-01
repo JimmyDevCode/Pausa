@@ -51,6 +51,18 @@ struct HomeView: View {
     }
 
     private var latestCheckIn: EmotionalCheckIn? { checkIns.first }
+    private var weekAgo: Date {
+        Calendar.current.date(byAdding: .day, value: -7, to: .now) ?? .now
+    }
+    private var recentCheckIns: [EmotionalCheckIn] {
+        checkIns.filter { $0.createdAt >= weekAgo }
+    }
+    private var recentJournalEntries: [JournalEntry] {
+        journalEntries.filter { $0.createdAt >= weekAgo }
+    }
+    private var recentSessions: [ExerciseSessionRecord] {
+        sessions.filter { $0.completedAt >= weekAgo }
+    }
 
     var body: some View {
         ScrollView {
@@ -193,9 +205,9 @@ struct HomeView: View {
 
     private var progressBadges: some View {
         Group {
-            progressBadge(value: "\(checkIns.count)", label: String(localized: AppStrings.Home.metricCheckIns))
-            progressBadge(value: "\(sessions.count)", label: String(localized: AppStrings.Home.metricExercises))
-            progressBadge(value: "\(journalEntries.count)", label: String(localized: AppStrings.Home.metricNotes))
+            progressBadge(value: "\(recentCheckIns.count)", label: String(localized: AppStrings.Home.metricCheckIns))
+            progressBadge(value: "\(recentSessions.count)", label: String(localized: AppStrings.Home.metricExercises))
+            progressBadge(value: "\(recentJournalEntries.count)", label: String(localized: AppStrings.Home.metricNotes))
         }
     }
 

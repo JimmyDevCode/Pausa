@@ -222,24 +222,15 @@ final class EmotionalCheckIn {
 final class JournalEntry {
     var id: UUID
     var feelingText: String
-    var affectingText: String
-    var neededText: String
-    var supportText: String
     var createdAt: Date
 
     init(
         id: UUID = UUID(),
         feelingText: String,
-        affectingText: String,
-        neededText: String,
-        supportText: String,
         createdAt: Date = .now
     ) {
         self.id = id
         self.feelingText = feelingText
-        self.affectingText = affectingText
-        self.neededText = neededText
-        self.supportText = supportText
         self.createdAt = createdAt
     }
 }

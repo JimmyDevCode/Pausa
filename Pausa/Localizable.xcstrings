@@ -1,2928 +1,2830 @@
 {
-  "sourceLanguage": "es",
-  "strings": {
-    "": {},
-    "%lld / %lld": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$lld / %2$lld"
-          }
-        }
-      }
-    },
-    "checkin.button.save": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guardar cómo me siento"
-          }
-        }
-      }
-    },
-    "checkin.emotion.subtitle": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Elige lo que más se acerque a cómo estás ahora."
-          }
-        }
-      }
-    },
-    "checkin.emotion.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Cómo te sientes en este momento?"
-          }
-        }
-      }
-    },
-    "checkin.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cómo estás"
-          }
-        }
-      }
-    },
-    "checkin.stress.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Qué tan cargado te sientes?"
-          }
-        }
-      }
-    },
-    "checkin.stress.value_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d de 10"
-          }
-        }
-      }
-    },
-    "common.cta.open": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abrir"
-          }
-        }
-      }
-    },
-    "common.cta.view_details": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver detalle"
-          }
-        }
-      }
-    },
-    "common.cta.view_exercise": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver ejercicio"
-          }
-        }
-      }
+  "sourceLanguage" : "es",
+  "strings" : {
+    "" : {
+
     },
-    "desired.calma": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Más calma"
+    "%lld / %lld" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld / %2$lld"
           }
         }
       }
     },
-    "desired.claridad": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Más claridad"
+    "checkin.button.save" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar cómo me siento"
           }
         }
       }
     },
-    "desired.descanso": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Más descanso"
+    "checkin.button.redo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrar otra emoción"
           }
         }
       }
     },
-    "desired.enfoque": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Más foco"
+    "checkin.button.view_recommendation" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver propuesta otra vez"
           }
         }
       }
     },
-    "desired.ligereza": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Más ligereza"
+    "checkin.completed.subtitle_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardaste que te sientes %1$@ con una intensidad de %2$d de 10."
           }
         }
       }
     },
-    "emotion_support.abrumado": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si hay demasiado a la vez, vamos por una sola cosa pequeña."
+    "checkin.completed.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Así quedó tu registro"
           }
         }
       }
     },
-    "emotion_support.ansioso": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cuando todo acelera, volver a la respiración suele ayudar."
+    "checkin.emotion.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige lo que más se acerque a cómo estás ahora."
           }
         }
       }
     },
-    "emotion_support.cansado": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu cuerpo y tu cabeza pueden estar pidiendo una pausa simple."
+    "checkin.emotion.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo te sientes en este momento?"
           }
         }
       }
     },
-    "emotion_support.frustrado": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bajar un poco la exigencia por unos minutos puede destrabar el momento."
+    "checkin.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cómo estás"
           }
         }
       }
     },
-    "emotion_support.tranquilo": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parece que hoy hay un poco más de aire. Puedes sostener ese ritmo."
+    "checkin.stress.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué tan cargado te sientes?"
           }
         }
       }
     },
-    "emotion_support.triste": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A veces no hace falta resolverlo todo, solo darte un rato de cuidado."
+    "checkin.stress.value_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d de 10"
           }
         }
       }
     },
-    "emotion.abrumado": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abrumado"
+    "common.cta.open" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir"
           }
         }
       }
     },
-    "emotion.ansioso": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ansioso"
+    "common.cta.view_details" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver detalle"
           }
         }
       }
     },
-    "emotion.cansado": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cansado"
+    "common.cta.view_exercise" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver ejercicio"
           }
         }
       }
     },
-    "emotion.frustrado": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frustrado"
+    "desired.calma" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más calma"
           }
         }
       }
     },
-    "emotion.tranquilo": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tranquilo"
+    "desired.claridad" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más claridad"
           }
         }
       }
     },
-    "emotion.triste": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Triste"
+    "desired.descanso" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más descanso"
           }
         }
       }
     },
-    "exercise_evidence.complementario.short": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Práctica"
+    "desired.enfoque" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más foco"
           }
         }
       }
     },
-    "exercise_evidence.complementario.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apoyo práctico"
+    "desired.ligereza" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más ligereza"
           }
         }
       }
     },
-    "exercise_evidence.investigado.short": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Respaldo"
+    "emotion_support.abrumado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si hay demasiado a la vez, vamos por una sola cosa pequeña."
           }
         }
       }
     },
-    "exercise_evidence.investigado.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Respaldado por estudios"
+    "emotion_support.ansioso" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando todo acelera, volver a la respiración suele ayudar."
           }
         }
       }
     },
-    "exercise.anti_stress_pause.closing": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Esto se siente un poco más manejable ahora?"
+    "emotion_support.cansado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu cuerpo y tu cabeza pueden estar pidiendo una pausa simple."
           }
         }
       }
     },
-    "exercise.anti_stress_pause.detail": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Respira, identifica qué te pesa más y elige una sola acción pequeña para después. El objetivo es simplificar."
+    "emotion_support.frustrado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bajar un poco la exigencia por unos minutos puede destrabar el momento."
           }
         }
       }
     },
-    "exercise.anti_stress_pause.evidence": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esta práctica junta dos ayudas simples: una pausa para respirar y una forma de calmar un poco la mente."
+    "emotion_support.tranquilo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parece que hoy hay un poco más de aire. Puedes sostener ese ritmo."
           }
         }
       }
     },
-    "exercise.anti_stress_pause.origin": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este formato no viene de una tradición única. Reúne ideas de regulación breve, mindfulness aplicado y estrategias modernas para reducir carga mental."
+    "emotion_support.triste" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A veces no hace falta resolverlo todo, solo darte un rato de cuidado."
           }
         }
       }
     },
-    "exercise.anti_stress_pause.summary": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dos minutos para bajar intensidad y ordenar una sola prioridad."
+    "emotion.abrumado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrumado"
           }
         }
       }
     },
-    "exercise.anti_stress_pause.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa anti-estrés"
+    "emotion.ansioso" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ansioso"
           }
         }
       }
     },
-    "exercise.badge.context": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Origen"
+    "emotion.cansado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cansado"
           }
         }
       }
     },
-    "exercise.breathing_444.care": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si sostener el aire te incomoda, reduce la cuenta o elimina la pausa. La idea es regularte, no forzar el cuerpo."
+    "emotion.frustrado" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frustrado"
           }
         }
       }
     },
-    "exercise.breathing_444.closing": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Te ayudó a sentir un poco más de aire?"
+    "emotion.tranquilo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tranquilo"
           }
         }
       }
     },
-    "exercise.breathing_444.detail": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inhala 4 segundos, sostén 4 y exhala 4. Está inspirada en respiraciones lentas y reguladas: acompasa el cuerpo sin exigirte hacerlo perfecto."
+    "emotion.triste" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Triste"
           }
         }
       }
     },
-    "exercise.breathing_444.evidence": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La evidencia sobre respiración lenta y guiada muestra mejoras frecuentes en estrés y ansiedad percibidos cuando se practica con suavidad y de forma repetida. El beneficio suele venir del ritmo lento, no de aguantar más, y puede variar según la persona."
+    "exercise_evidence.complementario.short" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Práctica"
           }
         }
       }
     },
-    "exercise.breathing_444.origin": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El trabajo consciente con la respiración aparece desde hace siglos en tradiciones contemplativas. En el yoga se conoce como pranayama, una práctica dedicada a regular la respiración y la atención."
+    "exercise_evidence.complementario.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoyo práctico"
           }
         }
       }
     },
-    "exercise.breathing_444.summary": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un ritmo simple para bajar revoluciones."
+    "exercise_evidence.investigado.short" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respaldo"
           }
         }
       }
     },
-    "exercise.breathing_444.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Respiración 4-4-4"
+    "exercise_evidence.investigado.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respaldado por estudios"
           }
         }
       }
     },
-    "exercise.duration_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Duración estimada: %@"
+    "exercise.anti_stress_pause.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Esto se siente un poco más manejable ahora?"
           }
         }
       }
     },
-    "exercise.duration_minutes_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d min"
+    "exercise.anti_stress_pause.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respira, identifica qué te pesa más y elige una sola acción pequeña para después. El objetivo es simplificar."
           }
         }
       }
     },
-    "exercise.duration_one_minute": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1 min"
+    "exercise.anti_stress_pause.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta práctica junta dos ayudas simples: una pausa para respirar y una forma de calmar un poco la mente."
           }
         }
       }
     },
-    "exercise.duration_seconds_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d seg"
+    "exercise.anti_stress_pause.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este formato no viene de una tradición única. Reúne ideas de regulación breve, mindfulness aplicado y estrategias modernas para reducir carga mental."
           }
         }
       }
     },
-    "exercise.grounding.closing": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Te sentiste más presente después de hacerlo?"
+    "exercise.anti_stress_pause.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dos minutos para bajar intensidad y ordenar una sola prioridad."
           }
         }
       }
     },
-    "exercise.grounding.detail": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nombra tres cosas que ves, dos que sientes y una que escuchas. La idea es aterrizar, no resolver todo."
+    "exercise.anti_stress_pause.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa anti-estrés"
           }
         }
       }
     },
-    "exercise.grounding.evidence": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Las técnicas de grounding se usan mucho en regulación emocional y trabajo con atención. Tienen apoyo práctico amplio, aunque el respaldo experimental es menos sólido que en respiración lenta o relajación muscular."
+    "exercise.badge.context" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origen"
           }
         }
       }
     },
-    "exercise.grounding.origin": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Este tipo de ejercicio viene de enfoques contemporáneos de regulación emocional y atención plena, centrados en volver al presente a través de los sentidos."
+    "exercise.breathing_444.care" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si sostener el aire te incomoda, reduce la cuenta o elimina la pausa. La idea es regularte, no forzar el cuerpo."
           }
         }
       }
     },
-    "exercise.grounding.summary": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vuelve a lo que puedes ver, sentir y escuchar."
+    "exercise.breathing_444.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Te ayudó a sentir un poco más de aire?"
           }
         }
       }
     },
-    "exercise.grounding.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Atención al presente"
+    "exercise.breathing_444.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inhala 4 segundos, sostén 4 y exhala 4. Está inspirada en respiraciones lentas y reguladas: acompasa el cuerpo sin exigirte hacerlo perfecto."
           }
         }
       }
     },
-    "exercise.inhale_exhale.care": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si marearte o hiperventilar te resulta fácil, baja el ritmo y vuelve a una respiración natural."
+    "exercise.breathing_444.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La evidencia sobre respiración lenta y guiada muestra mejoras frecuentes en estrés y ansiedad percibidos cuando se practica con suavidad y de forma repetida. El beneficio suele venir del ritmo lento, no de aguantar más, y puede variar según la persona."
           }
         }
       }
     },
-    "exercise.inhale_exhale.closing": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Tu respiración quedó un poco más estable?"
+    "exercise.breathing_444.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El trabajo consciente con la respiración aparece desde hace siglos en tradiciones contemplativas. En el yoga se conoce como pranayama, una práctica dedicada a regular la respiración y la atención."
           }
         }
       }
     },
-    "exercise.inhale_exhale.detail": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sigue la cuenta visual y deja que el aire marque el ritmo. Si te distraes, vuelve sin exigirte."
+    "exercise.breathing_444.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un ritmo simple para bajar revoluciones."
           }
         }
       }
     },
-    "exercise.inhale_exhale.evidence": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La respiración diafragmática y acompasada se estudia como herramienta simple de regulación fisiológica y emocional. Suele ayudar a bajar activación cuando se hace de forma cómoda, aunque no todas las personas responden igual."
+    "exercise.breathing_444.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respiración 4-4-4"
           }
         }
       }
     },
-    "exercise.inhale_exhale.origin": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Las prácticas de respiración consciente existen en múltiples culturas. En tradiciones de yoga, taoísmo y meditación se usaron para entrenar atención, energía y calma."
+    "exercise.duration_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duración estimada: %@"
           }
         }
       }
     },
-    "exercise.inhale_exhale.summary": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Temporizador suave para seguir tu respiración."
+    "exercise.duration_minutes_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d min"
           }
         }
       }
     },
-    "exercise.inhale_exhale.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inhalar y exhalar"
+    "exercise.duration_one_minute" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 min"
           }
         }
       }
     },
-    "exercise.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ejercicios"
+    "exercise.duration_seconds_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d seg"
           }
         }
       }
     },
-    "exercise.relax.care": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si una zona duele o está lesionada, no la contraigas ni la fuerces."
+    "exercise.grounding.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Te sentiste más presente después de hacerlo?"
           }
         }
       }
     },
-    "exercise.relax.closing": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Notas algo menos de tensión física?"
+    "exercise.grounding.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombra tres cosas que ves, dos que sientes y una que escuchas. La idea es aterrizar, no resolver todo."
           }
         }
       }
     },
-    "exercise.relax.detail": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suelta la frente, baja los hombros y deja la lengua descansar. A veces el cuerpo necesita permiso para soltar."
+    "exercise.grounding.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las técnicas para volver al presente se usan mucho en regulación emocional y trabajo con atención. Tienen apoyo práctico amplio, aunque el respaldo experimental es menos sólido que en respiración lenta o relajación muscular."
           }
         }
       }
     },
-    "exercise.relax.evidence": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La relajación muscular progresiva y ejercicios corporales breves tienen respaldo en investigación para reducir tensión física y ansiedad en muchas personas, sobre todo cuando se repiten con práctica. Aun así, no reemplaza atención clínica cuando hace falta."
+    "exercise.grounding.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este tipo de ejercicio viene de enfoques contemporáneos de regulación emocional y atención plena, centrados en volver al presente a través de los sentidos."
           }
         }
       }
     },
-    "exercise.relax.origin": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Las versiones modernas de relajación muscular se popularizaron en el siglo XX con Edmund Jacobson, quien estudió cómo liberar tensión corporal de forma deliberada."
+    "exercise.grounding.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a lo que puedes ver, sentir y escuchar."
           }
         }
       }
     },
-    "exercise.relax.summary": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afloja mandíbula, hombros y respiración en un minuto."
+    "exercise.grounding.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atención al presente"
           }
         }
       }
     },
-    "exercise.relax.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Relajación breve"
+    "exercise.inhale_exhale.care" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si marearte o hiperventilar te resulta fácil, baja el ritmo y vuelve a una respiración natural."
           }
         }
       }
     },
-    "exercise.session.button.pause": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausar"
+    "exercise.inhale_exhale.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Tu respiración quedó un poco más estable?"
           }
         }
       }
     },
-    "exercise.session.button.start": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Comenzar"
+    "exercise.inhale_exhale.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sigue la cuenta visual y deja que el aire marque el ritmo. Si te distraes, vuelve sin exigirte."
           }
         }
       }
     },
-    "exercise.session.care": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tenlo en cuenta"
+    "exercise.inhale_exhale.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La respiración diafragmática y acompasada se estudia como herramienta simple de regulación fisiológica y emocional. Suele ayudar a bajar activación cuando se hace de forma cómoda, aunque no todas las personas responden igual."
           }
         }
       }
     },
-    "exercise.session.context": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un poco de contexto"
+    "exercise.inhale_exhale.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las prácticas de respiración consciente existen en múltiples culturas. En tradiciones de yoga, taoísmo y meditación se usaron para entrenar atención, energía y calma."
           }
         }
       }
     },
-    "exercise.session.cue.exhale": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Exhala"
+    "exercise.inhale_exhale.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temporizador suave para seguir tu respiración."
           }
         }
       }
     },
-    "exercise.session.cue.hold": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sostén"
+    "exercise.inhale_exhale.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inhalar y exhalar"
           }
         }
       }
     },
-    "exercise.session.cue.inhale": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inhala"
+    "exercise.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicios"
           }
         }
       }
     },
-    "exercise.session.cue.observe": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Observa"
+    "exercise.relax.care" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si una zona duele o está lesionada, no la contraigas ni la fuerces."
           }
         }
       }
     },
-    "exercise.session.cue.observe_sounds": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escucha un sonido cercano"
+    "exercise.relax.closing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Notas algo menos de tensión física?"
           }
         }
       }
     },
-    "exercise.session.cue.observe_touch": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Siente el apoyo de tu cuerpo"
+    "exercise.relax.detail" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suelta la frente, baja los hombros y deja la lengua descansar. A veces el cuerpo necesita permiso para soltar."
           }
         }
       }
     },
-    "exercise.session.cue.pause": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa"
+    "exercise.relax.evidence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La relajación muscular progresiva y ejercicios corporales breves tienen respaldo en investigación para reducir tensión física y ansiedad en muchas personas, sobre todo cuando se repiten con práctica. Aun así, no reemplaza atención clínica cuando hace falta."
           }
         }
       }
     },
-    "exercise.session.cue.pause_jaw": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afloja la mandíbula"
+    "exercise.relax.origin" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las versiones modernas de relajación muscular se popularizaron en el siglo XX con Edmund Jacobson, quien estudió cómo liberar tensión corporal de forma deliberada."
           }
         }
       }
     },
-    "exercise.session.cue.pause_shoulders": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Baja los hombros un poco"
+    "exercise.relax.summary" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afloja mandíbula, hombros y respiración en un minuto."
           }
         }
       }
     },
-    "exercise.session.cue.release": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suelta"
+    "exercise.relax.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relajación breve"
           }
         }
       }
     },
-    "exercise.session.cue.release_jaw": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suelta la mandíbula"
+    "exercise.session.button.pause" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausar"
           }
         }
       }
     },
-    "exercise.session.cue.release_shoulders": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Deja caer los hombros"
+    "exercise.session.button.start" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comenzar"
           }
         }
       }
     },
-    "exercise.session.feedback.a_little": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un poco"
+    "exercise.session.care" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenlo en cuenta"
           }
         }
       }
     },
-    "exercise.session.feedback.no": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No mucho"
+    "exercise.session.context" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un poco de contexto"
           }
         }
       }
     },
-    "exercise.session.feedback.question": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Te ayudó?"
+    "exercise.session.cue.exhale" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exhala"
           }
         }
       }
     },
-    "exercise.session.feedback.yes": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sí"
+    "exercise.session.cue.hold" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sostén"
           }
         }
       }
     },
-    "exercise.session.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sesión"
+    "exercise.session.cue.inhale" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inhala"
           }
         }
       }
     },
-    "exercise.session.repeat_note": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Puedes repetirla más tarde si vuelves a sentirte cargado."
+    "exercise.session.cue.observe" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Observa"
           }
         }
       }
     },
-    "exercise.session.status.completed": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sesión terminada"
+    "exercise.session.cue.observe_sounds" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escucha un sonido cercano"
           }
         }
       }
     },
-    "exercise.session.status.ready": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Empieza cuando quieras"
+    "exercise.session.cue.observe_touch" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siente el apoyo de tu cuerpo"
           }
         }
       }
     },
-    "exercise.session.status.running": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sigue el ritmo"
+    "exercise.session.cue.pause" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa"
           }
         }
       }
     },
-    "exercise.session.what_we_know": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que sabemos"
+    "exercise.session.cue.pause_jaw" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afloja la mandíbula"
           }
         }
       }
     },
-    "exercise.sources.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estas fuentes orientan el ejercicio y explican por qué puede ayudar."
+    "exercise.session.cue.pause_shoulders" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baja los hombros un poco"
           }
         }
       }
     },
-    "exercise.tag.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cuerpo"
+    "exercise.session.cue.release" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suelta"
           }
         }
       }
     },
-    "exercise.tag.calma": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calma"
+    "exercise.session.cue.release_jaw" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suelta la mandíbula"
           }
         }
       }
     },
-    "exercise.tag.enfoque": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enfoque"
+    "exercise.session.cue.release_shoulders" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deja caer los hombros"
           }
         }
       }
     },
-    "exercise.tag.pausa": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa"
+    "exercise.session.feedback.a_little" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un poco"
           }
         }
       }
     },
-    "exercise.tag.presente": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Presente"
+    "exercise.session.feedback.no" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No mucho"
           }
         }
       }
     },
-    "exercise.tag.respira": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Respira"
+    "exercise.session.feedback.question" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Te ayudó?"
           }
         }
       }
     },
-    "exercise.tag.ritmo": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ritmo"
+    "exercise.session.feedback.yes" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sí"
           }
         }
       }
     },
-    "exercise.tag.suelta": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suelta"
+    "exercise.session.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sesión"
           }
         }
       }
     },
-    "focus.agotamiento": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Agotamiento"
+    "exercise.session.repeat_note" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes repetirla más tarde si vuelves a sentirte cargado."
           }
         }
       }
     },
-    "focus.ansiedad": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ansiedad"
+    "exercise.session.status.completed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sesión terminada"
           }
         }
       }
     },
-    "focus.enfoque": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Carga mental"
+    "exercise.session.status.ready" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empieza cuando quieras"
           }
         }
       }
     },
-    "focus.estres": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estrés"
+    "exercise.session.status.running" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sigue el ritmo"
           }
         }
       }
     },
-    "focus.sueno": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sueño"
+    "exercise.session.what_we_know" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que sabemos"
           }
         }
       }
     },
-    "history.count_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%dx"
+    "exercise.sources.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estas fuentes orientan el ejercicio y explican por qué puede ayudar."
           }
         }
       }
     },
-    "history.empty.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aun no hay escritos para mostrar. Cuando guardes una nota o envies un mensaje, aqui veras un resumen corto."
+    "exercise.tag.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuerpo"
           }
         }
       }
     },
-    "history.empty.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu recorrido aparecera aqui"
+    "exercise.tag.calma" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calma"
           }
         }
       }
     },
-    "history.insight.combo_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que más apareció fue %@ y el recurso al que más volviste fue %@."
+    "exercise.tag.enfoque" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enfoque"
           }
         }
       }
     },
-    "history.insight.empty": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todavía no hay suficiente actividad para leer patrones. Cuando uses Pausa varias veces, aquí verás una lectura simple de tu semana."
+    "exercise.tag.pausa" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa"
           }
         }
       }
     },
-    "history.insight.emotion_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que más apareció fue %@."
+    "exercise.tag.presente" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Presente"
           }
         }
       }
     },
-    "history.insight.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lectura rápida"
+    "exercise.tag.respira" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respira"
           }
         }
       }
     },
-    "history.insight.tool_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "El recurso al que más volviste fue %@."
+    "exercise.tag.ritmo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ritmo"
           }
         }
       }
     },
-    "history.item.checkin.body_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ · %d de 10"
+    "exercise.tag.suelta" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suelta"
           }
         }
       }
     },
-    "history.item.checkin.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Registro emocional"
+    "focus.agotamiento" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agotamiento"
           }
         }
       }
     },
-    "history.item.exercise.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ejercicio"
+    "focus.ansiedad" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ansiedad"
           }
         }
       }
     },
-    "history.item.journal.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nota guardada"
+    "focus.enfoque" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carga mental"
           }
         }
       }
     },
-    "history.metric.exercises": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ejercicios"
+    "focus.estres" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estrés"
           }
         }
       }
     },
-    "history.metric.week": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Semana"
+    "focus.sueno" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sueño"
           }
         }
       }
     },
-    "history.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Historial"
+    "history.count_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%dx"
           }
         }
       }
     },
-    "history.patterns.title": {
-      "extractionState": "stale",
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Patrones de la semana"
+    "history.empty.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aun no hay escritos para mostrar. Cuando guardes una nota o envies un mensaje, aqui veras un resumen corto."
           }
         }
       }
     },
-    "history.preview.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver todos tus escritos"
+    "history.empty.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu recorrido aparecera aqui"
           }
         }
       }
     },
-    "history.preview.empty_body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aún no hay escritos para mostrar. Cuando guardes una nota, aquí verás un resumen corto."
+    "history.insight.combo_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que más apareció fue %@ y el recurso al que más volviste fue %@."
           }
         }
       }
     },
-    "history.preview.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escritos recientes"
+    "history.insight.emotion_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que más apareció fue %@."
           }
         }
       }
     },
-    "history.recent_activity.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tus escritos"
+    "history.insight.empty" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todavía no hay suficiente actividad para leer patrones. Cuando uses Pausa varias veces, aquí verás una lectura simple de tu semana."
           }
         }
       }
     },
-    "history.repeated_emotions.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Emociones repetidas"
+    "history.insight.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lectura rápida"
           }
         }
       }
     },
-    "history.summary.body_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Registraste %d estados de ánimo y completaste %d ejercicios."
+    "history.insight.tool_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El recurso al que más volviste fue %@."
           }
         }
       }
     },
-    "history.summary.common_emotion_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La emoción más repetida fue %@"
+    "history.item.checkin.body_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · %d de 10"
           }
         }
       }
     },
-    "history.summary.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu última semana"
+    "history.item.checkin.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registro emocional"
           }
         }
       }
     },
-    "history.tool.checkin_completed": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Registro emocional guardado"
+    "history.item.exercise.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicio"
           }
         }
       }
     },
-    "history.tool.exercise_completed": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ejercicio completado"
+    "history.item.journal.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nota guardada"
           }
         }
       }
     },
-    "history.tool.exercise_started": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ejercicio iniciado"
+    "history.metric.exercises" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicios"
           }
         }
       }
     },
-    "history.tool.home_returned": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volviste al inicio"
+    "history.metric.week" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semana"
           }
         }
       }
     },
-    "history.tool.immediate_help_used": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ayuda inmediata abierta"
+    "history.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historial"
           }
         }
       }
     },
-    "history.tool.journaling_saved": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nota guardada"
+    "history.patterns.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Patrones de la semana"
           }
         }
       }
     },
-    "history.tool.onboarding_completed": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Onboarding completado"
+    "history.preview.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todos tus escritos"
           }
         }
       }
     },
-    "history.tools.recent_uses": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "usos recientes"
+    "history.preview.empty_body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aún no hay escritos para mostrar. Cuando guardes una nota, aquí verás un resumen corto."
           }
         }
       }
     },
-    "history.tools.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Herramientas más usadas"
+    "history.preview.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escritos recientes"
           }
         }
       }
     },
-    "history.writings.body_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tienes %d notas guardadas. Puedes verlas completas en una pantalla aparte."
+    "history.recent_activity.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus escritos"
           }
         }
       }
     },
-    "history.writings.empty_body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tus notas aparecerán en una pantalla aparte, para que este historial se mantenga simple."
+    "history.repeated_emotions.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emociones repetidas"
           }
         }
       }
     },
-    "history.writings.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tus escritos"
+    "history.summary.body_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En los últimos 7 días registraste %d estados de ánimo y completaste %d ejercicios."
           }
         }
       }
     },
-    "home.checkin.button_empty": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cómo estoy hoy"
+    "history.summary.common_emotion_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La emoción más repetida fue %@"
           }
         }
       }
     },
-    "home.checkin.button_latest": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Actualizar cómo me siento"
+    "history.summary.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Últimos 7 días"
           }
         }
       }
     },
-    "home.checkin.subtitle_empty": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En un minuto puedes ponerle nombre a lo que sientes y ver qué te puede ayudar ahora."
+    "history.tool.checkin_completed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registro emocional guardado"
           }
         }
       }
     },
-    "home.checkin.title_empty": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cómo te sientes"
+    "history.tool.exercise_completed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicio completado"
           }
         }
       }
     },
-    "home.checkin.title_latest": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu estado más reciente"
+    "history.tool.exercise_started" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicio iniciado"
           }
         }
       }
     },
-    "home.disclaimer": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa acompaña momentos de estrés o ansiedad leve del día a día. No reemplaza ayuda profesional."
+    "history.tool.home_returned" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volviste al inicio"
           }
         }
       }
     },
-    "home.emergency.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Accede rápido a respiración, grounding y una pausa corta para bajar intensidad."
+    "history.tool.immediate_help_used" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayuda inmediata abierta"
           }
         }
       }
     },
-    "home.emergency.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Necesito ayuda ahora"
+    "history.tool.journaling_saved" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nota guardada"
           }
         }
       }
     },
-    "home.emergency.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si lo necesitas, empecemos por lo más urgente"
+    "history.tool.onboarding_completed" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onboarding completado"
           }
         }
       }
     },
-    "home.header.greeting_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hola, %@"
+    "history.tools.recent_uses" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "usos recientes"
           }
         }
       }
     },
-    "home.header.subtitle_empty": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hoy puedes empezar registrando cómo estás, tomando una pausa corta o escribiendo lo que traes encima."
+    "history.tools.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Herramientas más usadas"
           }
         }
       }
     },
-    "home.header.subtitle_latest_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu último registro fue %@. Puedes volver a tomar una pausa cuando lo necesites."
+    "history.writings.body_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tienes %d notas guardadas. Puedes verlas completas en una pantalla aparte."
           }
         }
       }
     },
-    "home.history_card.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mira un resumen breve de tu semana y entra a tus escritos cuando quieras releerlos."
+    "history.writings.empty_body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus notas aparecerán en una pantalla aparte, para que este historial se mantenga simple."
           }
         }
       }
     },
-    "home.history_card.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver historial"
+    "history.writings.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus escritos"
           }
         }
       }
     },
-    "home.history_card.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu actividad"
+    "home.checkin.button_empty" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cómo estoy hoy"
           }
         }
       }
     },
-    "home.latest_state.format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Te sentiste %@ con estrés %d/10. %@"
+    "home.checkin.button_latest" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar cómo me siento"
           }
         }
       }
     },
-    "home.menu.profile": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perfil"
+    "home.checkin.subtitle_empty" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En un minuto puedes ponerle nombre a lo que sientes y ver qué te puede ayudar ahora."
           }
         }
       }
     },
-    "home.metric.checkins": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Registros"
+    "home.checkin.title_empty" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cómo te sientes"
           }
         }
       }
     },
-    "home.metric.exercises": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ejercicios"
+    "home.checkin.title_latest" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu estado más reciente"
           }
         }
       }
     },
-    "home.metric.notes": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notas"
+    "home.disclaimer" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa acompaña momentos de estrés o ansiedad leve del día a día. No reemplaza ayuda profesional."
           }
         }
       }
     },
-    "home.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa"
+    "home.emergency.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accede rápido a respiración, ejercicios para volver al presente y una pausa corta para bajar intensidad."
           }
         }
       }
     },
-    "home.progress.latest_recommendation_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Última recomendación: %@"
+    "home.emergency.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Necesito ayuda ahora"
           }
         }
       }
     },
-    "home.progress.summary_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Registros: %d  ·  Ejercicios: %d  ·  Entradas: %d"
+    "home.emergency.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si lo necesitas, empecemos por lo más urgente"
           }
         }
       }
     },
-    "home.progress.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu semana en corto"
+    "home.header.greeting_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola, %@"
           }
         }
       }
     },
-    "home.tools.exercises.subtitle": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Respiración, grounding y pausas breves"
+    "home.header.subtitle_empty" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hoy puedes empezar registrando cómo estás, tomando una pausa corta o escribiendo lo que traes encima."
           }
         }
       }
     },
-    "home.tools.exercises.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausas guiadas"
+    "home.header.subtitle_latest_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu último registro fue %@. Puedes volver a tomar una pausa cuando lo necesites."
           }
         }
       }
     },
-    "home.tools.history.subtitle": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ve un resumen corto y entra a tus escritos recientes"
+    "home.history_card.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mira un resumen breve de tu semana y entra a tus escritos cuando quieras releerlos."
           }
         }
       }
     },
-    "home.tools.history.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cómo te has sentido"
+    "home.history_card.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver historial"
           }
         }
       }
     },
-    "home.tools.journaling.subtitle": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saca lo que traes encima y ordénalo un poco"
+    "home.history_card.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu actividad"
           }
         }
       }
     },
-    "home.tools.journaling.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribir un poco"
+    "home.latest_state.format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te sentiste %@ con estrés %d/10. %@"
           }
         }
       }
     },
-    "home.tools.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Herramientas"
+    "home.menu.profile" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
           }
         }
       }
     },
-    "immediate_help.header.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si te sientes muy cargado, prueba una acción corta ahora. No necesitas hacerlo perfecto."
+    "home.metric.checkins" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registros"
           }
         }
       }
     },
-    "immediate_help.header.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vamos por lo más simple"
+    "home.metric.exercises" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicios"
           }
         }
       }
     },
-    "immediate_help.intense.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa no reemplaza ayuda profesional. Si necesitas contención real ahora mismo, busca a alguien de confianza o ayuda profesional cercana."
+    "home.metric.notes" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notas"
           }
         }
       }
     },
-    "immediate_help.intense.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si esto se siente demasiado intenso"
+    "home.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa"
           }
         }
       }
     },
-    "immediate_help.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ayuda inmediata"
+    "home.progress.latest_recommendation_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Última recomendación: %@"
           }
         }
       }
     },
-    "journaling.button.back": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Atrás"
+    "home.progress.summary_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registros: %d  ·  Ejercicios: %d  ·  Entradas: %d"
           }
         }
       }
     },
-    "journaling.button.next": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Siguiente"
+    "home.progress.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Últimos 7 días"
           }
         }
       }
     },
-    "journaling.button.save": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guardar nota"
+    "home.tools.exercises.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respiración, volver al presente y pausas breves"
           }
         }
       }
     },
-    "journaling.detail.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que escribiste"
+    "home.tools.exercises.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausas guiadas"
           }
         }
       }
     },
-    "journaling.empty.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cuando guardes algo, aquí podrás volver a leer lo que estabas sintiendo o necesitando."
+    "home.tools.history.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ve un resumen corto y entra a tus escritos recientes"
           }
         }
       }
     },
-    "journaling.empty.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tus notas van a aparecer aquí"
+    "home.tools.history.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cómo te has sentido"
           }
         }
       }
     },
-    "journaling.field.affecting": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que más me pesa ahora es…"
+    "home.tools.journaling.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saca lo que traes encima y ordénalo un poco"
           }
         }
       }
     },
-    "journaling.field.feeling": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ahora me siento…"
+    "home.tools.journaling.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribir un poco"
           }
         }
       }
     },
-    "journaling.field.needed": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que necesito ahora es…"
+    "home.tools.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Herramientas"
           }
         }
       }
     },
-    "journaling.field.support": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Algo que me ayudaría ahorita es…"
+    "immediate_help.header.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si te sientes muy cargado, prueba una acción corta ahora. No necesitas hacerlo perfecto."
           }
         }
       }
     },
-    "journaling.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribir"
+    "immediate_help.header.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vamos por lo más simple"
           }
         }
       }
     },
-    "journaling.placeholder": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribe lo que te salga"
+    "immediate_help.intense.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa no reemplaza ayuda profesional. Si necesitas contención real ahora mismo, busca a alguien de confianza o ayuda profesional cercana."
           }
         }
       }
     },
-    "journaling.previous_entries": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notas guardadas"
+    "immediate_help.intense.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si esto se siente demasiado intenso"
           }
         }
       }
     },
-    "journaling.step.format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paso %1$d de %2$d"
+    "immediate_help.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayuda inmediata"
           }
         }
       }
     },
-    "journaling.step.reflection.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Empieza por poner en palabras cómo te sientes y qué es lo que más pesa ahora."
+    "journaling.button.back" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atrás"
           }
         }
       }
     },
-    "journaling.step.reflection.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que estás viviendo"
+    "journaling.button.next" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siguiente"
           }
         }
       }
     },
-    "journaling.step.support.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ahora piensa en lo que necesitas y en qué podría ayudarte a sentirte un poco mejor."
+    "journaling.button.save" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar nota"
           }
         }
       }
     },
-    "journaling.step.support.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lo que te ayudaría ahora"
+    "journaling.detail.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que escribiste"
           }
         }
       }
     },
-    "onboarding.button.back": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Atrás"
+    "journaling.empty.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando guardes algo, aquí podrás volver a leer lo que estabas sintiendo o necesitando."
           }
         }
       }
     },
-    "onboarding.button.continue": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuar"
+    "journaling.empty.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus notas van a aparecer aquí"
           }
         }
       }
     },
-    "onboarding.button.start": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Empezar con Pausa"
+    "journaling.field.feeling" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué te pasa?"
           }
         }
       }
     },
-    "onboarding.concern.subtitle": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Puedes cambiar esto después."
+    "journaling.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribir"
           }
         }
       }
     },
-    "onboarding.concern.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Qué te está pesando más hoy?"
+    "journaling.placeholder" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribe lo que te salga"
           }
         }
       }
     },
-    "onboarding.desired.subtitle": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Esto nos ayuda a hacer la experiencia un poco más tuya."
+    "journaling.previous_entries" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notas guardadas"
           }
         }
       }
     },
-    "onboarding.desired.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Qué te gustaría sentir más seguido?"
+    "journaling.step.format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paso %1$d de %2$d"
           }
         }
       }
     },
-    "onboarding.finish.body_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entrarás con una experiencia enfocada en %1$@ y apoyo para %2$@."
+    "journaling.step.reflection.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empieza por poner en palabras cómo te sientes y qué es lo que más pesa ahora."
           }
         }
       }
     },
-    "onboarding.finish.note": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu información queda guardada solo en este dispositivo en esta primera versión."
+    "journaling.step.reflection.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que estás viviendo"
           }
         }
       }
     },
-    "onboarding.finish.subtitle": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vas a tener registros simples, ejercicios cortos, escritura breve y ayuda rápida cuando la necesites."
+    "journaling.step.support.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahora piensa en lo que necesitas y en qué podría ayudarte a sentirte un poco mejor."
           }
         }
       }
     },
-    "onboarding.finish.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ya está casi listo"
+    "journaling.step.support.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo que te ayudaría ahora"
           }
         }
       }
     },
-    "onboarding.nickname.placeholder": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribe tu nombre o apodo"
+    "notifications.daily.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si te ayuda, puedes hacer una pausa breve o escribir cómo te sientes."
           }
         }
       }
     },
-    "onboarding.nickname.subtitle": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Puede ser tu nombre o un apodo."
+    "notifications.daily.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un momento para volver a ti"
           }
         }
       }
     },
-    "onboarding.nickname.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Cómo te gustaría que te llame?"
+    "onboarding.button.back" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atrás"
           }
         }
       }
     },
-    "onboarding.welcome.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa está pensada para acompañarte en momentos de estrés, ansiedad leve o saturación del día a día. Sin ruido, sin juicios."
+    "onboarding.button.continue" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar"
           }
         }
       }
     },
-    "onboarding.welcome.note": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No reemplaza ayuda profesional. Es una herramienta de apoyo cotidiano."
+    "onboarding.button.start" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empezar con Pausa"
           }
         }
       }
     },
-    "onboarding.welcome.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Una ayuda simple para momentos de estrés"
+    "onboarding.concern.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes cambiar esto después."
           }
         }
       }
     },
-    "notifications.daily.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si te ayuda, puedes hacer una pausa breve o escribir cómo te sientes."
+    "onboarding.concern.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué te está pesando más hoy?"
           }
         }
       }
     },
-    "notifications.daily.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un momento para volver a ti"
+    "onboarding.desired.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esto nos ayuda a hacer la experiencia un poco más tuya."
           }
         }
       }
     },
-    "preview.journal.affecting": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La acumulación de pendientes y mensajes."
+    "onboarding.desired.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué te gustaría sentir más seguido?"
           }
         }
       }
     },
-    "preview.journal.feeling": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estoy con demasiadas ventanas abiertas en la cabeza."
+    "onboarding.finish.body_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrarás con una experiencia enfocada en %1$@ y apoyo para %2$@."
           }
         }
       }
     },
-    "preview.journal.needed": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Necesito bajar la velocidad un rato."
+    "onboarding.finish.note" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu información queda guardada solo en este dispositivo en esta primera versión."
           }
         }
       }
     },
-    "preview.journal.support": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Respirar y ordenar una sola prioridad."
+    "onboarding.finish.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vas a tener registros simples, ejercicios cortos, escritura breve y ayuda rápida cuando la necesites."
           }
         }
       }
     },
-    "preview.nickname": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ari"
+    "onboarding.finish.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ya está casi listo"
           }
         }
       }
     },
-    "profile.about.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sobre ti"
+    "onboarding.nickname.placeholder" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribe tu nombre o apodo"
           }
         }
       }
     },
-    "profile.camera.option": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tomar foto"
+    "onboarding.nickname.subtitle" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puede ser tu nombre o un apodo."
           }
         }
       }
     },
-    "profile.cancel.option": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancelar"
+    "onboarding.nickname.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo te gustaría que te llame?"
           }
         }
       }
     },
-    "profile.choose_photo": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seleccionar foto"
+    "onboarding.welcome.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa está pensada para acompañarte en momentos de estrés, ansiedad leve o saturación del día a día. Sin ruido, sin juicios."
           }
         }
       }
     },
-    "profile.done.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Listo"
+    "onboarding.welcome.note" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No reemplaza ayuda profesional. Es una herramienta de apoyo cotidiano."
           }
         }
       }
     },
-    "profile.edit_photo": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cambiar foto"
+    "onboarding.welcome.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una ayuda simple para momentos de estrés"
           }
         }
       }
     },
-    "profile.edit.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Editar perfil"
+    "preview.journal.feeling" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estoy con demasiadas ventanas abiertas en la cabeza."
           }
         }
       }
     },
-    "profile.edit.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Editar perfil"
+    "preview.nickname" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ari"
           }
         }
       }
     },
-    "profile.field.concern": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estoy trabajando en"
+    "profile.about.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sobre ti"
           }
         }
       }
     },
-    "profile.field.nickname": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nombre o apodo"
+    "profile.camera.option" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tomar foto"
           }
         }
       }
     },
-    "profile.field.preferred_feeling": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quiero sentir más"
+    "profile.cancel.option" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
           }
         }
       }
     },
-    "profile.focus_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Foco actual: %@"
+    "profile.choose_photo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar foto"
           }
         }
       }
     },
-    "profile.library.option": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Elegir de la galería"
+    "profile.done.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Listo"
           }
         }
       }
     },
-    "profile.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perfil"
+    "profile.edit_photo" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambiar foto"
           }
         }
       }
     },
-    "profile.open_settings.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abrir ajustes"
+    "profile.edit.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar perfil"
           }
         }
       }
     },
-    "profile.photo_hint": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La foto se guarda solo en este dispositivo."
+    "profile.edit.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar perfil"
           }
         }
       }
     },
-    "profile.privacy.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En este MVP la información se guarda localmente en tu dispositivo. La app está preparada para crecer, pero no depende de un backend en esta versión."
+    "profile.field.concern" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estoy trabajando en"
           }
         }
       }
     },
-    "profile.privacy.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Privacidad"
+    "profile.field.nickname" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre o apodo"
           }
         }
       }
     },
-    "profile.reminder_time.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hora del recordatorio"
+    "profile.field.preferred_feeling" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quiero sentir más"
           }
         }
       }
     },
-    "profile.reminders.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recibe un recordatorio diario y suave para hacer una pausa o escribir una nota."
+    "profile.focus_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foco actual: %@"
           }
         }
       }
     },
-    "profile.reminders.denied_body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Los recordatorios están desactivados para Pausa. Si quieres usarlos, actívalos desde Ajustes."
+    "profile.library.option" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elegir de la galería"
           }
         }
       }
     },
-    "profile.reminders.enabled_body_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tienes un recordatorio diario activo a las %1$02d:%2$02d."
+    "profile.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
           }
         }
       }
     },
-    "profile.reminders.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recordatorios"
+    "profile.open_settings.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir ajustes"
           }
         }
       }
     },
-    "profile.remove_photo.option": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quitar foto"
+    "profile.photo_hint" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La foto se guarda solo en este dispositivo."
           }
         }
       }
     },
-    "profile.responsible.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa acompaña momentos de estrés y ansiedad leve del día a día. No ofrece diagnóstico ni reemplaza apoyo profesional."
+    "profile.privacy.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En este MVP la información se guarda localmente en tu dispositivo. La app está preparada para crecer, pero no depende de un backend en esta versión."
           }
         }
       }
     },
-    "profile.responsible.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Importante"
+    "profile.privacy.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacidad"
           }
         }
       }
     },
-    "profile.seeking_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscas: %@"
+    "profile.reminder_time.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hora del recordatorio"
           }
         }
       }
     },
-    "profile.subtitle_format": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Buscando %@ y trabajando %@"
+    "profile.reminders.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recibe un recordatorio diario y suave para hacer una pausa o escribir una nota."
           }
         }
       }
     },
-    "recommendation.abrumado.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cuando hay demasiado a la vez, sirve aterrizar y elegir una sola cosa para después."
+    "profile.reminders.denied_body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los recordatorios están desactivados para Pausa. Si quieres usarlos, actívalos desde Ajustes."
           }
         }
       }
     },
-    "recommendation.abrumado.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ir a la pausa"
+    "profile.reminders.enabled_body_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tienes un recordatorio diario activo a las %1$02d:%2$02d."
           }
         }
       }
     },
-    "recommendation.abrumado.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Haz una pausa mental breve"
+    "profile.reminders.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recordatorios"
           }
         }
       }
     },
-    "recommendation.ansioso.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Una respiración simple puede acompañarte sin pedirte demasiado."
+    "profile.remove_photo.option" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitar foto"
           }
         }
       }
     },
-    "recommendation.ansioso.body_high": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu nivel de tensión viene alto. Empezar por 1 minuto de respiración puede ayudarte a bajar un poco."
+    "profile.responsible.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa acompaña momentos de estrés y ansiedad leve del día a día. No ofrece diagnóstico ni reemplaza apoyo profesional."
           }
         }
       }
     },
-    "recommendation.ansioso.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Empezar respiración"
+    "profile.responsible.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importante"
           }
         }
       }
     },
-    "recommendation.ansioso.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Probemos una respiración guiada"
+    "profile.seeking_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscas: %@"
           }
         }
       }
     },
-    "recommendation.cansado.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No todo se resuelve con empujar más. A veces toca aflojar primero."
+    "profile.subtitle_format" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscando %@ y trabajando %@"
           }
         }
       }
     },
-    "recommendation.cansado.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ir a relajación"
+    "recommendation.abrumado.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando hay demasiado a la vez, sirve aterrizar y elegir una sola cosa para después."
           }
         }
       }
     },
-    "recommendation.cansado.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prueba una relajación breve"
+    "recommendation.abrumado.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a la pausa"
           }
         }
       }
     },
-    "recommendation.frustrado.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Antes de retomar, puede ayudarte una práctica corta para salir del bucle."
+    "recommendation.abrumado.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz una pausa mental breve"
           }
         }
       }
     },
-    "recommendation.frustrado.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hacer grounding"
+    "recommendation.ansioso.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una respiración simple puede acompañarte sin pedirte demasiado."
           }
         }
       }
     },
-    "recommendation.frustrado.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vuelve al presente por un momento"
+    "recommendation.ansioso.body_high" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu nivel de tensión viene alto. Empezar por 1 minuto de respiración puede ayudarte a bajar un poco."
           }
         }
       }
     },
-    "recommendation.tranquilo.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Puedes registrar cómo estás para reconocer qué te está ayudando hoy."
+    "recommendation.ansioso.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empezar respiración"
           }
         }
       }
     },
-    "recommendation.tranquilo.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guardar este momento"
+    "recommendation.ansioso.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probemos una respiración guiada"
           }
         }
       }
     },
-    "recommendation.tranquilo.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aprovecha este momento de calma"
+    "recommendation.cansado.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No todo se resuelve con empujar más. A veces toca aflojar primero."
           }
         }
       }
     },
-    "recommendation.triste.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ponerlo en palabras puede ordenar el momento sin exigirte una solución inmediata."
+    "recommendation.cansado.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a relajación"
           }
         }
       }
     },
-    "recommendation.triste.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribir ahora"
+    "recommendation.cansado.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prueba una relajación breve"
           }
         }
       }
     },
-    "recommendation.triste.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribe un poco de lo que te pesa"
+    "recommendation.frustrado.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Antes de retomar, puede ayudarte una práctica corta para salir del bucle."
           }
         }
       }
     },
-    "reference.breathwork_review.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Breathing Practices for Stress and Anxiety Reduction"
+    "recommendation.frustrado.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver al presente"
           }
         }
       }
     },
-    "reference.narrative_review": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Revisión narrativa"
+    "recommendation.frustrado.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve al presente por un momento"
           }
         }
       }
     },
-    "reference.pranayama_review.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Health Impacts of Yoga and Pranayama"
+    "recommendation.tranquilo.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes registrar cómo estás para reconocer qué te está ayudando hoy."
           }
         }
       }
     },
-    "reference.systematic_review": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Revisión sistemática"
+    "recommendation.tranquilo.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar este momento"
           }
         }
       }
     },
-    "reference.yoga_health.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yoga for Health"
+    "recommendation.tranquilo.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aprovecha este momento de calma"
           }
         }
       }
     },
-    "tab.home": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inicio"
+    "recommendation.triste.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ponerlo en palabras puede ordenar el momento sin exigirte una solución inmediata."
           }
         }
       }
     },
-    "tab.pause": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa"
+    "recommendation.triste.button" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribir ahora"
           }
         }
       }
     },
-    "tab.profile": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perfil"
+    "recommendation.triste.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribe un poco de lo que te pesa"
           }
         }
       }
     },
-    "tab.progress": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Progreso"
+    "reference.breathwork_review.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breathing Practices for Stress and Anxiety Reduction"
           }
         }
       }
     },
-    "tab.write": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribir"
+    "reference.narrative_review" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revisión narrativa"
           }
         }
       }
     },
-    "write_hub.archive.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si quieres releer con calma, aquí tienes todas tus notas guardadas en un solo lugar."
+    "reference.pranayama_review.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Health Impacts of Yoga and Pranayama"
           }
         }
       }
     },
-    "write_hub.archive.button": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ver escritos"
+    "reference.systematic_review" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revisión sistemática"
           }
         }
       }
     },
-    "write_hub.archive.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu archivo personal"
+    "reference.yoga_health.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yoga for Health"
           }
         }
       }
     },
-    "write_hub.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribe para ordenar lo que sientes. Si hoy escribir no sale fácil, puedes usar un apoyo breve."
+    "tab.home" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicio"
           }
         }
       }
     },
-    "write_hub.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribir"
+    "tab.pause" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa"
           }
         }
       }
     },
-    "write_hub.notes.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Guarda unas líneas sobre cómo te sientes y qué necesitas hoy."
+    "tab.profile" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
           }
         }
       }
     },
-    "write_hub.notes.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escribir una nota"
+    "tab.progress" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progreso"
           }
         }
       }
     },
-    "write_hub.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ponle palabras a lo que llevas"
+    "tab.write" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribir"
           }
         }
       }
     },
-    "writings.empty.body": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todavia no hay contenido en esta seccion."
+    "writings.empty.body" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todavia no hay contenido en esta seccion."
           }
         }
       }
     },
-    "writings.empty.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aun no hay escritos"
+    "writings.empty.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aun no hay escritos"
           }
         }
       }
     },
-    "writings.navigation.title": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escritos"
+    "writings.navigation.title" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escritos"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

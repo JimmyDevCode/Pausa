@@ -8,6 +8,10 @@ enum AppStrings {
     }
 
     enum CheckIn {
+        static let buttonRedo: LocalizedStringResource = "checkin.button.redo"
+        static let buttonViewRecommendation: LocalizedStringResource = "checkin.button.view_recommendation"
+        static let completedSubtitleFormat: LocalizedStringResource = "checkin.completed.subtitle_format"
+        static let completedTitle: LocalizedStringResource = "checkin.completed.title"
         static let buttonSave: LocalizedStringResource = "checkin.button.save"
         static let emotionSubtitle: LocalizedStringResource = "checkin.emotion.subtitle"
         static let emotionTitle: LocalizedStringResource = "checkin.emotion.title"
@@ -239,10 +243,7 @@ enum AppStrings {
         static let detailTitle: LocalizedStringResource = "journaling.detail.title"
         static let emptyBody: LocalizedStringResource = "journaling.empty.body"
         static let emptyTitle: LocalizedStringResource = "journaling.empty.title"
-        static let fieldAffecting: LocalizedStringResource = "journaling.field.affecting"
         static let fieldFeeling: LocalizedStringResource = "journaling.field.feeling"
-        static let fieldNeeded: LocalizedStringResource = "journaling.field.needed"
-        static let fieldSupport: LocalizedStringResource = "journaling.field.support"
         static let navigationTitle: LocalizedStringResource = "journaling.navigation.title"
         static let placeholder: LocalizedStringResource = "journaling.placeholder"
         static let previousEntries: LocalizedStringResource = "journaling.previous_entries"
@@ -259,17 +260,6 @@ enum AppStrings {
         static let profile: LocalizedStringResource = "tab.profile"
         static let progress: LocalizedStringResource = "tab.progress"
         static let write: LocalizedStringResource = "tab.write"
-    }
-
-    enum WriteHub {
-        static let archiveBody: LocalizedStringResource = "write_hub.archive.body"
-        static let archiveButton: LocalizedStringResource = "write_hub.archive.button"
-        static let archiveTitle: LocalizedStringResource = "write_hub.archive.title"
-        static let body: LocalizedStringResource = "write_hub.body"
-        static let navigationTitle: LocalizedStringResource = "write_hub.navigation.title"
-        static let notesBody: LocalizedStringResource = "write_hub.notes.body"
-        static let notesTitle: LocalizedStringResource = "write_hub.notes.title"
-        static let title: LocalizedStringResource = "write_hub.title"
     }
 
     enum Writings {
@@ -335,10 +325,7 @@ enum AppStrings {
     }
 
     enum Preview {
-        static let journalAffecting: LocalizedStringResource = "preview.journal.affecting"
         static let journalFeeling: LocalizedStringResource = "preview.journal.feeling"
-        static let journalNeeded: LocalizedStringResource = "preview.journal.needed"
-        static let journalSupport: LocalizedStringResource = "preview.journal.support"
         static let nickname: LocalizedStringResource = "preview.nickname"
     }
 
