@@ -47,10 +47,7 @@ enum PreviewSeeder {
 
         context.insert(
             JournalEntry(
-                feelingText: String(localized: AppStrings.Preview.journalFeeling),
-                affectingText: String(localized: AppStrings.Preview.journalAffecting),
-                neededText: String(localized: AppStrings.Preview.journalNeeded),
-                supportText: String(localized: AppStrings.Preview.journalSupport)
+                feelingText: String(localized: AppStrings.Preview.journalFeeling)
             )
         )
 
