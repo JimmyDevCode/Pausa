@@ -32,14 +32,37 @@ enum EmotionalState: String, CaseIterable, Codable, Identifiable {
         case .triste: String(localized: AppStrings.EmotionSupport.triste)
         }
     }
+
+    init?(storedValue: String) {
+        let normalized = storedValue
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+
+        switch normalized {
+        case Self.tranquilo.rawValue:
+            self = .tranquilo
+        case Self.cansado.rawValue:
+            self = .cansado
+        case Self.ansioso.rawValue:
+            self = .ansioso
+        case Self.frustrado.rawValue:
+            self = .frustrado
+        case Self.abrumado.rawValue:
+            self = .abrumado
+        case Self.triste.rawValue:
+            self = .triste
+        default:
+            return nil
+        }
+    }
 }
 
 enum FocusArea: String, CaseIterable, Codable, Identifiable {
-    case estres = "Estrés"
-    case ansiedad = "Ansiedad"
-    case agotamiento = "Agotamiento"
-    case sueno = "Sueño"
-    case enfoque = "Carga mental"
+    case estres
+    case ansiedad
+    case agotamiento
+    case sueno
+    case enfoque
 
     var id: String { rawValue }
 
@@ -52,14 +75,35 @@ enum FocusArea: String, CaseIterable, Codable, Identifiable {
         case .enfoque: String(localized: AppStrings.Focus.enfoque)
         }
     }
+
+    init?(storedValue: String) {
+        let normalized = storedValue
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+
+        switch normalized {
+        case Self.estres.rawValue, "estres":
+            self = .estres
+        case Self.ansiedad.rawValue:
+            self = .ansiedad
+        case Self.agotamiento.rawValue:
+            self = .agotamiento
+        case Self.sueno.rawValue, "sueno":
+            self = .sueno
+        case Self.enfoque.rawValue, "carga mental":
+            self = .enfoque
+        default:
+            return nil
+        }
+    }
 }
 
 enum DesiredFeeling: String, CaseIterable, Codable, Identifiable {
-    case calma = "Más calma"
-    case claridad = "Más claridad"
-    case descanso = "Más descanso"
-    case enfoque = "Más foco"
-    case ligereza = "Más ligereza"
+    case calma
+    case claridad
+    case descanso
+    case enfoque
+    case ligereza
 
     var id: String { rawValue }
 
@@ -72,12 +116,34 @@ enum DesiredFeeling: String, CaseIterable, Codable, Identifiable {
         case .ligereza: String(localized: AppStrings.Desired.ligereza)
         }
     }
+
+    init?(storedValue: String) {
+        let normalized = storedValue
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+
+        switch normalized {
+        case Self.calma.rawValue, "mas calma":
+            self = .calma
+        case Self.claridad.rawValue, "mas claridad":
+            self = .claridad
+        case Self.descanso.rawValue, "mas descanso":
+            self = .descanso
+        case Self.enfoque.rawValue, "mas foco":
+            self = .enfoque
+        case Self.ligereza.rawValue, "mas ligereza":
+            self = .ligereza
+        default:
+            return nil
+        }
+    }
 }
 
 @Model
 final class UserProfile {
     var id: UUID
     var nickname: String
+    var avatarData: Data?
     var preferredFeeling: String
     var mainConcern: String
     var createdAt: Date
@@ -85,15 +151,25 @@ final class UserProfile {
     init(
         id: UUID = UUID(),
         nickname: String,
+        avatarData: Data? = nil,
         preferredFeeling: String,
         mainConcern: String,
         createdAt: Date = .now
     ) {
         self.id = id
         self.nickname = nickname
+        self.avatarData = avatarData
         self.preferredFeeling = preferredFeeling
         self.mainConcern = mainConcern
         self.createdAt = createdAt
+    }
+
+    var localizedPreferredFeeling: String {
+        DesiredFeeling(storedValue: preferredFeeling)?.localizedTitle ?? preferredFeeling
+    }
+
+    var localizedMainConcern: String {
+        FocusArea(storedValue: mainConcern)?.localizedTitle ?? mainConcern
     }
 }
 
@@ -124,30 +200,37 @@ final class EmotionalCheckIn {
         self.recommendationRoute = recommendationRoute
         self.createdAt = createdAt
     }
+
+    var localizedEmotion: String {
+        EmotionalState(storedValue: emotion)?.localizedTitle ?? emotion
+    }
+
+    var localizedEmotionLowercased: String {
+        localizedEmotion.lowercased()
+    }
+
+    var localizedRecommendationTitle: String {
+        AppRecommendationText(rawValue: recommendationTitle)?.localizedValue ?? recommendationTitle
+    }
+
+    var localizedRecommendationBody: String {
+        AppRecommendationText(rawValue: recommendationBody)?.localizedValue ?? recommendationBody
+    }
 }
 
 @Model
 final class JournalEntry {
     var id: UUID
     var feelingText: String
-    var affectingText: String
-    var neededText: String
-    var supportText: String
     var createdAt: Date
 
     init(
         id: UUID = UUID(),
         feelingText: String,
-        affectingText: String,
-        neededText: String,
-        supportText: String,
         createdAt: Date = .now
     ) {
         self.id = id
         self.feelingText = feelingText
-        self.affectingText = affectingText
-        self.neededText = neededText
-        self.supportText = supportText
         self.createdAt = createdAt
     }
 }
@@ -198,25 +281,48 @@ final class ToolUsageEvent {
     }
 }
 
-@Model
-final class ChatMessageRecord {
-    var id: UUID
-    var text: String
-    var isFromUser: Bool
-    var suggestedRoute: String
-    var createdAt: Date
+enum AppRecommendationText: String {
+    case abrumadoBody = "recommendation.abrumado.body"
+    case abrumadoButton = "recommendation.abrumado.button"
+    case abrumadoTitle = "recommendation.abrumado.title"
+    case ansiosoBody = "recommendation.ansioso.body"
+    case ansiosoBodyHigh = "recommendation.ansioso.body_high"
+    case ansiosoButton = "recommendation.ansioso.button"
+    case ansiosoTitle = "recommendation.ansioso.title"
+    case cansadoBody = "recommendation.cansado.body"
+    case cansadoButton = "recommendation.cansado.button"
+    case cansadoTitle = "recommendation.cansado.title"
+    case frustradoBody = "recommendation.frustrado.body"
+    case frustradoButton = "recommendation.frustrado.button"
+    case frustradoTitle = "recommendation.frustrado.title"
+    case tranquiloBody = "recommendation.tranquilo.body"
+    case tranquiloButton = "recommendation.tranquilo.button"
+    case tranquiloTitle = "recommendation.tranquilo.title"
+    case tristeBody = "recommendation.triste.body"
+    case tristeButton = "recommendation.triste.button"
+    case tristeTitle = "recommendation.triste.title"
 
-    init(
-        id: UUID = UUID(),
-        text: String,
-        isFromUser: Bool,
-        suggestedRoute: String = "",
-        createdAt: Date = .now
-    ) {
-        self.id = id
-        self.text = text
-        self.isFromUser = isFromUser
-        self.suggestedRoute = suggestedRoute
-        self.createdAt = createdAt
+    var localizedValue: String {
+        switch self {
+        case .abrumadoBody: String(localized: AppStrings.Recommendation.abrumadoBody)
+        case .abrumadoButton: String(localized: AppStrings.Recommendation.abrumadoButton)
+        case .abrumadoTitle: String(localized: AppStrings.Recommendation.abrumadoTitle)
+        case .ansiosoBody: String(localized: AppStrings.Recommendation.ansiosoBody)
+        case .ansiosoBodyHigh: String(localized: AppStrings.Recommendation.ansiosoBodyHigh)
+        case .ansiosoButton: String(localized: AppStrings.Recommendation.ansiosoButton)
+        case .ansiosoTitle: String(localized: AppStrings.Recommendation.ansiosoTitle)
+        case .cansadoBody: String(localized: AppStrings.Recommendation.cansadoBody)
+        case .cansadoButton: String(localized: AppStrings.Recommendation.cansadoButton)
+        case .cansadoTitle: String(localized: AppStrings.Recommendation.cansadoTitle)
+        case .frustradoBody: String(localized: AppStrings.Recommendation.frustradoBody)
+        case .frustradoButton: String(localized: AppStrings.Recommendation.frustradoButton)
+        case .frustradoTitle: String(localized: AppStrings.Recommendation.frustradoTitle)
+        case .tranquiloBody: String(localized: AppStrings.Recommendation.tranquiloBody)
+        case .tranquiloButton: String(localized: AppStrings.Recommendation.tranquiloButton)
+        case .tranquiloTitle: String(localized: AppStrings.Recommendation.tranquiloTitle)
+        case .tristeBody: String(localized: AppStrings.Recommendation.tristeBody)
+        case .tristeButton: String(localized: AppStrings.Recommendation.tristeButton)
+        case .tristeTitle: String(localized: AppStrings.Recommendation.tristeTitle)
+        }
     }
 }

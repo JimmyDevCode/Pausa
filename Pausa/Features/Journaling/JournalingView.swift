@@ -7,46 +7,39 @@ final class JournalingViewModel {
     private let services: AppServices
 
     var feelingText = ""
-    var affectingText = ""
-    var neededText = ""
-    var supportText = ""
 
     init(services: AppServices) {
         self.services = services
     }
 
     var canSave: Bool {
-        [feelingText, affectingText, neededText, supportText]
-            .contains { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+        !feelingText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
     func save(context: ModelContext) {
         context.insert(
             JournalEntry(
-                feelingText: feelingText,
-                affectingText: affectingText,
-                neededText: neededText,
-                supportText: supportText
+                feelingText: feelingText
             )
         )
         services.track(.journalingSaved, in: context)
         feelingText = ""
-        affectingText = ""
-        neededText = ""
-        supportText = ""
     }
 }
 
 struct JournalingView: View {
     let services: AppServices
+    let openRoute: (AppRoute) -> Void
 
     @State private var viewModel: JournalingViewModel
     @State private var selectedEntry: JournalEntry?
+    @FocusState private var isJournalFieldFocused: Bool
     @Query(sort: \JournalEntry.createdAt, order: .reverse) private var entries: [JournalEntry]
     @Environment(\.modelContext) private var modelContext
 
-    init(services: AppServices) {
+    init(services: AppServices, openRoute: @escaping (AppRoute) -> Void) {
         self.services = services
+        self.openRoute = openRoute
         _viewModel = State(initialValue: JournalingViewModel(services: services))
     }
 
@@ -57,11 +50,15 @@ struct JournalingView: View {
             VStack(alignment: .leading, spacing: 18) {
                 AppCard {
                     VStack(alignment: .leading, spacing: 14) {
+                        SectionHeader(
+                            title: "Escribe lo que te pasa",
+                            subtitle: "Hazlo corto o largo. Solo escribe lo que te salga."
+                        )
+
                         journalField(title: String(localized: AppStrings.Journaling.fieldFeeling), text: $bindableViewModel.feelingText)
-                        journalField(title: String(localized: AppStrings.Journaling.fieldAffecting), text: $bindableViewModel.affectingText)
-                        journalField(title: String(localized: AppStrings.Journaling.fieldNeeded), text: $bindableViewModel.neededText)
-                        journalField(title: String(localized: AppStrings.Journaling.fieldSupport), text: $bindableViewModel.supportText)
+
                         Button(String(localized: AppStrings.Journaling.buttonSave)) {
+                            isJournalFieldFocused = false
                             viewModel.save(context: modelContext)
                         }
                         .buttonStyle(PrimaryButtonStyle())
@@ -74,25 +71,26 @@ struct JournalingView: View {
                         .font(.appSection)
                         .foregroundStyle(AppTheme.textPrimary)
 
-                    ForEach(entries.prefix(6), id: \.id) { entry in
+                    if let latestEntry = entries.first {
                         Button {
-                            selectedEntry = entry
+                            selectedEntry = latestEntry
                         } label: {
+                            let preview = entryPreview(latestEntry)
                             AppCard {
                                 VStack(alignment: .leading, spacing: 12) {
-                                    Text(entryPreviewTitle(entry))
+                                    Text(preview.title)
                                         .font(.headline)
                                         .foregroundStyle(AppTheme.textPrimary)
                                         .fixedSize(horizontal: false, vertical: true)
 
-                                    if let previewBody = entryPreviewBody(entry) {
-                                        Text(previewBody)
-                                            .foregroundStyle(AppTheme.textSecondary)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                    }
+                                    Text(preview.body)
+                                        .foregroundStyle(AppTheme.textSecondary)
+                                        .lineLimit(3)
+                                        .truncationMode(.tail)
+                                        .fixedSize(horizontal: false, vertical: true)
 
                                     HStack(alignment: .center) {
-                                        Text(entry.createdAt.formatted(date: .abbreviated, time: .shortened))
+                                        Text(latestEntry.createdAt.formatted(date: .abbreviated, time: .shortened))
                                             .font(.footnote)
                                             .foregroundStyle(AppTheme.textSecondary)
 
@@ -103,6 +101,11 @@ struct JournalingView: View {
                             }
                         }
                         .buttonStyle(.plain)
+
+                        Button(String(localized: AppStrings.History.previewButton)) {
+                            openRoute(.writings)
+                        }
+                        .buttonStyle(SecondaryButtonStyle())
                     }
                 } else {
                     AccentCard(tint: AppTheme.secondarySurface) {
@@ -118,6 +121,10 @@ struct JournalingView: View {
                 }
             }
             .padding(20)
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            isJournalFieldFocused = false
         }
         .background(AppTheme.pageGradient.ignoresSafeArea())
         .navigationTitle(String(localized: AppStrings.Journaling.navigationTitle))
@@ -135,6 +142,7 @@ struct JournalingView: View {
                 .foregroundStyle(AppTheme.textPrimary)
             TextField(String(localized: AppStrings.Journaling.placeholder), text: text, axis: .vertical)
                 .lineLimit(3...6)
+                .focused($isJournalFieldFocused)
                 .padding(16)
                 .background(
                     RoundedRectangle(cornerRadius: 18, style: .continuous)
@@ -143,15 +151,12 @@ struct JournalingView: View {
         }
     }
 
-    private func entryPreviewTitle(_ entry: JournalEntry) -> String {
-        let candidates = [entry.feelingText, entry.neededText, entry.affectingText, entry.supportText]
-        return candidates.first(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) ?? String(localized: AppStrings.Journaling.detailTitle)
-    }
-
-    private func entryPreviewBody(_ entry: JournalEntry) -> String? {
-        let preview = [entry.affectingText, entry.neededText, entry.supportText]
-            .first(where: { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
-        return preview
+    private func entryPreview(_ entry: JournalEntry) -> (title: String, body: String) {
+        let body = entry.feelingText.trimmingCharacters(in: .whitespacesAndNewlines)
+        return (
+            String(localized: AppStrings.Journaling.fieldFeeling),
+            body.isEmpty ? String(localized: AppStrings.Journaling.emptyBody) : body
+        )
     }
 
     private func journalEntryDetail(_ entry: JournalEntry) -> some View {
@@ -166,9 +171,6 @@ struct JournalingView: View {
                     .foregroundStyle(AppTheme.textSecondary)
 
                 detailSection(title: AppStrings.Journaling.fieldFeeling, text: entry.feelingText)
-                detailSection(title: AppStrings.Journaling.fieldAffecting, text: entry.affectingText)
-                detailSection(title: AppStrings.Journaling.fieldNeeded, text: entry.neededText)
-                detailSection(title: AppStrings.Journaling.fieldSupport, text: entry.supportText)
             }
             .padding(24)
         }
@@ -188,7 +190,7 @@ struct JournalingView: View {
 
 #Preview {
     NavigationStack {
-        JournalingView(services: AppServices())
+        JournalingView(services: AppServices(), openRoute: { _ in })
     }
     .modelContainer(PersistenceController.preview.container)
 }

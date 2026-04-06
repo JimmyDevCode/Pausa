@@ -9,7 +9,11 @@ xcuserdata/
 
 # Xcode build artifacts
 DerivedData/
+.derivedData/
 build/
+.tmp/
+Pausa/.derivedData/
+Pausa/tmp-derived/
 *.moved-aside
 *.pbxuser
 !default.pbxuser

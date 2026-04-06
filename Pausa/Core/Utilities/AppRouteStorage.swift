@@ -10,8 +10,8 @@ extension AppRoute {
         case .exercises: "exercises"
         case .exercise(let exercise): "exercise:\(exercise.id)"
         case .journaling: "journaling"
-        case .supportChat: "supportChat"
         case .history: "history"
+        case .writings: "writings"
         case .profile: "profile"
         }
     }
@@ -26,10 +26,10 @@ extension AppRoute {
             self = .exercises
         case "journaling":
             self = .journaling
-        case "supportChat":
-            self = .supportChat
         case "history":
             self = .history
+        case "writings":
+            self = .writings
         case "profile":
             self = .profile
         default:

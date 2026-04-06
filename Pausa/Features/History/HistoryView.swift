@@ -2,25 +2,25 @@ import SwiftData
 import SwiftUI
 
 struct HistoryView: View {
-    @Query(sort: \EmotionalCheckIn.createdAt, order: .reverse) private var checkIns: [EmotionalCheckIn]
-    @Query(sort: \ExerciseSessionRecord.completedAt, order: .reverse) private var sessions: [ExerciseSessionRecord]
-    @Query(sort: \ToolUsageEvent.createdAt, order: .reverse) private var usage: [ToolUsageEvent]
-    @State private var toolPage = 0
+    let openRoute: (AppRoute) -> Void
 
-    init() {}
+    @Query(sort: \EmotionalCheckIn.createdAt, order: .reverse) private var checkIns: [EmotionalCheckIn]
+    @Query(sort: \JournalEntry.createdAt, order: .reverse) private var journalEntries: [JournalEntry]
+    @Query(sort: \ExerciseSessionRecord.completedAt, order: .reverse) private var sessions: [ExerciseSessionRecord]
+
+    init(openRoute: @escaping (AppRoute) -> Void) {
+        self.openRoute = openRoute
+    }
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 18) {
+            VStack(alignment: .leading, spacing: 20) {
                 summaryCard
-                if weekCheckIns.isEmpty && usage.isEmpty {
-                    emptyState
-                } else {
-                    repeatedEmotions
-                    mostUsedTools
-                }
+                insightCard
+                writingsAccessCard
             }
             .padding(AppTheme.layoutPadding)
+            .padding(.bottom, 44)
         }
         .background(AppTheme.pageGradient.ignoresSafeArea())
         .navigationTitle(String(localized: AppStrings.History.navigationTitle))
@@ -30,6 +30,15 @@ struct HistoryView: View {
     private var weekCheckIns: [EmotionalCheckIn] {
         let weekAgo = Calendar.current.date(byAdding: .day, value: -7, to: .now) ?? .now
         return checkIns.filter { $0.createdAt >= weekAgo }
+    }
+
+    private var notesCount: Int {
+        journalEntries.count
+    }
+
+    private var weekSessions: [ExerciseSessionRecord] {
+        let weekAgo = Calendar.current.date(byAdding: .day, value: -7, to: .now) ?? .now
+        return sessions.filter { $0.completedAt >= weekAgo }
     }
 
     private var summaryCard: some View {
@@ -53,112 +62,128 @@ struct HistoryView: View {
                     .font(.appSection)
                     .foregroundStyle(AppTheme.textPrimary)
 
-                Text(String(format: String(localized: AppStrings.History.summaryBodyFormat), locale: Locale(identifier: "es"), weekCheckIns.count, sessions.count))
-                    .foregroundStyle(AppTheme.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                Text(
+                    String(
+                        format: String(localized: AppStrings.History.summaryBodyFormat),
+                        locale: Locale(identifier: "es"),
+                        weekCheckIns.count,
+                        weekSessions.count
+                    )
+                )
+                .foregroundStyle(AppTheme.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
 
                 HStack(spacing: 10) {
-                    metricPill(value: "\(weekCheckIns.count)", label: String(localized: AppStrings.History.metricWeek))
-                    metricPill(value: "\(sessions.count)", label: String(localized: AppStrings.History.metricExercises))
+                    metricPill(value: "\(weekCheckIns.count)", label: String(localized: AppStrings.Home.metricCheckIns))
+                    metricPill(value: "\(weekSessions.count)", label: String(localized: AppStrings.History.metricExercises))
                 }
 
-                if let common = emotionCounts.max(by: { $0.value < $1.value }) {
-                    Text(String(format: String(localized: AppStrings.History.summaryCommonEmotionFormat), locale: Locale(identifier: "es"), common.key.lowercased()))
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(AppTheme.tint)
-                        .fixedSize(horizontal: false, vertical: true)
+                if let commonEmotion {
+                    Text(
+                        String(
+                            format: String(localized: AppStrings.History.summaryCommonEmotionFormat),
+                            locale: Locale(identifier: "es"),
+                            commonEmotion.lowercased()
+                        )
+                    )
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(AppTheme.tint)
+                    .fixedSize(horizontal: false, vertical: true)
                 }
             }
             .padding(24)
         }
     }
 
-    private var repeatedEmotions: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(AppStrings.History.repeatedEmotionsTitle)
-                .font(.appSection)
-                .foregroundStyle(AppTheme.textPrimary)
+    private var commonEmotion: String? {
+        Dictionary(grouping: weekCheckIns, by: \.localizedEmotion)
+            .mapValues(\.count)
+            .max(by: { $0.value < $1.value })?
+            .key
+    }
 
-            ForEach(emotionCounts.sorted(by: { $0.value > $1.value }), id: \.key) { item in
-                AccentCard(tint: AppTheme.tintSoft) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            Text(item.key)
-                                .font(.headline)
-                                .foregroundStyle(AppTheme.textPrimary)
-                            Spacer()
-                            Text("\(item.value)x")
-                                .foregroundStyle(AppTheme.textSecondary)
-                        }
-                        GeometryReader { geometry in
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .fill(AppTheme.tintSoft)
-                                .overlay(alignment: .leading) {
-                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                        .fill(AppTheme.tint)
-                                        .frame(width: max(32, geometry.size.width * CGFloat(item.value) / CGFloat(maxEmotionCount)))
-                                }
-                        }
-                        .frame(height: 12)
-                    }
-                }
+    private var weeklyToolLabel: String? {
+        let candidates: [(String, Int)] = [
+            (String(localized: AppStrings.History.metricExercises), weekSessions.count),
+            (String(localized: AppStrings.History.writingsTitle), notesCount)
+        ]
+
+        guard let top = candidates
+            .filter({ $0.1 > 0 })
+            .max(by: { $0.1 < $1.1 }) else { return nil }
+
+        return top.0.lowercased()
+    }
+
+    private var weeklyInsightText: String {
+        switch (commonEmotion?.lowercased(), weeklyToolLabel) {
+        case let (emotion?, tool?):
+            String(
+                format: String(localized: AppStrings.History.insightComboFormat),
+                locale: Locale(identifier: "es"),
+                emotion,
+                tool
+            )
+        case let (emotion?, nil):
+            String(
+                format: String(localized: AppStrings.History.insightEmotionFormat),
+                locale: Locale(identifier: "es"),
+                emotion
+            )
+        case let (nil, tool?):
+            String(
+                format: String(localized: AppStrings.History.insightToolFormat),
+                locale: Locale(identifier: "es"),
+                tool
+            )
+        case (nil, nil):
+            String(localized: AppStrings.History.insightEmpty)
+        }
+    }
+
+    private var insightCard: some View {
+        AccentCard(tint: AppTheme.tintSoft) {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(AppStrings.History.insightTitle)
+                    .font(.appSection)
+                    .foregroundStyle(AppTheme.textPrimary)
+
+                Text(weeklyInsightText)
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
             }
         }
     }
 
-    private var mostUsedTools: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(AppStrings.History.toolsTitle)
-                .font(.appSection)
-                .foregroundStyle(AppTheme.textPrimary)
+    private var writingsAccessCard: some View {
+        AccentCard(tint: AppTheme.secondarySurface) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(AppStrings.History.writingsTitle)
+                    .font(.appSection)
+                    .foregroundStyle(AppTheme.textPrimary)
 
-            GeometryReader { proxy in
-                let items = Array(toolCounts.sorted(by: { $0.value > $1.value }).prefix(4))
+                Text(writingsBodyText)
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
 
-                VStack(spacing: 12) {
-                    TabView(selection: $toolPage) {
-                        ForEach(Array(items.enumerated()), id: \.element.key) { index, item in
-                            AccentCard(tint: AppTheme.peach) {
-                                VStack(alignment: .leading, spacing: 12) {
-                                    Text(item.key.replacingOccurrences(of: "_", with: " ").capitalized)
-                                        .font(.headline)
-                                        .foregroundStyle(AppTheme.textPrimary)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                    Text("\(item.value)")
-                                        .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                                        .foregroundStyle(AppTheme.tint)
-                                    Text(AppStrings.History.toolsRecentUses)
-                                        .font(.caption)
-                                        .foregroundStyle(AppTheme.textSecondary)
-                                }
-                                .frame(maxHeight: .infinity, alignment: .topLeading)
-                            }
-                            .frame(width: proxy.size.width, height: 142, alignment: .topLeading)
-                            .tag(index)
-                        }
-                    }
-                    .tabViewStyle(.page(indexDisplayMode: .never))
-
-                    CarouselPageIndicator(
-                        count: items.count,
-                        currentIndex: toolPage
-                    )
+                Button(String(localized: AppStrings.History.previewButton)) {
+                    openRoute(.writings)
                 }
-                .frame(height: 160)
+                .buttonStyle(SecondaryButtonStyle())
             }
         }
     }
 
-    private var emotionCounts: [String: Int] {
-        Dictionary(grouping: weekCheckIns, by: \.emotion).mapValues(\.count)
-    }
+    private var writingsBodyText: String {
+        guard notesCount > 0 else {
+            return String(localized: AppStrings.History.writingsEmptyBody)
+        }
 
-    private var maxEmotionCount: Int {
-        max(1, emotionCounts.values.max() ?? 1)
-    }
-
-    private var toolCounts: [String: Int] {
-        Dictionary(grouping: usage, by: \.name).mapValues(\.count)
+        return String(
+            format: String(localized: AppStrings.History.writingsBodyFormat),
+            locale: Locale(identifier: "es"),
+            notesCount
+        )
     }
 
     private func metricPill(value: String, label: String) -> some View {
@@ -177,24 +202,165 @@ struct HistoryView: View {
                 .fill(Color.white.opacity(0.7))
         )
     }
+}
 
-    private var emptyState: some View {
+struct WritingsView: View {
+    private let pageSize = 6
+
+    @Query(sort: \JournalEntry.createdAt, order: .reverse) private var journalEntries: [JournalEntry]
+    @State private var selectedEntry: JournalEntry?
+    @State private var notesPage = 0
+
+    private var notes: [JournalEntry] {
+        journalEntries
+    }
+
+    private var notePageCount: Int {
+        max(1, Int(ceil(Double(notes.count) / Double(pageSize))))
+    }
+
+    private var pagedNotes: [JournalEntry] {
+        let start = min(notesPage * pageSize, max(0, notes.count - 1))
+        let end = min(start + pageSize, notes.count)
+        guard start < end else { return [] }
+        return Array(notes[start..<end])
+    }
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+                notesSection
+            }
+            .padding(AppTheme.layoutPadding)
+            .padding(.bottom, 44)
+        }
+        .background(AppTheme.pageGradient.ignoresSafeArea())
+        .navigationTitle(String(localized: AppStrings.Writings.navigationTitle))
+        .navigationBarTitleDisplayMode(.inline)
+        .sheet(item: $selectedEntry) { entry in
+            journalEntryDetail(entry)
+                .presentationDetents([.medium, .large])
+        }
+    }
+
+    @ViewBuilder
+    private var notesSection: some View {
+        if notes.isEmpty {
+            emptyCard(body: AppStrings.Writings.emptyBody)
+        } else {
+            ForEach(pagedNotes, id: \.id) { entry in
+                Button {
+                    selectedEntry = entry
+                } label: {
+                    let preview = entryPreview(entry)
+                    AppCard {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(preview.title)
+                                .font(.headline)
+                                .foregroundStyle(AppTheme.textPrimary)
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            Text(preview.body)
+                                .foregroundStyle(AppTheme.textSecondary)
+                                .lineLimit(3)
+                                .truncationMode(.tail)
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            HStack {
+                                Text(entry.createdAt.formatted(date: .abbreviated, time: .shortened))
+                                    .font(.footnote)
+                                    .foregroundStyle(AppTheme.textSecondary)
+
+                                Spacer()
+                                CardCTA(title: String(localized: AppStrings.Common.ctaViewDetails))
+                            }
+                        }
+                    }
+                }
+                .buttonStyle(.plain)
+            }
+
+            paginationControls(
+                currentPage: notesPage,
+                pageCount: notePageCount,
+                totalCount: notes.count,
+                previousAction: { notesPage = max(0, notesPage - 1) },
+                nextAction: { notesPage = min(notePageCount - 1, notesPage + 1) }
+            )
+        }
+    }
+
+    private func paginationControls(
+        currentPage: Int,
+        pageCount: Int,
+        totalCount: Int,
+        previousAction: @escaping () -> Void,
+        nextAction: @escaping () -> Void
+    ) -> some View {
+        PaginationControls(
+            currentPage: currentPage,
+            pageCount: pageCount,
+            previousTitle: String(localized: AppStrings.Journaling.buttonBack),
+            nextTitle: String(localized: AppStrings.Journaling.buttonNext),
+            onPrevious: previousAction,
+            onNext: nextAction
+        )
+        .opacity(totalCount > pageSize ? 1 : 0.94)
+    }
+
+    private func emptyCard(body: LocalizedStringResource) -> some View {
         AccentCard(tint: AppTheme.secondarySurface) {
             VStack(alignment: .leading, spacing: 10) {
-                Text(AppStrings.History.emptyTitle)
+                Text(AppStrings.Writings.emptyTitle)
                     .font(.headline)
                     .foregroundStyle(AppTheme.textPrimary)
-                Text(AppStrings.History.emptyBody)
+                Text(body)
                     .foregroundStyle(AppTheme.textSecondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
+        }
+    }
+
+    private func entryPreview(_ entry: JournalEntry) -> (title: String, body: String) {
+        let body = entry.feelingText.trimmingCharacters(in: .whitespacesAndNewlines)
+        return (
+            String(localized: AppStrings.Journaling.fieldFeeling),
+            body.isEmpty ? String(localized: AppStrings.Journaling.emptyBody) : body
+        )
+    }
+
+    private func journalEntryDetail(_ entry: JournalEntry) -> some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 18) {
+                Text(AppStrings.Journaling.detailTitle)
+                    .font(.appSection)
+                    .foregroundStyle(AppTheme.textPrimary)
+
+                Text(entry.createdAt.formatted(date: .abbreviated, time: .shortened))
+                    .font(.footnote)
+                    .foregroundStyle(AppTheme.textSecondary)
+
+                detailSection(title: AppStrings.Journaling.fieldFeeling, text: entry.feelingText)
+            }
+            .padding(24)
+        }
+    }
+
+    @ViewBuilder
+    private func detailSection(title: LocalizedStringResource, text: String) -> some View {
+        let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmedText.isEmpty {
+            SessionInfoCard(
+                title: String(localized: title),
+                message: trimmedText
+            )
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        HistoryView()
+        HistoryView(openRoute: { _ in })
     }
     .modelContainer(PersistenceController.preview.container)
 }

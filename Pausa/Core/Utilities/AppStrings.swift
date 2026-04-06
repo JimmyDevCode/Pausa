@@ -7,21 +7,11 @@ enum AppStrings {
         static let ctaViewExercise: LocalizedStringResource = "common.cta.view_exercise"
     }
 
-    enum Chat {
-        static let buttonOpenSuggestion: LocalizedStringResource = "chat.button.open_suggestion"
-        static let buttonSend: LocalizedStringResource = "chat.button.send"
-        static let disclaimer: LocalizedStringResource = "chat.disclaimer"
-        static let navigationTitle: LocalizedStringResource = "chat.navigation.title"
-        static let placeholder: LocalizedStringResource = "chat.placeholder"
-        static let replyAbrumado: LocalizedStringResource = "chat.reply.abrumado"
-        static let replyAnsiedad: LocalizedStringResource = "chat.reply.ansiedad"
-        static let replyDefault: LocalizedStringResource = "chat.reply.default"
-        static let replyIntenso: LocalizedStringResource = "chat.reply.intenso"
-        static let replySueno: LocalizedStringResource = "chat.reply.sueno"
-        static let replyUrgent: LocalizedStringResource = "chat.reply.urgent"
-    }
-
     enum CheckIn {
+        static let buttonRedo: LocalizedStringResource = "checkin.button.redo"
+        static let buttonViewRecommendation: LocalizedStringResource = "checkin.button.view_recommendation"
+        static let completedSubtitleFormat: LocalizedStringResource = "checkin.completed.subtitle_format"
+        static let completedTitle: LocalizedStringResource = "checkin.completed.title"
         static let buttonSave: LocalizedStringResource = "checkin.button.save"
         static let emotionSubtitle: LocalizedStringResource = "checkin.emotion.subtitle"
         static let emotionTitle: LocalizedStringResource = "checkin.emotion.title"
@@ -72,6 +62,9 @@ enum AppStrings {
         static let breathing444Summary: LocalizedStringResource = "exercise.breathing_444.summary"
         static let breathing444Title: LocalizedStringResource = "exercise.breathing_444.title"
         static let durationFormat: LocalizedStringResource = "exercise.duration_format"
+        static let durationMinutesFormat: LocalizedStringResource = "exercise.duration_minutes_format"
+        static let durationOneMinute: LocalizedStringResource = "exercise.duration_one_minute"
+        static let durationSecondsFormat: LocalizedStringResource = "exercise.duration_seconds_format"
         static let groundingClosing: LocalizedStringResource = "exercise.grounding.closing"
         static let groundingDetail: LocalizedStringResource = "exercise.grounding.detail"
         static let groundingEvidence: LocalizedStringResource = "exercise.grounding.evidence"
@@ -158,17 +151,47 @@ enum AppStrings {
     }
 
     enum History {
+        static let countFormat: LocalizedStringResource = "history.count_format"
         static let emptyBody: LocalizedStringResource = "history.empty.body"
         static let emptyTitle: LocalizedStringResource = "history.empty.title"
+        static let insightComboFormat: LocalizedStringResource = "history.insight.combo_format"
+        static let insightEmpty: LocalizedStringResource = "history.insight.empty"
+        static let insightEmotionFormat: LocalizedStringResource = "history.insight.emotion_format"
+        static let insightTitle: LocalizedStringResource = "history.insight.title"
+        static let insightToolFormat: LocalizedStringResource = "history.insight.tool_format"
         static let metricExercises: LocalizedStringResource = "history.metric.exercises"
         static let metricWeek: LocalizedStringResource = "history.metric.week"
         static let navigationTitle: LocalizedStringResource = "history.navigation.title"
+        static let previewButton: LocalizedStringResource = "history.preview.button"
+        static let previewEmptyBody: LocalizedStringResource = "history.preview.empty_body"
+        static let previewTitle: LocalizedStringResource = "history.preview.title"
+        static let recentActivityTitle: LocalizedStringResource = "history.recent_activity.title"
         static let repeatedEmotionsTitle: LocalizedStringResource = "history.repeated_emotions.title"
         static let summaryBodyFormat: LocalizedStringResource = "history.summary.body_format"
         static let summaryCommonEmotionFormat: LocalizedStringResource = "history.summary.common_emotion_format"
         static let summaryTitle: LocalizedStringResource = "history.summary.title"
         static let toolsRecentUses: LocalizedStringResource = "history.tools.recent_uses"
         static let toolsTitle: LocalizedStringResource = "history.tools.title"
+        static let writingsBodyFormat: LocalizedStringResource = "history.writings.body_format"
+        static let writingsEmptyBody: LocalizedStringResource = "history.writings.empty_body"
+        static let writingsTitle: LocalizedStringResource = "history.writings.title"
+
+        enum Item {
+            static let checkInTitle: LocalizedStringResource = "history.item.checkin.title"
+            static let checkInBodyFormat: LocalizedStringResource = "history.item.checkin.body_format"
+            static let exerciseTitle: LocalizedStringResource = "history.item.exercise.title"
+            static let journalTitle: LocalizedStringResource = "history.item.journal.title"
+        }
+
+        enum Tool {
+            static let checkInCompleted: LocalizedStringResource = "history.tool.checkin_completed"
+            static let exerciseCompleted: LocalizedStringResource = "history.tool.exercise_completed"
+            static let exerciseStarted: LocalizedStringResource = "history.tool.exercise_started"
+            static let homeReturned: LocalizedStringResource = "history.tool.home_returned"
+            static let immediateHelpUsed: LocalizedStringResource = "history.tool.immediate_help_used"
+            static let journalingSaved: LocalizedStringResource = "history.tool.journaling_saved"
+            static let onboardingCompleted: LocalizedStringResource = "history.tool.onboarding_completed"
+        }
     }
 
     enum Home {
@@ -190,12 +213,13 @@ enum AppStrings {
         static let metricExercises: LocalizedStringResource = "home.metric.exercises"
         static let metricNotes: LocalizedStringResource = "home.metric.notes"
         static let navigationTitle: LocalizedStringResource = "home.navigation.title"
+        static let historyCardBody: LocalizedStringResource = "home.history_card.body"
+        static let historyCardButton: LocalizedStringResource = "home.history_card.button"
+        static let historyCardTitle: LocalizedStringResource = "home.history_card.title"
         static let progressLatestRecommendationFormat: LocalizedStringResource = "home.progress.latest_recommendation_format"
         static let progressSummaryFormat: LocalizedStringResource = "home.progress.summary_format"
         static let progressTitle: LocalizedStringResource = "home.progress.title"
         static let toolsTitle: LocalizedStringResource = "home.tools.title"
-        static let toolsChatSubtitle: LocalizedStringResource = "home.tools.chat.subtitle"
-        static let toolsChatTitle: LocalizedStringResource = "home.tools.chat.title"
         static let toolsExercisesSubtitle: LocalizedStringResource = "home.tools.exercises.subtitle"
         static let toolsExercisesTitle: LocalizedStringResource = "home.tools.exercises.title"
         static let toolsHistorySubtitle: LocalizedStringResource = "home.tools.history.subtitle"
@@ -213,17 +237,35 @@ enum AppStrings {
     }
 
     enum Journaling {
+        static let buttonBack: LocalizedStringResource = "journaling.button.back"
+        static let buttonNext: LocalizedStringResource = "journaling.button.next"
         static let buttonSave: LocalizedStringResource = "journaling.button.save"
         static let detailTitle: LocalizedStringResource = "journaling.detail.title"
         static let emptyBody: LocalizedStringResource = "journaling.empty.body"
         static let emptyTitle: LocalizedStringResource = "journaling.empty.title"
-        static let fieldAffecting: LocalizedStringResource = "journaling.field.affecting"
         static let fieldFeeling: LocalizedStringResource = "journaling.field.feeling"
-        static let fieldNeeded: LocalizedStringResource = "journaling.field.needed"
-        static let fieldSupport: LocalizedStringResource = "journaling.field.support"
         static let navigationTitle: LocalizedStringResource = "journaling.navigation.title"
         static let placeholder: LocalizedStringResource = "journaling.placeholder"
         static let previousEntries: LocalizedStringResource = "journaling.previous_entries"
+        static let stepFormat: LocalizedStringResource = "journaling.step.format"
+        static let stepReflectionBody: LocalizedStringResource = "journaling.step.reflection.body"
+        static let stepReflectionTitle: LocalizedStringResource = "journaling.step.reflection.title"
+        static let stepSupportBody: LocalizedStringResource = "journaling.step.support.body"
+        static let stepSupportTitle: LocalizedStringResource = "journaling.step.support.title"
+    }
+
+    enum Tab {
+        static let home: LocalizedStringResource = "tab.home"
+        static let pause: LocalizedStringResource = "tab.pause"
+        static let profile: LocalizedStringResource = "tab.profile"
+        static let progress: LocalizedStringResource = "tab.progress"
+        static let write: LocalizedStringResource = "tab.write"
+    }
+
+    enum Writings {
+        static let emptyBody: LocalizedStringResource = "writings.empty.body"
+        static let emptyTitle: LocalizedStringResource = "writings.empty.title"
+        static let navigationTitle: LocalizedStringResource = "writings.navigation.title"
     }
 
     enum Onboarding {
@@ -247,13 +289,44 @@ enum AppStrings {
     }
 
     enum Profile {
+        static let aboutTitle: LocalizedStringResource = "profile.about.title"
+        static let cameraOption: LocalizedStringResource = "profile.camera.option"
+        static let cancelOption: LocalizedStringResource = "profile.cancel.option"
+        static let choosePhoto: LocalizedStringResource = "profile.choose_photo"
+        static let doneButton: LocalizedStringResource = "profile.done.button"
+        static let editButton: LocalizedStringResource = "profile.edit.button"
+        static let editPhoto: LocalizedStringResource = "profile.edit_photo"
+        static let editTitle: LocalizedStringResource = "profile.edit.title"
+        static let fieldConcern: LocalizedStringResource = "profile.field.concern"
+        static let fieldNickname: LocalizedStringResource = "profile.field.nickname"
+        static let fieldPreferredFeeling: LocalizedStringResource = "profile.field.preferred_feeling"
         static let focusFormat: LocalizedStringResource = "profile.focus_format"
+        static let libraryOption: LocalizedStringResource = "profile.library.option"
         static let navigationTitle: LocalizedStringResource = "profile.navigation.title"
+        static let openSettingsButton: LocalizedStringResource = "profile.open_settings.button"
+        static let photoHint: LocalizedStringResource = "profile.photo_hint"
         static let privacyBody: LocalizedStringResource = "profile.privacy.body"
         static let privacyTitle: LocalizedStringResource = "profile.privacy.title"
+        static let reminderTimeTitle: LocalizedStringResource = "profile.reminder_time.title"
+        static let remindersBody: LocalizedStringResource = "profile.reminders.body"
+        static let remindersDeniedBody: LocalizedStringResource = "profile.reminders.denied_body"
+        static let remindersEnabledBodyFormat: LocalizedStringResource = "profile.reminders.enabled_body_format"
+        static let remindersTitle: LocalizedStringResource = "profile.reminders.title"
+        static let removePhotoOption: LocalizedStringResource = "profile.remove_photo.option"
         static let responsibleBody: LocalizedStringResource = "profile.responsible.body"
         static let responsibleTitle: LocalizedStringResource = "profile.responsible.title"
         static let seekingFormat: LocalizedStringResource = "profile.seeking_format"
+        static let subtitleFormat: LocalizedStringResource = "profile.subtitle_format"
+    }
+
+    enum Notifications {
+        static let dailyBody: LocalizedStringResource = "notifications.daily.body"
+        static let dailyTitle: LocalizedStringResource = "notifications.daily.title"
+    }
+
+    enum Preview {
+        static let journalFeeling: LocalizedStringResource = "preview.journal.feeling"
+        static let nickname: LocalizedStringResource = "preview.nickname"
     }
 
     enum Recommendation {
@@ -284,5 +357,57 @@ enum AppStrings {
         static let pranayamaReviewTitle: LocalizedStringResource = "reference.pranayama_review.title"
         static let systematicReview: LocalizedStringResource = "reference.systematic_review"
         static let yogaHealthTitle: LocalizedStringResource = "reference.yoga_health.title"
+    }
+}
+
+enum LocalizedFormatting {
+    static func exerciseDuration(_ seconds: Int) -> String {
+        if seconds < 60 {
+            return String(
+                format: String(localized: AppStrings.Exercise.durationSecondsFormat),
+                locale: Locale(identifier: "es"),
+                seconds
+            )
+        }
+
+        let minutes = seconds / 60
+        if minutes == 1 {
+            return String(localized: AppStrings.Exercise.durationOneMinute)
+        }
+
+        return String(
+            format: String(localized: AppStrings.Exercise.durationMinutesFormat),
+            locale: Locale(identifier: "es"),
+            minutes
+        )
+    }
+
+    static func historyCount(_ count: Int) -> String {
+        String(
+            format: String(localized: AppStrings.History.countFormat),
+            locale: Locale(identifier: "es"),
+            count
+        )
+    }
+
+    static func toolEventName(_ name: String) -> String {
+        switch name {
+        case AnalyticsEvent.checkInCompleted.rawValue:
+            String(localized: AppStrings.History.Tool.checkInCompleted)
+        case AnalyticsEvent.exerciseCompleted.rawValue:
+            String(localized: AppStrings.History.Tool.exerciseCompleted)
+        case AnalyticsEvent.exerciseStarted.rawValue:
+            String(localized: AppStrings.History.Tool.exerciseStarted)
+        case AnalyticsEvent.homeReturned.rawValue:
+            String(localized: AppStrings.History.Tool.homeReturned)
+        case AnalyticsEvent.immediateHelpUsed.rawValue:
+            String(localized: AppStrings.History.Tool.immediateHelpUsed)
+        case AnalyticsEvent.journalingSaved.rawValue:
+            String(localized: AppStrings.History.Tool.journalingSaved)
+        case AnalyticsEvent.onboardingCompleted.rawValue:
+            String(localized: AppStrings.History.Tool.onboardingCompleted)
+        default:
+            name.replacingOccurrences(of: "_", with: " ").capitalized
+        }
     }
 }
